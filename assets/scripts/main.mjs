@@ -1,4 +1,4 @@
-import { CatalogueTimbres } from "./assets/data/data.js";
+import { CatalogueTimbres } from "../data/data.js";
 
 const catalogue = document.querySelector("[data='catalogue']");
 const cartes = document.querySelectorAll(".carte");

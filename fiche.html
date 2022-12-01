@@ -17,14 +17,15 @@
     <link rel="stylesheet" href="./assets/css/fiche.css">
     <link rel="stylesheet" href="./assets/css/carte.css">
     <link rel="stylesheet" href="./assets/css/icon.css">
-    <script type="module" src="./fiche.mjs" defer></script>
+    <script type="module" src="./assets/scripts/main.mjs" defer></script>
+
 
     <title>Fiche timbre</title>
 </head>
 
 <body>
-    <header>
-        <nav class="flex_row">
+    <header class="fixe" id="top">
+        <nav class="nav_blanche flex_row">
             <div class="zone_gauche flex_row">
                 <img class="logo" src="./assets/img/logo/Logo1.png" alt="Logo">
                 <a class="hover_underligne" href="">À propos de Lord Reginald Stampee III</a>
@@ -32,27 +33,26 @@
             <div class="zone_droite flex_row">
                 <input aria-label="recherche" class="recherche" type="text" name="recherche" id="recherche"
                     placeholder="Votre recherche">
-                <a class="hover_underligne" href="">Actualités</a>
+                <a class="hover_underligne" href="./index.html">Actualités</a>
                 <a class="hover_underligne" href="">Enchères</a>
                 <a class="call_to_action blanc" href="">Connexion</a>
                 <a class="call_to_action blanc" href="">Inscription</a>
             </div>
             </div>
         </nav>
-        <div>
     </header>
     <main class="flex_column">
         <a class='retour' href="./index.html">Retour aux enchères</a>
         <section class="fiche flex_row">
             <section class="image flex_column">
                 <div>
-                    <img data="image" src="./assets/img/timbre1.jpg" alt="timbre1">
+                    <img data="image" src="./assets/img/timbre/timbre1.jpeg" alt="timbre1">
                     <p>Passez dessus pour voir plus grand</p>
                 </div>
                 <div class="carrousel">
-                    <img data="image" src="./assets/img/timbre1.jpg" alt="timbre1">
-                    <img data="image" src="./assets/img/timbre1.jpg" alt="timbre1">
-                    <img data="image" src="./assets/img/timbre1.jpg" alt="timbre1">
+                    <img data="image" src="./assets/img/timbre/timbre1.jpeg" alt="timbre1">
+                    <img data="image" src="./assets/img/timbre/timbre1.jpeg" alt="timbre1">
+                    <img data="image" src="./assets/img/timbre/timbre1.jpeg" alt="timbre1">
                 </div>
                 <div>
                     <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
