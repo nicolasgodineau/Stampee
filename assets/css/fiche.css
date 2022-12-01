@@ -128,12 +128,40 @@ footer h2 {
 
 .autres_enchères .carte {
     max-width: 250px;
+    min-height: 200px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
         0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
 }
 
+.autres_enchères .header_carte {
+    gap: 5px;
+}
+
+.autres_enchères .header_carte h2 {
+    font-size: 0.7rem;
+}
+
+.autres_enchères .header_carte span {
+    height: 20px;
+    width: 20px;
+}
+
+.autres_enchères .header_carte .heure {
+    width: 65%;
+}
+
+.autres_enchères .footer_carte .petit {
+    font-weight: normal;
+    width: 100%;
+    padding: 5px 15px;
+}
+
+.autres_enchères .footer_carte {
+    font-size: 0.8rem;
+}
+
 .autres_enchères .carte img {
-    max-height: 250px;
+    max-height: 100px;
     width: auto;
     object-fit: contain;
 }

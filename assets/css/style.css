@@ -121,6 +121,12 @@ a {
     height: 30px;
 }
 
+.petit {
+    font-weight: normal;
+    width: 100%;
+    padding: 5px 15px;
+}
+
 @media screen and (max-width: 1250px) {
     .call_to_action.blanc {
         padding: 5px 10px;

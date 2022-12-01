@@ -125,11 +125,6 @@ body {
 .zone1 .footer_carte {
     gap: 5px;
 }
-.zone1 .petit {
-    font-weight: normal;
-    width: 100%;
-    padding: 5px 15px;
-}
 
 .zone1 [data="image"] {
     max-height: 100px;
