@@ -2,7 +2,7 @@
     width: 30px;
     height: 30px;
     background-size: contain;
-    background-image: url(/assets/img/icons/iconmonstr-magnifier-lined.svg);
+    background-image: url(/assets/img/icons/loupe.svg);
     filter: invert(97%) sepia(26%) saturate(384%) hue-rotate(176deg)
         brightness(100%) contrast(96%);
 }
@@ -16,14 +16,14 @@
     width: 25px;
     height: 25px;
     background-size: contain;
-    background-image: url(/assets/img/icons/iconmonstr-clock-thin.svg);
+    background-image: url(/assets/img/icons/horloge.svg);
 }
 
 .icon_like {
     width: 25px;
     height: 25px;
     background-size: contain;
-    background-image: url(/assets/img/icons/iconmonstr-heart-lined.svg);
+    background-image: url(/assets/img/icons/coeur-vide.svg);
     cursor: pointer;
 }
 
@@ -31,13 +31,13 @@
     width: 25px;
     height: 25px;
     background-size: contain;
-    background-image: url(/assets/img/icons/iconmonstr-heart-filled.svg);
+    background-image: url(/assets/img/icons/coeur-plein.svg);
     filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
         brightness(105%) contrast(118%);
 }
 
 .icon_like:hover {
-    background-image: url(/assets/img/icons/iconmonstr-heart-filled.svg);
+    background-image: url(/assets/img/icons/coeur-plein.svg);
     animation: 1.5s ease 0s infinite battement;
     filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
         brightness(105%) contrast(118%);

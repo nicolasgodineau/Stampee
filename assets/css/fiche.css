@@ -56,12 +56,6 @@
     width: 25px;
 }
 
-body {
-    padding: 5rem;
-    background-color: #f44336;
-    height: calc(100vh - 10rem);
-}
-
 .center {
     position: absolute;
     top: 50%;
