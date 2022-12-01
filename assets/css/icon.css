@@ -1,0 +1,56 @@
+.icon_recherche {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-image: url(/assets/img/icons/iconmonstr-magnifier-lined.svg);
+    filter: invert(97%) sepia(26%) saturate(384%) hue-rotate(176deg)
+        brightness(100%) contrast(96%);
+}
+
+.icon_recherche:hover {
+    filter: invert(21%) sepia(15%) saturate(2359%) hue-rotate(186deg)
+        brightness(89%) contrast(90%);
+}
+
+.icon_horloge {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-image: url(/assets/img/icons/iconmonstr-clock-thin.svg);
+}
+
+.icon_like {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-image: url(/assets/img/icons/iconmonstr-heart-lined.svg);
+    cursor: pointer;
+}
+
+.icon_like.liker {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+    background-image: url(/assets/img/icons/iconmonstr-heart-filled.svg);
+    filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
+        brightness(105%) contrast(118%);
+}
+
+.icon_like:hover {
+    background-image: url(/assets/img/icons/iconmonstr-heart-filled.svg);
+    animation: 1.5s ease 0s infinite battement;
+    filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
+        brightness(105%) contrast(118%);
+}
+
+@keyframes battement {
+    0%,
+    50%,
+    100% {
+        transform: scale(1, 1);
+    }
+    30%,
+    80% {
+        transform: scale(0.92, 0.95);
+    }
+}

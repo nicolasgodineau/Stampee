@@ -1,0 +1,145 @@
+.fiche {
+    min-height: 70vh;
+    margin: 30px 50px;
+    padding: 50px;
+    background-color: var(--couleur_carte);
+    border-radius: 30px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.fiche .image {
+    align-items: center;
+    justify-content: space-between;
+    min-width: 50%;
+    gap: 30px;
+}
+.fiche img {
+    height: 400px;
+    width: auto;
+    cursor: pointer;
+}
+
+.fiche .carrousel {
+    padding: 10px 20px;
+}
+
+.fiche .carrousel img {
+    max-width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.fiche .description {
+    align-items: initial;
+    justify-content: space-between;
+    gap: 30px;
+    min-width: 30%;
+}
+
+.fiche .tableau {
+    min-width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.fiche .tableau td {
+    padding: 10px 0px;
+}
+.fiche tr:nth-child(odd) {
+    background-color: #eceff7;
+}
+
+.fiche .like {
+    height: 25px;
+    width: 25px;
+}
+
+body {
+    padding: 5rem;
+    background-color: #f44336;
+    height: calc(100vh - 10rem);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fiche .temps_restant,
+footer h2 {
+    font-size: 1.5rem;
+}
+
+.fiche footer {
+    gap: 50px;
+}
+
+.fiche footer h2 {
+    text-align: center;
+}
+
+.fiche .prix {
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.fiche .prix a {
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.fiche .zone_enchere {
+    text-align: center;
+    flex-grow: 1;
+    padding: 10px 30px;
+    border-radius: 30px;
+    color: black;
+    border: 2px solid var(--couleur_call_to_action);
+    background-color: transparent;
+}
+
+.fiche .information_importante {
+    justify-content: space-between;
+}
+
+.fiche .information_importante img {
+    max-width: 200px;
+    height: auto;
+}
+
+.voir_plus {
+    align-items: center;
+}
+
+.voir_plus a {
+    text-align: center;
+}
+
+.voir_plus img {
+    max-width: 50px;
+    height: auto;
+}
+
+.autres_enchères {
+    padding: 50px 50px 15px 50px;
+    display: flex;
+    gap: 30px;
+    overflow: scroll;
+}
+
+.autres_enchères .carte {
+    max-width: 250px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.autres_enchères .carte img {
+    max-height: 250px;
+    width: auto;
+    object-fit: contain;
+}

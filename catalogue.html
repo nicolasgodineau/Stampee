@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name='author' content='Nicolas Godineau - 2295324'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/aside.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/catalogue.css">
+    <link rel="stylesheet" href="./assets/css/carte.css">
+    <link rel="stylesheet" href="assets/css/icon.css">
+    <script type="module" src="./main.mjs" defer></script>
+    <title>Catalogue</title>
+</head>
+
+<body>
+    <header class="fixe" id="top">
+        <nav class="nav_blanche flex_row">
+            <div class="zone_gauche flex_row">
+                <img class="logo" src="./assets/img/logo/Logo1.png" alt="Logo">
+                <a class="hover_underligne" href="">À propos de Lord Reginald Stampee III</a>
+            </div>
+            <div class="zone_droite flex_row">
+                <input aria-label="recherche" class="recherche" type="text" name="recherche" id="recherche"
+                    placeholder="Votre recherche">
+                <a class="hover_underligne" href="./index.html">Actualités</a>
+                <a class="hover_underligne" href="">Enchères</a>
+                <a class="call_to_action blanc" href="">Connexion</a>
+                <a class="call_to_action blanc" href="">Inscription</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <main class="flex_row">
+        <aside>
+            <h1>Filtrer par</h1>
+            <div class="prix">
+                <details>
+                    <summary class="filtre_titre">Prix</summary>
+                    <div class="filtre_details prix">
+                        <input aria-label="prix_minimum" type="text" name="prix_minimum" id="prix_minimum"
+                            placeholder="Min $" />
+                        <p>à</p>
+                        <input aria-label="prix_maximum" type="text" name="prix_maximum" id="prix_maximum"
+                            placeholder="Max $" />
+                    </div>
+                </details>
+            </div>
+            <div class="pays">
+                <details>
+                    <summary class="filtre_titre">Pays</summary>
+                    <div class="filtre_details pays">
+                        <div>
+                            <input aria-label="Angleterre" type="checkbox" name="Angleterre" id="Angleterre" />
+                        </div>
+                        <div>
+                            <input aria-label="Canada" type="checkbox" name="Canada" id="Canada" />
+                        </div>
+                        <div>
+                            <input aria-label="État-Unis" type="checkbox" name="État-Unis" id="État-Unis" />
+                        </div>
+                        <div>
+                            <input aria-label="Australie" type="checkbox" name="Australie" id="Australie" />
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="condition">
+                <details>
+                    <summary class="filtre_titre">Condition</summary>
+                    <div class="filtre_details condition">
+                        <div>
+                            <input aria-label="Parfaite" type="checkbox" name="Parfaite" id="Parfaite" />
+                        </div>
+                        <div>
+                            <input aria-label="Exellente" type="checkbox" name="Exellente" id="Exellente" />
+                        </div>
+                        <div>
+                            <input aria-label="Bonne" type="checkbox" name="Bonne" id="Bonne" />
+                        </div>
+                        <div>
+                            <input aria-label="Moyenne" type="checkbox" name="Moyenne" id="Moyenne" />
+                        </div>
+                        <div>
+                            <input aria-label="Endommage" type="checkbox" name="Endommage" id="Endommage" />
+                        </div>
+                    </div>
+                </details>
+            </div>
+            <div class="couleurs">
+                <details>
+                    <summary class="filtre_titre">
+                        Couleurs dominate
+                    </summary>
+                    <div class="filtre_details couleurs">
+                        <input aria-label="Couleurs" type="text" name="Couleurs" id="Couleurs" placeholder="Rouge" />
+                    </div>
+                </details>
+            </div>
+            <div class="certifie">
+                <details>
+                    <summary class="filtre_titre">Certifié</summary>
+                    <div class="filtre_details certifie">
+                        <input aria-label="oui_non" type="checkbox" name="oui_non" id="oui_non" />
+                    </div>
+                </details>
+            </div>
+        </aside>
+        <section data="catalogue" class="catalogue flex_column">
+            <article class="carte flex_column">
+                <header class="header_carte flex_row">
+                    <div class="heure flex_row">
+                        <span class="icon_horloge"></span>
+                        <h2 data="finEnchere">10:35:47</h2>
+                    </div>
+                    <div class="like flex_row">
+                        <span class="icon_like"></span>
+                        <h2 data="like">33</h2>
+                    </div>
+                </header>
+                <section class="flex_column">
+                    <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                </section>
+                <footer class="footer_carte flex_column">
+                    <p data="nomTimbre">
+                        Timbre Bahamas #17 <br />
+                        Reine Victoria (1863) 1p
+                    </p>
+                    <div class="details flex_row">
+                        <p data="prix">$495.00</p>
+                        <p data="etat">Très bon</p>
+                    </div>
+                    <h3 class="call_to_action bleu">Enchérir</h3>
+                    <p class="plus_infos" href="">Voir plus d'informations</p>
+                </footer>
+            </article>
+            <article class="carte flex_column">
+                <header class="header_carte flex_row">
+                    <div class="heure flex_row">
+                        <span class="icon_horloge"></span>
+                        <h2 data="finEnchere">10:35:47</h2>
+                    </div>
+                    <div class="like flex_row">
+                        <span class="icon_like"></span>
+                        <h2 data="like">33</h2>
+                    </div>
+                </header>
+                <section class="flex_column">
+                    <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                </section>
+                <footer class="footer_carte flex_column">
+                    <p data="nomTimbre">
+                        Timbre Bahamas #17 <br />
+                        Reine Victoria (1863) 1p
+                    </p>
+                    <div class="details flex_row">
+                        <p data="prix">$495.00</p>
+                        <p data="etat">Très bon</p>
+                    </div>
+                    <h3 class="call_to_action bleu">Enchérir</h3>
+                    <p class="plus_infos" href="">Voir plus d'informations</p>
+                </footer>
+            </article>
+            <article class="carte flex_column">
+                <header class="header_carte flex_row">
+                    <div class="heure flex_row">
+                        <span class="icon_horloge"></span>
+                        <h2 data="finEnchere">10:35:47</h2>
+                    </div>
+                    <div class="like flex_row">
+                        <span class="icon_like"></span>
+                        <h2 data="like">33</h2>
+                    </div>
+                </header>
+                <section class="flex_column">
+                    <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                </section>
+                <footer class="footer_carte flex_column">
+                    <p data="nomTimbre">
+                        Timbre Bahamas #17 <br />
+                        Reine Victoria (1863) 1p
+                    </p>
+                    <div class="details flex_row">
+                        <p data="prix">$495.00</p>
+                        <p data="etat">Très bon</p>
+                    </div>
+                    <h3 class="call_to_action bleu">Enchérir</h3>
+                    <p class="plus_infos" href="">Voir plus d'informations</p>
+                </footer>
+            </article>
+            <article class="carte flex_column">
+                <header class="header_carte flex_row">
+                    <div class="heure flex_row">
+                        <span class="icon_horloge"></span>
+                        <h2 data="finEnchere">10:35:47</h2>
+                    </div>
+                    <div class="like flex_row">
+                        <span class="icon_like"></span>
+                        <h2 data="like">33</h2>
+                    </div>
+                </header>
+                <section class="flex_column">
+                    <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                </section>
+                <footer class="footer_carte flex_column">
+                    <p data="nomTimbre">
+                        Timbre Bahamas #17 <br />
+                        Reine Victoria (1863) 1p
+                    </p>
+                    <div class="details flex_row">
+                        <p data="prix">$495.00</p>
+                        <p data="etat">Très bon</p>
+                    </div>
+                    <h3 class="call_to_action bleu">Enchérir</h3>
+                    <p class="plus_infos" href="">Voir plus d'informations</p>
+                </footer>
+            </article>
+            <article class="carte flex_column">
+                <header class="header_carte flex_row">
+                    <div class="heure flex_row">
+                        <span class="icon_horloge"></span>
+                        <h2 data="finEnchere">10:35:47</h2>
+                    </div>
+                    <div class="like flex_row">
+                        <span class="icon_like"></span>
+                        <h2 data="like">33</h2>
+                    </div>
+                </header>
+                <section class="flex_column">
+                    <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                </section>
+                <footer class="footer_carte flex_column">
+                    <p data="nomTimbre">
+                        Timbre Bahamas #17 <br />
+                        Reine Victoria (1863) 1p
+                    </p>
+                    <div class="details flex_row">
+                        <p data="prix">$495.00</p>
+                        <p data="etat">Très bon</p>
+                    </div>
+                    <h3 class="call_to_action bleu">Enchérir</h3>
+                    <p class="plus_infos" href="">Voir plus d'informations</p>
+                </footer>
+            </article>
+
+        </section>
+    </main>
+</body>
+
+</html>

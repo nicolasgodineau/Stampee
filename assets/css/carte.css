@@ -1,0 +1,67 @@
+.carte {
+    gap: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    min-width: 250px;
+    min-height: 500px;
+    justify-content: space-between;
+    overflow-y: hidden;
+    background-color: var(--couleur_carte);
+}
+
+.carte h2 {
+    font-size: 0.8rem;
+}
+
+.carte .header_carte {
+    position: unset;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+}
+
+.carte .heure,
+.carte .like {
+    gap: 10px;
+    align-items: center;
+    padding: 5px 10px;
+    background-color: var(--couleur_dynamic_island);
+    border-radius: 30px;
+}
+
+.carte .heure {
+    width: 162px;
+}
+
+.carte section {
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.carte img {
+    max-height: 180px;
+    width: auto;
+    object-fit: contain;
+}
+
+.carte .footer_carte {
+    align-items: center;
+    gap: 20px;
+}
+
+.carte .details {
+    justify-content: space-around;
+    min-width: 100%;
+    font-weight: bold;
+    border-top: 1px solid var(--couleur_dynamic_island);
+}
+
+.carte .call_to_action {
+    width: 80%;
+    font-weight: bold;
+}
+
+.carte .plus_infos {
+    font-size: 0.8rem;
+}

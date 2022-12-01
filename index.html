@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name='author' content='Nicolas Godineau - 2295324'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/carte.css">
+    <link rel="stylesheet" href="./assets/css/catalogue.css">
+    <link rel="stylesheet" href="/assets/css/accueil.css">
+    <link rel="stylesheet" href="assets/css/icon.css">
+    <script type="module" src="./main.mjs" defer></script>
+
+    <title>Accueil</title>
+</head>
+
+<body>
+    <header class="blur fixe" id="top">
+        <nav class="flex_row">
+            <div class="zone_gauche flex_row">
+                <img class="logo" src="./assets/img/logo/Logo1.png" alt="Logo">
+                <a class="hover_underligne" href="">À propos de Lord Reginald Stampee III</a>
+            </div>
+            <div class="zone_droite flex_row">
+                <a class="hover_underligne" href="">Actualités</a>
+                <a class="hover_underligne" href="./catalogue.html">Enchères</a>
+                <a class="call_to_action blanc" href="">Connexion</a>
+                <a class="call_to_action blanc" href="">Inscription</a>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="zone1 flex_column">
+            <section class="bienvenue flex_column">
+                <h1> <strong>Stampee</strong>, simple comme un timbre.</h1>
+                <div class="recherche">
+                    <input type="search" name="recherche" id="recherche"
+                        placeholder="Rechercher un nom, couleurs, date, pays...">
+                    <div class="bouton_recherche">
+                        <span class="icon_recherche"></span>
+                    </div>
+                </div>
+                <a class="call_to_action bleu" href="">Voir toutes les enchères</a>
+            </section>
+            <section class="blur nouveaux_arrivages flex_column">
+                <h2>Les coups de coeur du Lord</h2>
+                <div class="nouveau_timbres">
+                    <article class="carte flex_column">
+                        <header class="header_carte flex_row">
+                            <div class="heure flex_row">
+                                <span class="icon_horloge"></span>
+                                <h2 data="finEnchere">10:35:47</h2>
+                            </div>
+                            <div class="like flex_row">
+                                <span class="icon_like"></span>
+                                <h2 data="like">33</h2>
+                            </div>
+                        </header>
+                        <section class="flex_column">
+                            <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                        </section>
+                        <footer class="footer_carte flex_column">
+                            <p data="nomTimbre">
+                                Timbre Bahamas #17 <br />
+                                Reine Victoria (1863) 1p
+                            </p>
+                            <div class="details flex_row">
+                                <p data="prix">$495.00</p>
+                                <p data="etat">Très bon</p>
+                            </div>
+                            <h3 class="petit call_to_action bleu">Plus de détails</h3>
+                        </footer>
+                    </article>
+                    <article class="carte flex_column">
+                        <header class="header_carte flex_row">
+                            <div class="heure flex_row">
+                                <span class="icon_horloge"></span>
+                                <h2 data="finEnchere">10:35:47</h2>
+                            </div>
+                            <div class="like flex_row">
+                                <span class="icon_like"></span>
+                                <h2 data="like">33</h2>
+                            </div>
+                        </header>
+                        <section class="flex_column">
+                            <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                        </section>
+                        <footer class="footer_carte flex_column">
+                            <p data="nomTimbre">
+                                Timbre Bahamas #17 <br />
+                                Reine Victoria (1863) 1p
+                            </p>
+                            <div class="details flex_row">
+                                <p data="prix">$495.00</p>
+                                <p data="etat">Très bon</p>
+                            </div>
+                            <h3 class="petit call_to_action bleu">Plus de détails</h3>
+                        </footer>
+                    </article>
+                    <article class="carte flex_column">
+                        <header class="header_carte flex_row">
+                            <div class="heure flex_row">
+                                <span class="icon_horloge"></span>
+                                <h2 data="finEnchere">10:35:47</h2>
+                            </div>
+                            <div class="like flex_row">
+                                <span class="icon_like"></span>
+                                <h2 data="like">33</h2>
+                            </div>
+                        </header>
+                        <section class="flex_column">
+                            <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                        </section>
+                        <footer class="footer_carte flex_column">
+                            <p data="nomTimbre">
+                                Timbre Bahamas #17 <br />
+                                Reine Victoria (1863) 1p
+                            </p>
+                            <div class="details flex_row">
+                                <p data="prix">$495.00</p>
+                                <p data="etat">Très bon</p>
+                            </div>
+                            <h3 class="petit call_to_action bleu">Plus de détails</h3>
+                        </footer>
+                    </article>
+                    <article class="carte flex_column">
+                        <header class="header_carte flex_row">
+                            <div class="heure flex_row">
+                                <span class="icon_horloge"></span>
+                                <h2 data="finEnchere">10:35:47</h2>
+                            </div>
+                            <div class="like flex_row">
+                                <span class="icon_like"></span>
+                                <h2 data="like">33</h2>
+                            </div>
+                        </header>
+                        <section class="flex_column">
+                            <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                        </section>
+                        <footer class="footer_carte flex_column">
+                            <p data="nomTimbre">
+                                Timbre Bahamas #17 <br />
+                                Reine Victoria (1863) 1p
+                            </p>
+                            <div class="details flex_row">
+                                <p data="prix">$495.00</p>
+                                <p data="etat">Très bon</p>
+                            </div>
+                            <h3 class="petit call_to_action bleu">Plus de détails</h3>
+                        </footer>
+                    </article>
+                    <article class="carte flex_column">
+                        <header class="header_carte flex_row">
+                            <div class="heure flex_row">
+                                <span class="icon_horloge"></span>
+                                <h2 data="finEnchere">10:35:47</h2>
+                            </div>
+                            <div class="like flex_row">
+                                <span class="icon_like"></span>
+                                <h2 data="like">33</h2>
+                            </div>
+                        </header>
+                        <section class="flex_column">
+                            <img data="image" src="./assets/img/timbre4.jpg" alt="timbre1" />
+                        </section>
+                        <footer class="footer_carte flex_column">
+                            <p data="nomTimbre">
+                                Timbre Bahamas #17 <br />
+                                Reine Victoria (1863) 1p
+                            </p>
+                            <div class="details flex_row">
+                                <p data="prix">$495.00</p>
+                                <p data="etat">Très bon</p>
+                            </div>
+                            <h3 class="petit call_to_action bleu">Plus de détails</h3>
+                        </footer>
+                    </article>
+                    <article class="carte flex_column">
+                        <header class="header_carte flex_row">
+                            <div class="heure flex_row">
+                                <span class="icon_horloge"></span>
+                                <h2 data="finEnchere">10:35:47</h2>
+                            </div>
+                            <div class="like flex_row">
+                                <span class="icon_like"></span>
+                                <h2 data="like">33</h2>
+                            </div>
+                        </header>
+                        <section class="flex_column">
+                            <img data="image" src="./assets/img/timbre/timbre2.jpeg" alt="timbre1" />
+                            <p data="nomTimbre">
+                                Timbre Bahamas #17 <br />
+                                Reine Victoria (1863) 1p
+                            </p>
+                        </section>
+                        <footer class="footer_carte flex_column">
+                            <div class="details flex_row">
+                                <p data="prix">$495.00</p>
+                                <p data="etat">Très bon</p>
+                            </div>
+                            <h3 class="petit call_to_action bleu">Plus de détails</h3>
+                        </footer>
+                    </article>
+                </div>
+            </section>
+            <a class="call_to_action blanc blur" href="#zone2">Plus d'information</a>
+        </section>
+        <section id="zone2" class="zone2 flex_column">
+            <h2>Fonctionnement de la plateforme</h2>
+            <div class="etape flex_row">
+                <div class="flex_column blur bleu">
+                    <p>1</p>
+                    <h3>Créer vous un compte et connectez-vous</h3>
+                    <a class="hover_underligne" href="#">Voir toutes les questions à ce sujet</a>
+                </div>
+                <div class="flex_column blur">
+                    <p>2</p>
+                    <h3>Chercher le timbre de vos rêves</h3>
+                    <a class="hover_underligne" href="#">Voir toutes les questions à ce sujet</a>
+                </div>
+                <div class="flex_column blur bleu">
+                    <p>3</p>
+                    <h3>Enchérissez et agrandissez votre collection</h3>
+                    <a class="hover_underligne" href="#">Voir toutes les questions à ce sujet</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h1>Coucou</h1>
+    </footer>
+</body>

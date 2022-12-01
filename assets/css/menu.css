@@ -1,0 +1,53 @@
+nav {
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.nav_blanche {
+    background-color: var(--couleur_fond);
+}
+
+nav .logo {
+    height: 90px;
+    width: 90px;
+}
+
+nav .zone_gauche,
+nav .zone_droite {
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    position: relative;
+    font-size: clamp(0.2rem, 5vw, 1rem);
+}
+
+nav .recherche {
+    min-width: 200px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    border: none;
+    background-color: var(--couleur_carte);
+}
+
+nav .recherche::placeholder {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 1250px) {
+    .fixe {
+        height: 110px;
+    }
+    nav.flex_row {
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        gap: 30px;
+    }
+
+    nav .recherche {
+        order: 1;
+        display: none;
+    }
+}

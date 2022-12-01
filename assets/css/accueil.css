@@ -1,0 +1,199 @@
+body {
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        ),
+        url(/assets/img/accueil.jpg) no-repeat;
+    background-size: 1920px;
+    background-attachment: fixed;
+    max-width: 1920px;
+    height: 100vh;
+}
+
+.zone1 {
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    min-height: calc(100vh - 150px);
+}
+
+.zone1 h1 {
+    font-size: clamp(1rem, 3vw, 2rem);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.zone1 h1 strong {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.zone1 .recherche {
+    display: flex;
+    background-color: var(--couleur_carte);
+    min-width: 80%;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.zone1 .recherche input {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+}
+
+.zone1 .recherche input::placeholder {
+    margin-left: 10px;
+    color: black;
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+}
+
+.zone1 .bouton_recherche {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--couleur_call_to_action);
+    cursor: pointer;
+}
+
+.zone1 .bouton_recherche:hover {
+    background-color: var(--couleur_carte);
+    border: 2px solid var(--couleur_call_to_action);
+    border-radius: 50%;
+}
+
+.zone1 section {
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    flex-grow: 1;
+}
+
+.zone1 .bienvenue {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.zone1 .nouveaux_arrivages {
+    width: 100%;
+    gap: 10px;
+    flex-grow: 0;
+    padding: 20px;
+}
+
+.zone1 .nouveaux_arrivages > div {
+    gap: 30px;
+}
+.nouveau_timbres {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    width: 100%;
+}
+
+.nouveau_timbres .carte {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    min-width: 210px;
+    max-width: 190px;
+    min-height: 250px;
+    justify-content: space-between;
+    overflow-y: hidden;
+    background-color: var(--couleur_carte);
+}
+
+.zone1 .carte section {
+    gap: 5px;
+}
+
+.zone1 .header_carte {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.zone1 .header_carte .heure,
+.zone1 .header_carte .like {
+    gap: 5px;
+    padding: 0px;
+    background-color: transparent;
+    border-radius: 0px;
+}
+
+.zone1 .footer_carte {
+    gap: 5px;
+}
+.zone1 .petit {
+    font-weight: normal;
+    width: 100%;
+    padding: 5px 15px;
+}
+
+.zone1 [data="image"] {
+    max-height: 100px;
+}
+
+.zone1 [data="nomTimbre"],
+.zone1 [data="prix"],
+.zone1 [data="etat"],
+.zone1 [data="finEnchere"] {
+    font-size: 0.8rem;
+}
+
+.zone1 .carte h3 {
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+}
+
+.zone2 {
+    align-items: center;
+    min-height: 50vh;
+    gap: 50px;
+    padding-top: 206px;
+}
+
+.zone2 h2,
+.zone1 .nouveaux_arrivages > h2 {
+    font-size: clamp(1rem, 3vw, 2rem);
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+.zone2 .etape {
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
+    min-width: 100%;
+    padding: 30px;
+}
+
+.zone2 .etape div {
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 300px;
+    padding: 30px;
+    background-color: rgba(245, 245, 245, 0.672);
+    color: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.zone2 .etape p {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+body > footer {
+    background-color: rgba(255, 255, 255, 0.6);
+    min-height: 50vh;
+}
+
+@media screen and (max-width: 880px) {
+    .accueil .bouton_recherche img {
+        height: 30px;
+        padding: 5px;
+    }
+}
