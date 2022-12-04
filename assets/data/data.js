@@ -16,7 +16,7 @@ export const CatalogueTimbres = [
         image: "/assets/img/timbre/timbre1.jpeg",
         finEnchere: "Dec 25, 2022 16:37:52",
         like: 35,
-        etat: "Très bon",
+        etat: "parfaite",
         prix: 295,
     },
     {

@@ -36,14 +36,27 @@ function remplissageInformationTimbre() {
             const heures = Math.floor(
                 (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
             );
-            var minutes = Math.floor(
+            let minutes = Math.floor(
                 (distance % (1000 * 60 * 60)) / (1000 * 60)
             );
-            var secondes = Math.floor((distance % (1000 * 60)) / 1000);
+            let secondes = Math.floor((distance % (1000 * 60)) / 1000);
 
-            // Display the result in the element with id="demo"
-            element.querySelector(".heure h2").innerHTML =
-                jours + "j " + heures + "h " + minutes + "m " + secondes + "s ";
+            // Affichage
+            console.log(document.title);
+            if (document.title == "Accueil") {
+                element.querySelector(".heure h2").innerHTML =
+                    jours + "j " + heures + "h " + minutes + "m ";
+            } else {
+                element.querySelector(".heure h2").innerHTML =
+                    jours +
+                    "j " +
+                    heures +
+                    "h " +
+                    minutes +
+                    "m " +
+                    secondes +
+                    "s ";
+            }
 
             // si le timer est terminer on affiche un message
             if (distance < 0) {

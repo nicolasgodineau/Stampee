@@ -1,0 +1,68 @@
+.footer_page {
+    justify-content: space-between;
+    color: #f5f5f5;
+    background-color: var(--couleur_call_to_action);
+    padding: 30px;
+}
+
+.footer_info {
+    justify-content: space-around;
+}
+
+.footer_info a {
+    color: whitesmoke;
+}
+
+.footer_info > div img {
+    max-height: 200px;
+}
+
+.footer_info .footer_liste {
+    gap: 20px;
+}
+
+.footer_info .footer_liste_titre {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.footer_social {
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    text-align: center;
+    min-height: 20vh;
+}
+
+.footer_social > :first-child {
+    align-items: center;
+}
+
+.footer_social > * {
+    gap: 30px;
+}
+
+.footer_social .info_lettre {
+    background-color: var(--couleur_carte);
+    border-radius: 30px;
+    padding: 10px 30px;
+    max-width: 400px;
+}
+
+.footer_social .info_lettre > * {
+    border-radius: 30px;
+    padding: 10px 20px;
+    border: none;
+}
+.footer_social input[type="text"] {
+    background-color: var(--couleur_carte);
+    flex-grow: 1;
+    min-height: 100%;
+}
+
+.footer_info .hover_underligne::after {
+    background: var(--couleur_carte);
+}
+
+.footer_page p {
+    text-align: center;
+}

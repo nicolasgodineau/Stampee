@@ -1,6 +1,7 @@
 nav {
     justify-content: space-between;
     padding: 20px;
+    box-shadow: 0px 4px 9px -7px #0000003b;
 }
 
 .nav_blanche {

@@ -1,7 +1,25 @@
-.icon_recherche {
+.icon_taille_25 {
+    width: 25px;
+    height: 25px;
+    background-size: contain;
+}
+.icon_taille_30 {
     width: 30px;
     height: 30px;
     background-size: contain;
+}
+.icon_taille_40 {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+}
+.icon_taille_50 {
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+}
+
+.icon_recherche {
     background-image: url(/assets/img/icons/loupe.svg);
     filter: invert(97%) sepia(26%) saturate(384%) hue-rotate(176deg)
         brightness(100%) contrast(96%);
@@ -13,24 +31,15 @@
 }
 
 .icon_horloge {
-    width: 25px;
-    height: 25px;
-    background-size: contain;
     background-image: url(/assets/img/icons/horloge.svg);
 }
 
 .icon_fleche_bas {
     display: inline-block;
-    width: 50px;
-    height: 50px;
-    background-size: contain;
     background-image: url(/assets/img/icons/fleche-bas.svg);
 }
 
 .icon_like {
-    width: 25px;
-    height: 25px;
-    background-size: contain;
     background-image: url(/assets/img/icons/coeur-vide.svg);
     cursor: pointer;
 }
@@ -61,4 +70,34 @@
     80% {
         transform: scale(0.92, 0.95);
     }
+}
+
+.icon_facebook {
+    background-image: url(/assets/img/icons/Facebook.svg);
+    cursor: pointer;
+}
+.icon_instagram {
+    background-image: url(/assets/img/icons/Instagram.svg);
+    cursor: pointer;
+}
+.icon_twitter {
+    background-image: url(/assets/img/icons/Twitter.svg);
+    cursor: pointer;
+}
+.icon_snapchat {
+    background-image: url(/assets/img/icons/Snapchat.svg);
+    cursor: pointer;
+}
+.icon_tikTok {
+    background-image: url(/assets/img/icons/Tiktok.svg);
+    cursor: pointer;
+}
+
+.icon_facebook:hover,
+.icon_instagram:hover,
+.icon_twitter:hover,
+.icon_snapchat:hover,
+.icon_tikTok:hover {
+    scale: 1.2;
+    transition: all 0.2s;
 }

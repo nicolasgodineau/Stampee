@@ -1,3 +1,6 @@
 {
-    "liveServer.settings.port": 5502
+    "liveServer.settings.port": 5502,
+    "workbench.activityBar.visible": true,
+    "workbench.editor.highlightModifiedTabs": false,
+    "workbench.list.openMode": "singleClick"
 }
