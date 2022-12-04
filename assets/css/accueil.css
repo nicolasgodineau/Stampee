@@ -11,8 +11,6 @@ body {
 }
 
 .zone1 {
-    align-items: center;
-    justify-content: center;
     gap: 20px;
     min-height: calc(100vh - 140px);
 }
@@ -27,7 +25,6 @@ body {
 }
 
 .zone1 .recherche {
-    display: flex;
     background-color: var(--couleur_carte);
     min-width: 80%;
     padding: 10px;
@@ -50,9 +47,6 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: var(--couleur_call_to_action);
     cursor: pointer;
 }
@@ -63,16 +57,9 @@ body {
     border-radius: 50%;
 }
 
-.zone1 section {
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    flex-grow: 1;
-}
-
 .zone1 .bienvenue {
     flex-grow: 1;
-    justify-content: center;
+    gap: 50px;
 }
 
 .zone1 .nouveaux_arrivages {
@@ -91,31 +78,23 @@ body {
     width: 100%;
 }
 
-.zone1 .nouveau_timbres .carte {
-    display: flex;
-    flex-direction: column;
+.zone1 .carte {
     gap: 20px;
     padding: 15px;
     border-radius: 20px;
     min-width: 210px;
     max-width: 190px;
     min-height: 250px;
-    justify-content: space-between;
     overflow-y: hidden;
     background-color: var(--couleur_carte);
 }
 
-.zone1 .carte section {
-    gap: 5px;
-}
-
 .zone1 .header_carte {
-    align-items: center;
-    justify-content: center;
     width: 100%;
 }
-.zone1 .header_carte .heure,
-.zone1 .header_carte .like {
+
+.zone1 .heure,
+.zone1 .like {
     gap: 5px;
     padding: 0px;
     background-color: transparent;
@@ -123,7 +102,7 @@ body {
 }
 
 .zone1 .footer_carte {
-    gap: 5px;
+    gap: 10px;
 }
 
 .zone1 [data="image"] {
@@ -142,25 +121,17 @@ body {
 }
 
 .zone2 {
-    justify-content: space-evenly;
     min-height: 50vh;
     gap: 50px;
     padding-top: 150px;
     margin: 0 20px;
 }
 
-.zone2 h2 {
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 50px;
-    min-width: 100%;
+.zone2 ul {
+    gap: 20px;
 }
 
-.zone2 .etape {
-    justify-content: space-between;
-}
-
-.zone2 .etape li {
+.zone2 li {
     padding: 30px;
     color: black;
     border-radius: 30px;
@@ -173,46 +144,50 @@ body {
 }
 
 .zone2 li a {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: bold;
     text-decoration: underline;
     color: var(--couleur_call_to_action);
 }
 
 .zone2 .etape p {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: bold;
 }
-.actualite {
+.zone2 .etape h3 {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
+.zone2 .actualite {
     padding: 30px;
     border-radius: 30px;
 }
+
 .zone2 .actualite_corps {
     padding: 0px 20px;
-    justify-content: space-between;
 }
 
-.actualite:nth-child(even) {
+.zone2 .actualite:nth-child(even) {
     flex-direction: row-reverse;
 }
-.actualite:nth-child(odd) {
+.zone2 .actualite:nth-child(odd) {
     flex-direction: row;
 }
 
-.les_actualites {
+.zone2 .les_actualites {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
     gap: 20px;
-    justify-content: center;
-    align-items: stretch;
-    width: 100%;
 }
 
 .zone2 .zone_actualites h3 {
-    font-size: clamp(1rem, 5vw, 1.3rem);
+    font-size: clamp(1rem, 2vw, 1.3rem);
     max-width: 80ch;
 }
+
 .zone2 .zone_actualites p {
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
@@ -226,23 +201,14 @@ body {
 }
 
 .zone2 .zone_actualites a {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: bold;
     text-decoration: underline;
     color: var(--couleur_call_to_action);
 }
 
 .zone2 .lire_actualite {
-    display: flex;
-    align-items: center;
     justify-content: baseline;
-}
-
-.a_propos {
-    align-items: center;
-}
-
-.a_propos div {
 }
 
 .zone2 > * {
@@ -259,12 +225,21 @@ body {
 }
 
 .a_propos p {
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
     max-width: 80ch;
     line-height: 1.5rem;
 }
 
 .a_propos br {
     margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1260px) {
+    .zone2 .les_actualites {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 
 @media screen and (max-width: 880px) {
