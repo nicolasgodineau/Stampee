@@ -73,23 +73,23 @@
 }
 
 .icon_facebook {
-    background-image: url(/assets/img/icons/Facebook.svg);
+    background-image: url(/assets/img/icons/Facebook.webp);
     cursor: pointer;
 }
 .icon_instagram {
-    background-image: url(/assets/img/icons/Instagram.svg);
+    background-image: url(/assets/img/icons/Instagram.webp);
     cursor: pointer;
 }
 .icon_twitter {
-    background-image: url(/assets/img/icons/Twitter.svg);
+    background-image: url(/assets/img/icons/Twitter.webp);
     cursor: pointer;
 }
 .icon_snapchat {
-    background-image: url(/assets/img/icons/Snapchat.svg);
+    background-image: url(/assets/img/icons/Snapchat.webp);
     cursor: pointer;
 }
 .icon_tikTok {
-    background-image: url(/assets/img/icons/Tiktok.svg);
+    background-image: url(/assets/img/icons/Tiktok.webp);
     cursor: pointer;
 }
 
