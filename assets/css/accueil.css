@@ -3,47 +3,47 @@ body {
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.6)
         ),
-        url(/assets/img/accueil.webp) no-repeat;
+        url(./assets/img/accueil.webp) no-repeat;
     background-size: 1920px;
     background-attachment: fixed;
     max-width: 1920px;
     height: 100vh;
 }
 
-.zone1 {
+.zone_principale {
     gap: 20px;
     min-height: calc(100vh - 140px);
 }
 
-.zone1 h1 {
+.zone_principale h1 {
     font-size: clamp(1rem, 3vw, 2rem);
     color: rgba(0, 0, 0, 0.7);
 }
 
-.zone1 h1 strong {
+.zone_principale h1 strong {
     font-size: clamp(2rem, 5vw, 4rem);
 }
 
-.zone1 .recherche {
+.zone_principale .recherche {
     background-color: var(--couleur_carte);
     min-width: 80%;
     padding: 10px;
     border-radius: 30px;
 }
 
-.zone1 .recherche input {
+.zone_principale .recherche input {
     flex-grow: 1;
     border: none;
     background-color: transparent;
 }
 
-.zone1 .recherche input::placeholder {
+.zone_principale .recherche input::placeholder {
     margin-left: 10px;
     color: black;
     font-size: clamp(0.7rem, 1vw, 0.9rem);
 }
 
-.zone1 .bouton_recherche {
+.zone_principale .bouton_recherche {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -51,34 +51,34 @@ body {
     cursor: pointer;
 }
 
-.zone1 .bouton_recherche:hover {
+.zone_principale .bouton_recherche:hover {
     background-color: var(--couleur_carte);
     border: 2px solid var(--couleur_call_to_action);
     border-radius: 50%;
 }
 
-.zone1 .bienvenue {
+.zone_principale .bienvenue {
     flex-grow: 1;
     gap: 50px;
 }
 
-.zone1 .nouveaux_arrivages {
+.zone_principale .nouveaux_arrivages {
     width: 100%;
     gap: 10px;
     flex-grow: 0;
     padding: 20px;
 }
 
-.zone1 .nouveaux_arrivages > div {
+.zone_principale .nouveaux_arrivages > div {
     gap: 30px;
 }
-.zone1 .nouveau_timbres {
+.zone_principale .nouveau_timbres {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     width: 100%;
 }
 
-.zone1 .carte {
+.zone_principale .carte {
     gap: 20px;
     padding: 15px;
     border-radius: 20px;
@@ -89,103 +89,103 @@ body {
     background-color: var(--couleur_carte);
 }
 
-.zone1 .header_carte {
+.zone_principale .header_carte {
     width: 100%;
 }
 
-.zone1 .heure,
-.zone1 .like {
+.zone_principale .heure,
+.zone_principale .like {
     gap: 5px;
     padding: 0px;
     background-color: transparent;
     border-radius: 0px;
 }
 
-.zone1 .footer_carte {
+.zone_principale .footer_carte {
     gap: 10px;
 }
 
-.zone1 [data="image"] {
+.zone_principale [data="image"] {
     max-height: 100px;
 }
 
-.zone1 [data="nomTimbre"],
-.zone1 [data="prix"],
-.zone1 [data="etat"],
-.zone1 [data="finEnchere"] {
+.zone_principale [data="nomTimbre"],
+.zone_principale [data="prix"],
+.zone_principale [data="etat"],
+.zone_principale [data="finEnchere"] {
     font-size: 0.8rem;
 }
 
-.zone1 .carte h3 {
+.zone_principale .carte h3 {
     font-size: clamp(0.7rem, 2.5vw, 0.9rem);
 }
 
-.zone2 {
+.zone_secondaire {
     min-height: 50vh;
     gap: 50px;
     padding-top: 150px;
     margin: 0 20px;
 }
 
-.zone2 ul {
+.zone_secondaire ul {
     gap: 20px;
 }
 
-.zone2 li {
+.zone_secondaire li {
     padding: 30px;
     color: black;
     border-radius: 30px;
 }
 
-.zone2 li > div {
+.zone_secondaire li > div {
     gap: 10px;
     padding-bottom: 30px;
     align-items: baseline;
 }
 
-.zone2 li a {
+.zone_secondaire li a {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: bold;
     text-decoration: underline;
     color: var(--couleur_call_to_action);
 }
 
-.zone2 .etape p {
+.zone_secondaire .etape p {
     font-size: clamp(1.5rem, 5vw, 3rem);
     font-weight: bold;
 }
-.zone2 .etape h3 {
+.zone_secondaire .etape h3 {
     font-size: clamp(1.2rem, 2vw, 1.4rem);
 }
 
-.zone2 .actualite {
+.zone_secondaire .actualite {
     padding: 30px;
     border-radius: 30px;
 }
 
-.zone2 .actualite_corps {
+.zone_secondaire .actualite_corps {
     padding: 0px 20px;
 }
 
-.zone2 .actualite:nth-child(even) {
+.zone_secondaire .actualite:nth-child(even) {
     flex-direction: row-reverse;
 }
-.zone2 .actualite:nth-child(odd) {
+.zone_secondaire .actualite:nth-child(odd) {
     flex-direction: row;
 }
 
-.zone2 .les_actualites {
+.zone_secondaire .les_actualites {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
     gap: 20px;
 }
 
-.zone2 .zone_actualites h3 {
+.zone_secondaire .zone_actualites h3 {
     font-size: clamp(1rem, 2vw, 1.3rem);
     max-width: 80ch;
 }
 
-.zone2 .zone_actualites p {
+.zone_secondaire .zone_actualites p {
     font-size: clamp(0.8rem, 1.5vw, 1.1rem);
 
     display: -webkit-box;
@@ -194,24 +194,24 @@ body {
     overflow: hidden;
 }
 
-.zone2 .zone_actualites img {
+.zone_secondaire .zone_actualites img {
     height: 200px;
     max-width: 170px;
     object-fit: cover;
 }
 
-.zone2 .zone_actualites a {
+.zone_secondaire .zone_actualites a {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: bold;
     text-decoration: underline;
     color: var(--couleur_call_to_action);
 }
 
-.zone2 .lire_actualite {
+.zone_secondaire .lire_actualite {
     justify-content: baseline;
 }
 
-.zone2 > * {
+.zone_secondaire > * {
     padding: 20px 0px;
     min-width: 100%;
 }
@@ -235,7 +235,7 @@ body {
 }
 
 @media screen and (max-width: 1260px) {
-    .zone2 .les_actualites {
+    .zone_secondaire .les_actualites {
         display: flex;
         flex-direction: column;
         gap: 20px;
