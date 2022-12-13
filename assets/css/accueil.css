@@ -3,11 +3,11 @@ body {
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.6)
         ),
-        url(./assets/img/accueil.webp) no-repeat;
+        url(/assets/img/accueil.webp) no-repeat;
     background-size: 1920px;
     background-attachment: fixed;
     max-width: 1920px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .zone_principale {
