@@ -6,6 +6,7 @@ body {
         url(/assets/img/accueil.webp) no-repeat;
     background-size: 1920px;
     background-attachment: fixed;
+    background-position: center;
     max-width: 1920px;
     min-height: 100vh;
 }
@@ -13,16 +14,7 @@ body {
 .zone_principale {
     gap: 20px;
     min-height: calc(100vh - 140px);
-}
-
-.principale {
-    font-size: clamp(1rem, 3vw, 2rem);
-    color: rgba(0, 0, 0, 0.7);
-    text-align: center;
-}
-
-.principale strong {
-    font-size: clamp(2rem, 5vw, 4rem);
+    margin-top: 140px;
 }
 
 .zone_principale .recherche {
@@ -60,7 +52,6 @@ body {
 }
 
 .zone_principale .bienvenue {
-    flex-grow: 1;
     gap: 50px;
 }
 

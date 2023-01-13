@@ -25,141 +25,144 @@
 
     <title>Inscription</title>
 </head>
-<nav class="fixe nav_blanche flex_row">
-    <div class="zone_gauche flex_row">
-        <img class="logo" src="/assets/img/logo/Logo.webp" alt="Logo">
-        <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
-    </div>
-    <div class="zone_droite flex_row">
-        <input aria-label="recherche" class="recherche" type="text" name="recherche" id="recherche"
-            placeholder="Votre recherche">
-        <a class="hover_underligne" href="/index.html">Actualités</a>
-        <a class="hover_underligne" href="#">Enchères</a>
-    </div>
-</nav>
-<header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
-    <h1>Inscription sur la platforme</h1>
-</header>
-<main class="formulaire_inscription">
-    <form class="flex_column" action="" method="post">
-        <div class="info_perso flex_column">
-            <h4>Informations personnelles</h4>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
-                    placeholder="Nom" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-user"></i><input aria-label="prenom" type="text" name="prenom" id="prenom"
-                    placeholder="Prénom" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-phone"></i><input aria-label="telephone" type="text" name="telephone"
-                    id="telephone" placeholder="Téléphone" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
-                    placeholder="Adresse" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-house"></i><input aria-label="ville" type="text" name="ville" id="ville"
-                    placeholder="Ville" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-house"></i><input aria-label="pays" type="text" name="pays" id="pays"
-                    placeholder="Pays" required>
-            </div>
+
+<body>
+    <nav class="fixe nav_blanche flex_row">
+        <div class="zone_gauche flex_row">
+            <img class="logo" src="/assets/img/logo/Logo.webp" alt="Logo">
+            <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
         </div>
-        <div class="info_date_naissance flex_column">
-            <h4>Date de naissance</h4>
-            <div class="date_naissance flex_row">
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-cake-candles"></i><input aria-label="jourNaissance" type="text"
-                        name="jourNaissance" id="jourNaissance" placeholder="JJ" required>
-                </div>
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-cake-candles"></i><input aria-label="moisNaissance" type="text"
-                        name="moisNaissance" id="moisNaissance" placeholder="MM" required>
-                </div>
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-cake-candles"></i><input aria-label="anneeNaissance" type="text"
-                        name="anneeNaissance" id="anneeNaissance" placeholder="AA" required>
-                </div>
-            </div>
-        </div>
-        <div class="info_connexion flex_column">
-            <h4>Informations de connexion</h4>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-envelope"></i><input aria-label="email" type="email" name="email" id="email"
-                    placeholder="Email" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password" id="password"
-                    placeholder="Mot de passe" required>
-            </div>
-            <div class="flex_row flex_align_center">
-                <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text" name="passwordConfirm"
-                    id="passwordConfirm" placeholder="Confirmer le mot de passe" required>
-            </div>
-        </div>
-        <button class="call_to_action bleu" type="submit">S'inscrire</button>
-    </form>
-</main>
-<footer class="footer_page flex_column">
-    <div class="logo_footer flex_row flex_justify_center ">
-        <img src="/assets/img/logo/Logo.webp" alt="">
-    </div>
-    <div class="aide_generale flex_row flex_justify_around">
-        <div class="liste1 liste flex_column">
-            <a class="hover_underligne" href="#">Contactez-nous</a>
-            <a class="hover_underligne" href="#">Angleterre</a>
-            <a class="hover_underligne" href="#">Canada</a>
-            <a class="hover_underligne" href="#">États-Units</a>
-            <a class="hover_underligne" href="#">Australie</a>
-        </div>
-        <div class="liste2 liste flex_column">
-            <a class="hover_underligne" href="#">Actualité</a>
-            <a class="hover_underligne" href="#">Timbres</a>
+        <div class="zone_droite flex_row">
+            <input aria-label="recherche" class="recherche" type="text" name="recherche" id="recherche"
+                placeholder="Votre recherche">
+            <a class="hover_underligne" href="/index.html">Actualités</a>
             <a class="hover_underligne" href="#">Enchères</a>
-            <a class="hover_underligne" href="#">Bridge</a>
         </div>
-        <div class="liste3 liste flex_column">
-            <a class="hover_underligne" href="#">À propos</a>
-            <a class="hover_underligne" href="#">La philatélie, c’est la vie</a>
-            <a class="hover_underligne" href="#">Biographie du Lord</a>
-            <a class="hover_underligne" href="#">Historique familial</a>
+    </nav>
+    <header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
+        <h1 class="principale">Inscription sur la platforme</h1>
+    </header>
+    <main class="formulaire_inscription">
+        <form class="flex_column" action="" method="post">
+            <div class="info_perso flex_column">
+                <h4>Informations personnelles</h4>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
+                        placeholder="Nom" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-user"></i><input aria-label="prenom" type="text" name="prenom" id="prenom"
+                        placeholder="Prénom" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-phone"></i><input aria-label="telephone" type="text" name="telephone"
+                        id="telephone" placeholder="Téléphone" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
+                        placeholder="Adresse" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-house"></i><input aria-label="ville" type="text" name="ville" id="ville"
+                        placeholder="Ville" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-house"></i><input aria-label="pays" type="text" name="pays" id="pays"
+                        placeholder="Pays" required>
+                </div>
+            </div>
+            <div class="info_date_naissance flex_column">
+                <h4>Date de naissance</h4>
+                <div class="date_naissance flex_row">
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-cake-candles"></i><input aria-label="jourNaissance" type="text"
+                            name="jourNaissance" id="jourNaissance" placeholder="JJ" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-cake-candles"></i><input aria-label="moisNaissance" type="text"
+                            name="moisNaissance" id="moisNaissance" placeholder="MM" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-cake-candles"></i><input aria-label="anneeNaissance" type="text"
+                            name="anneeNaissance" id="anneeNaissance" placeholder="AA" required>
+                    </div>
+                </div>
+            </div>
+            <div class="info_connexion flex_column">
+                <h4>Informations de connexion</h4>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-envelope"></i><input aria-label="email" type="email" name="email" id="email"
+                        placeholder="Email" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
+                        id="password" placeholder="Mot de passe" required>
+                </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text"
+                        name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer le mot de passe" required>
+                </div>
+            </div>
+            <button class="call_to_action bleu" type="submit">S'inscrire</button>
+        </form>
+    </main>
+    <footer class="footer_page flex_column">
+        <div class="logo_footer flex_row flex_justify_center ">
+            <img src="/assets/img/logo/Logo.webp" alt="">
         </div>
-        <div class="liste4 liste flex_column">
-            <a class="hover_underligne" href="#">Questions générales</a>
-            <a class="hover_underligne" href="#">Profil</a>
-            <a class="hover_underligne" href="#">Comment placer une offre</a>
-            <a class="hover_underligne" href="#">Suivre une enchère</a>
-            <a class="hover_underligne" href="#">Trouver l’enchère désirée</a>
-            <a class="hover_underligne" href="#">Contacter le webmestre</a>
-            <a class="hover_underligne" href="#">Termes et condition</a>
-        </div>
-    </div>
-    <div class="info_lettre_media_sociaux flex_row flex_align_center flex_justify_around">
-        <div class="info_lettre flex_column flex_justify_center flex_align_center">
-            <h1>
-                Ne manquez pas notre infolettre!
-            </h1>
-            <div class="info_lettre_form flex_row">
-                <input aria-label="info_lettre" type="text" name="info_lettre" id="info_lettre"
-                    placeholder="Votre email">
-                <input type="button" value="s'abonner">
+        <div class="aide_generale flex_row flex_justify_around">
+            <div class="liste1 liste flex_column">
+                <a class="hover_underligne" href="#">Contactez-nous</a>
+                <a class="hover_underligne" href="#">Angleterre</a>
+                <a class="hover_underligne" href="#">Canada</a>
+                <a class="hover_underligne" href="#">États-Units</a>
+                <a class="hover_underligne" href="#">Australie</a>
+            </div>
+            <div class="liste2 liste flex_column">
+                <a class="hover_underligne" href="#">Actualité</a>
+                <a class="hover_underligne" href="#">Timbres</a>
+                <a class="hover_underligne" href="#">Enchères</a>
+                <a class="hover_underligne" href="#">Bridge</a>
+            </div>
+            <div class="liste3 liste flex_column">
+                <a class="hover_underligne" href="#">À propos</a>
+                <a class="hover_underligne" href="#">La philatélie, c’est la vie</a>
+                <a class="hover_underligne" href="#">Biographie du Lord</a>
+                <a class="hover_underligne" href="#">Historique familial</a>
+            </div>
+            <div class="liste4 liste flex_column">
+                <a class="hover_underligne" href="#">Questions générales</a>
+                <a class="hover_underligne" href="#">Profil</a>
+                <a class="hover_underligne" href="#">Comment placer une offre</a>
+                <a class="hover_underligne" href="#">Suivre une enchère</a>
+                <a class="hover_underligne" href="#">Trouver l’enchère désirée</a>
+                <a class="hover_underligne" href="#">Contacter le webmestre</a>
+                <a class="hover_underligne" href="#">Termes et condition</a>
             </div>
         </div>
-        <div class="reseaux_sociaux flex_row flex_justify_center flex_align_center">
-            <span class="icon_facebook icon_taille_40"></span>
-            <span class="icon_instagram icon_taille_40"></span>
-            <span class="icon_twitter icon_taille_40"></span>
-            <span class="icon_snapchat icon_taille_40"></span>
-            <span class="icon_tikTok icon_taille_40"></span>
+        <div class="info_lettre_media_sociaux flex_row flex_align_center flex_justify_around">
+            <div class="info_lettre flex_column flex_justify_center flex_align_center">
+                <h1>
+                    Ne manquez pas notre infolettre!
+                </h1>
+                <div class="info_lettre_form flex_row">
+                    <input aria-label="info_lettre" type="text" name="info_lettre" id="info_lettre"
+                        placeholder="Votre email">
+                    <input type="button" value="s'abonner">
+                </div>
+            </div>
+            <div class="reseaux_sociaux flex_row flex_justify_center flex_align_center">
+                <span class="icon_facebook icon_taille_40"></span>
+                <span class="icon_instagram icon_taille_40"></span>
+                <span class="icon_twitter icon_taille_40"></span>
+                <span class="icon_snapchat icon_taille_40"></span>
+                <span class="icon_tikTok icon_taille_40"></span>
+            </div>
         </div>
-    </div>
-    <p>© Stampee 2022, Tous droits réservés
-    </p>
-</footer>
+        <p>© Stampee 2022, Tous droits réservés
+        </p>
+    </footer>
+</body>
 
 <!--         <div>
             <label for="sexe">Sexe</label>
