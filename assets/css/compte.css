@@ -1,0 +1,18 @@
+.compte {
+    max-width: 38em;
+    min-height: 50vh;
+    padding: 3em;
+    margin: 2em auto;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+.compte img {
+    max-height: 50px;
+}
+
+.compte_menu {
+    min-width: 35%;
+    background-color: royalblue;
+}

@@ -21,6 +21,7 @@ body {
         url(/assets/img/accueil.webp) no-repeat;
     background-size: 1920px;
     background-attachment: fixed;
+    background-position: center;
     max-width: 1920px;
 }
 
@@ -159,6 +160,13 @@ input[type="button"] {
 
 .fil_ariane {
     padding-left: 50px;
+    box-shadow: none;
+}
+.fil_ariane svg,
+.fil_ariane a {
+    font-size: 0.8rem;
+    text-decoration: underline;
+    color: #737373;
 }
 
 .retour_en_haut {
