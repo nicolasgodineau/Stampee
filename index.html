@@ -12,37 +12,34 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/variables.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/menu.css">
-    <link rel="stylesheet" href="/assets/css/carte.css">
-    <link rel="stylesheet" href="/assets/css/catalogue.css">
-    <link rel="stylesheet" href="/assets/css/accueil.css">
-    <link rel="stylesheet" href="/assets/css/icon.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-    <script type="module" src="/assets/scripts/main.mjs"></script>
-
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/carte.css">
+    <link rel="stylesheet" href="./assets/css/catalogue.css">
+    <link rel="stylesheet" href="./assets/css/accueil.css">
+    <link rel="stylesheet" href="./assets/css/icon.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <script src="./assets/scripts/main.mjs" defer></script>
+    <script src="https://kit.fontawesome.com/4890a1a8f5.js" crossorigin="anonymous"></script>
 
     <title>Accueil</title>
 </head>
 
 <body>
-    <nav class="fixe nav_blanche flex_row">
-        <div class="zone_gauche flex_row">
-            <img class="logo" src="/assets/img/logo/Logo.webp" alt="Logo">
-            <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
-        </div>
-        <div class="zone_droite flex_row">
-            <input aria-label="recherche_menu" class="recherche" type="text" name="recherche_menu" id="recherche_menu"
-                placeholder="Votre recherche">
-            <a class="hover_underligne" href="#">Actualités</a>
-            <a class="hover_underligne" href="/catalogue.html">Enchères</a>
-            <a class="call_to_action blanc" href="/connexion.html">Connexion</a>
-            <a class="call_to_action blanc" href="/inscription.html">Inscription</a>
-        </div>
-    </nav>
-    <header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
-        <h1 class="principale"><strong>Stampee</strong>, simple comme un timbre.</h1>
+    <header class="blur fixe" id="top">
+        <nav class="flex_row">
+            <div class="zone_gauche flex_row">
+                <img class="logo" src="./assets/img/logo/Logo.webp" alt="Logo">
+                <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
+            </div>
+            <div class="zone_droite flex_row">
+                <a class="hover_underligne" href="#">Actualités</a>
+                <a class="hover_underligne" href="./catalogue.html">Enchères</a>
+                <a class="call_to_action blanc" href="#">Connexion</a>
+                <a class="call_to_action blanc" href="#">Inscription</a>
+            </div>
+        </nav>
     </header>
     <main>
         <div class="zone_principale flex_column flex_justify_center flex_align_center">
