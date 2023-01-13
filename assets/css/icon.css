@@ -1,3 +1,8 @@
+.icon_taille_20 {
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+}
 .icon_taille_25 {
     width: 25px;
     height: 25px;

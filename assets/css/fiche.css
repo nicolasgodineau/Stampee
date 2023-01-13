@@ -8,6 +8,10 @@
         0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
 }
 
+.fiche h1 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
 .fiche .image {
     align-items: center;
     justify-content: space-between;

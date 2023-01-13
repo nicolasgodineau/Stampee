@@ -1,23 +1,23 @@
 import { CatalogueTimbres } from "../data/data.js";
 
-const catalogue = document.querySelector("[data='catalogue']");
+const catalogue = document.querySelector("[data-filtre='catalogue']");
 const cartes = document.querySelectorAll(".carte");
 
 function remplissageInformationTimbre() {
     cartes.forEach((element, index) => {
-        let infoPrix = element.querySelector("[data='prix']");
+        let infoPrix = element.querySelector("[data-filtre='prix']");
         infoPrix.textContent = "$" + CatalogueTimbres[index].prix + ".00";
 
-        let infoLike = element.querySelector("[data='like']");
+        let infoLike = element.querySelector("[data-filtre='like']");
         infoLike.textContent = CatalogueTimbres[index].like;
 
-        let infoEtat = element.querySelector("[data='etat']");
+        let infoEtat = element.querySelector("[data-filtre='etat']");
         infoEtat.textContent = CatalogueTimbres[index].etat;
 
-        let nomTimbre = element.querySelector("[data='nomTimbre']");
+        let nomTimbre = element.querySelector("[data-filtre='nomTimbre']");
         nomTimbre.textContent = CatalogueTimbres[index].titre;
 
-        let infoImages = element.querySelector("[data='image']");
+        let infoImages = element.querySelector("[data-filtre='image']");
         infoImages.src = CatalogueTimbres[index].image;
 
         let timer = setInterval(function () {
@@ -42,7 +42,6 @@ function remplissageInformationTimbre() {
             let secondes = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Affichage
-            console.log(document.title);
             if (document.title == "Accueil") {
                 element.querySelector(".heure h2").innerHTML =
                     jours + "j " + heures + "h " + minutes + "m ";

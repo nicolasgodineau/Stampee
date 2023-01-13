@@ -52,3 +52,16 @@ nav .recherche::placeholder {
         display: none;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .fixe {
+        height: 210px;
+    }
+    nav.flex_row {
+        flex-direction: column;
+    }
+
+    nav .zone_gauche {
+        flex-direction: column;
+    }
+}

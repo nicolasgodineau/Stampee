@@ -9,12 +9,24 @@ body {
     position: relative;
     background-color: var(--couleur_fond);
     max-width: 1920px;
+    margin: 0 auto;
+}
+
+.header_principal {
+    min-height: 500px;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        ),
+        url(/assets/img/accueil.webp) no-repeat;
+    background-size: 1920px;
+    background-attachment: fixed;
+    max-width: 1920px;
 }
 
 main {
     max-width: 1920px;
     min-height: 100vh;
-    margin-top: 130px;
 }
 
 .fixe {
@@ -36,6 +48,12 @@ a {
     text-decoration: none;
     color: black;
     position: relative;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 5rem);
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.7);
 }
 
 /* Pour la page index */
@@ -114,20 +132,20 @@ input[type="button"] {
     flex-direction: column;
 }
 
-.flex_space_around {
+.flex_justify_around {
     justify-content: space-around;
 }
-.flex_space_between {
+.flex_justify_between {
     justify-content: space-between;
 }
-.flex_space_center {
+.flex_justify_center {
     justify-content: center;
 }
-.flex_align_items_center {
+.flex_align_center {
     align-items: center;
 }
 
-.retour {
+.fil_ariane {
     padding-left: 50px;
 }
 
@@ -151,8 +169,10 @@ input[type="button"] {
     .call_to_action.blanc {
         padding: 5px 10px;
     }
+}
 
-    main {
-        margin-top: 105px;
+@media screen and (max-width: 900px) {
+    .header_principal {
+        padding-top: 300px;
     }
 }

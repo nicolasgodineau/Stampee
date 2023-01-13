@@ -21,8 +21,8 @@ aside summary::marker {
     color: var(--couleur_call_to_action);
 }
 
-aside h1 {
-    font-size: 1.2rem;
+aside h2 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     text-align: center;
 }
 
