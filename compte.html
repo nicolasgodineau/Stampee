@@ -49,15 +49,122 @@
         <i class="fa-solid fa-arrow-right"></i>
         <em>Compte</em>
     </nav>
-    <main class="compte">
-        <section class="compte_menu flex_column">
-            <img src="assets/img/icons/user.svg" alt="Image" class="shadow">
-            <h4 class="text-center">Kiran Acharya</h4>
-            <a href="#compte_info_perso">Informations personnelles</a>
-            <a href="#compte_password">Mot de passe</a>
-            <a href="#compte_paiment">Mode de paiement</a>
-            <a href="#compte_notification">Notifications</a>
+    <main class="compte flex_row">
+        <section class="compte_profil flex_column">
+            <div class="compte_photo ">
+                <img src="assets/img/icons/user.svg" alt="Image" class="shadow">
+            </div>
+            <h4 class="text-center">Nicolas Godineau</h4>
+            <div class="compte_menu">
+                <div class="flex_row flex_align_center compte_menu_actif">
+                    <i class="fa-solid fa-user"></i><a href="#compte_info_perso">Informations personnelles</a>
+                </div>
+                <div class="flex_row flex_align_center">
+
+                    <i class="fa-solid fa-lock"></i><a href="#compte_password">Mot de passe</a>
+                </div>
+                <div class="flex_row flex_align_center">
+
+                    <i class="fa-solid fa-credit-card"></i><a href="#compte_paiment">Mode de paiement</a>
+                </div>
+            </div>
         </section>
+        <section class="compte_information flex_column">
+            <form class="flex_column" action="" method="post">
+                <div class="info_perso flex_column">
+                    <h4>Informations personnelles</h4>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
+                            placeholder="Nom" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-user"></i><input aria-label="prenom" type="text" name="prenom" id="prenom"
+                            placeholder="Prénom" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-phone"></i><input aria-label="telephone" type="text" name="telephone"
+                            id="telephone" placeholder="Téléphone" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse"
+                            id="adresse" placeholder="Adresse" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="ville" type="text" name="ville" id="ville"
+                            placeholder="Ville" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="pays" type="text" name="pays" id="pays"
+                            placeholder="Pays" required>
+                    </div>
+                </div>
+                <div class="info_date_naissance flex_column">
+                    <h4>Date de naissance</h4>
+                    <div class="date_naissance flex_row">
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="jourNaissance" type="text"
+                                name="jourNaissance" id="jourNaissance" placeholder="JJ" required>
+                        </div>
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="moisNaissance" type="text"
+                                name="moisNaissance" id="moisNaissance" placeholder="MM" required>
+                        </div>
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="anneeNaissance" type="text"
+                                name="anneeNaissance" id="anneeNaissance" placeholder="AA" required>
+                        </div>
+                    </div>
+                </div>
+                <button class="call_to_action bleu" type="submit">Enregister les modifications</button>
+            </form>
+        </section>
+        <!--         <section class="compte_password flex_column">
+            <form class="flex_column" action="" method="post">
+                <div class="info_connexion flex_column">
+                    <h4>Changer votre mot de passe</h4>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
+                            id="password" placeholder="Ancien mot de passe" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
+                            id="password" placeholder="Nouveau mot de passe" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text"
+                            name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer le mot de passe"
+                            required>
+                    </div>
+                </div>
+                <button class="call_to_action bleu" type="submit">Enregister les modifications</button>
+            </form>
+        </section> -->
+        <!-- <section class="compte_paimement flex_column">
+            <form class="flex_column" action="" method="post">
+                <div class="info_perso flex_column">
+                    <h4>Mode de paiement</h4>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-credit-card"></i><input aria-label="carte_credit_numero" type="text"
+                            name="carte_credit_numero" id="carte_credit_numero"
+                            placeholder="Numéro de la carte de crédit" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-credit-card"></i><input aria-label="carte_credit_numero_cvc" type="text"
+                            name="carte_credit_numero_cvc" id="carte_credit_numero_cvc" placeholder="Numéro CVC"
+                            required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-credit-card"></i><input aria-label="carte_credit_mois" type="text"
+                            name="carte_credit_mois" id="carte_credit_mois" placeholder="MM" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-credit-card"></i><input aria-label="carte_credit_mois" type="text"
+                            name="carte_credit_mois" id="carte_credit_mois" placeholder="AA" required>
+                    </div>
+                </div>
+                <button class="call_to_action bleu" type="submit">Enregister les modifications</button>
+            </form>
+        </section> -->
     </main>
     <footer class="footer_page flex_column">
         <div class="logo_footer flex_row flex_justify_center ">
