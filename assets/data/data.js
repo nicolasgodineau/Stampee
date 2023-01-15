@@ -53,7 +53,7 @@ export const CatalogueTimbres = [
         date: "1923",
         couleur: "Émeraude",
         perforation: "14",
-        image: "/assets/img/timbre/timbre3.webp",
+        image: "./assets/img/timbre/timbre3.webp",
         finEnchere: "Dec 23, 2022 00:00:00",
         like: 12,
         etat: "Bon",

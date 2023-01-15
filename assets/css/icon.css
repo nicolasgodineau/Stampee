@@ -1,6 +1,6 @@
 .icon_taille_20 {
-    width: 15px;
-    height: 15px;
+    width: 20px;
+    height: 20px;
     background-size: contain;
 }
 .icon_taille_25 {
@@ -24,28 +24,20 @@
     background-size: contain;
 }
 
+/* NOTE pour le changement de la couleur de la loupe de recherche */
 .icon_recherche {
-    background-image: url(/assets/img/icons/loupe.svg);
     filter: invert(97%) sepia(26%) saturate(384%) hue-rotate(176deg)
         brightness(100%) contrast(96%);
 }
 
+/* NOTE pour le changement de la couleur de la loupe de recherche au HOVER */
 .icon_recherche:hover {
     filter: invert(21%) sepia(15%) saturate(2359%) hue-rotate(186deg)
         brightness(89%) contrast(90%);
 }
 
-.icon_horloge {
-    background-image: url(/assets/img/icons/horloge.svg);
-}
-
-.icon_fleche_bas {
-    display: inline-block;
-    background-image: url(/assets/img/icons/fleche-bas.svg);
-}
-
 .icon_like {
-    background-image: url(/assets/img/icons/coeur-vide.svg);
+    background-image: url(../img/icons/coeur-vide.svg);
     cursor: pointer;
 }
 
@@ -53,13 +45,13 @@
     width: 25px;
     height: 25px;
     background-size: contain;
-    background-image: url(/assets/img/icons/coeur-plein.svg);
+    background-image: url(../img/icons/coeur-plein.svg);
     filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
         brightness(105%) contrast(118%);
 }
 
 .icon_like:hover {
-    background-image: url(/assets/img/icons/coeur-plein.svg);
+    background-image: url(../img/icons/coeur-plein.svg);
     animation: 1.5s ease 0s infinite battement;
     filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
         brightness(105%) contrast(118%);
@@ -77,32 +69,8 @@
     }
 }
 
-.icon_facebook {
-    background-image: url(/assets/img/icons/Facebook.webp);
+.icon_social:hover {
     cursor: pointer;
-}
-.icon_instagram {
-    background-image: url(/assets/img/icons/Instagram.webp);
-    cursor: pointer;
-}
-.icon_twitter {
-    background-image: url(/assets/img/icons/Twitter.webp);
-    cursor: pointer;
-}
-.icon_snapchat {
-    background-image: url(/assets/img/icons/Snapchat.webp);
-    cursor: pointer;
-}
-.icon_tikTok {
-    background-image: url(/assets/img/icons/Tiktok.webp);
-    cursor: pointer;
-}
-
-.icon_facebook:hover,
-.icon_instagram:hover,
-.icon_twitter:hover,
-.icon_snapchat:hover,
-.icon_tikTok:hover {
     scale: 1.2;
     transition: all 0.2s;
 }

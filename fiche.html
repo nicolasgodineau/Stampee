@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <header class="fixe" id="top">
+    <header id="top">
         <nav class="nav_blanche flex_row">
             <div class="zone_gauche flex_row">
                 <img class="logo" src="./assets/img/logo/Logo.webp" alt="Logo">
@@ -37,28 +37,32 @@
                 <input aria-label="recherche" class="recherche" type="text" name="recherche" id="recherche"
                     placeholder="Votre recherche">
                 <a class="hover_underligne" href="./index.html">Actualités</a>
-                <a class="hover_underligne" href="#">Enchères</a>
-                <a class="call_to_action blanc" href="#">Connexion</a>
-                <a class="call_to_action blanc" href="#">Inscription</a>
+                <a class="hover_underligne" href="./catalogue.html">Enchères</a>
+                <a class="call_to_action blanc" href="./connexion.html">Connexion</a>
+                <a class="call_to_action blanc" href="./inscription.html">Inscription</a>
             </div>
             </div>
         </nav>
     </header>
+    <nav class="fil_ariane">
+        <i class="fa-solid fa-house"></i>
+        <a class='retour' href="./index.html">Accueil</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <a class='retour' href="./catalogue.html">Catalogue des enchères</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <em>Fiche d'enchère</em>
+    </nav>
     <main class="flex_column">
-        <div class="fil_ariane">
-            <a class='retour' href="/index.html">Accueil</a> <span>/</span>
-            <a class='retour' href="/catalogue.html">Catalogue des enchères</a>
-        </div>
         <div class="fiche flex_row">
             <section class="image flex_column">
                 <div>
-                    <img data-filtre="image" src="/assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
                     <p>Passez dessus pour voir plus grand</p>
                 </div>
                 <div class="carrousel">
-                    <img data-filtre="image" src="/assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                    <img data-filtre="image" src="/assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                    <img data-filtre="image" src="/assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
                 </div>
                 <div>
                     <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
@@ -115,7 +119,7 @@
                         <input aria-label="miser" data-filtre="enchere" class="zone_enchere" type="text" name="miser"
                             placeholder="min $500.00" id="miser">
                         <a class="call_to_action bleu" href="#">Enchérir</a>
-                        <span class="icon_like icon_taille_25"></span>
+                        <span class="icon_like icon_taille_20"></span>
                     </div>
                     <div class="information_importante flex_row">
                         <ul>
@@ -123,24 +127,24 @@
                             <li>Livraison internationale gratuite</li>
                             <li>Certification garantie</li>
                         </ul>
-                        <img src="/assets/img/icons/icone-payment.webp" alt="information payment">
+                        <img src="./assets/img/icons/icone-payment.webp" alt="information payment">
                     </div>
                 </footer>
             </section>
         </div>
         <div class="voir_plus flex_column">
             <h2>D’autres enchères pourraient vous intéressé !</h2>
-            <span class="icon_fleche_bas icon_taille_50"></span>
+            <i class="fa-solid fa-arrow-down icon_taille_50"></i>
         </div>
         <div data-filtre="catalogue" class="autres_enchères">
             <article class="carte flex_column">
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
-                        <span class="icon_horloge icon_taille_25"></span>
+                        <i class="fa-regular fa-clock icon_taille_20"></i>
                         <h2 data-filtre="finEnchere">10:35:47</h2>
                     </div>
                     <div class="like flex_row">
-                        <span class="icon_like icon_taille_25"></span>
+                        <span class="icon_like icon_taille_20"></span>
                         <h2 data-filtre="like">33</h2>
                     </div>
                 </header>
@@ -162,11 +166,11 @@
             <article class="carte flex_column">
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
-                        <span class="icon_horloge icon_taille_25"></span>
+                        <i class="fa-regular fa-clock icon_taille_20"></i>
                         <h2 data-filtre="finEnchere">10:35:47</h2>
                     </div>
                     <div class="like flex_row">
-                        <span class="icon_like icon_taille_25"></span>
+                        <span class="icon_like icon_taille_20"></span>
                         <h2 data-filtre="like">33</h2>
                     </div>
                 </header>
@@ -188,11 +192,11 @@
             <article class="carte flex_column">
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
-                        <span class="icon_horloge icon_taille_25"></span>
+                        <i class="fa-regular fa-clock icon_taille_20"></i>
                         <h2 data-filtre="finEnchere">10:35:47</h2>
                     </div>
                     <div class="like flex_row">
-                        <span class="icon_like icon_taille_25"></span>
+                        <span class="icon_like icon_taille_20"></span>
                         <h2 data-filtre="like">33</h2>
                     </div>
                 </header>
@@ -214,11 +218,11 @@
             <article class="carte flex_column">
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
-                        <span class="icon_horloge icon_taille_25"></span>
+                        <i class="fa-regular fa-clock icon_taille_20"></i>
                         <h2 data-filtre="finEnchere">10:35:47</h2>
                     </div>
                     <div class="like flex_row">
-                        <span class="icon_like icon_taille_25"></span>
+                        <span class="icon_like icon_taille_20"></span>
                         <h2 data-filtre="like">33</h2>
                     </div>
                 </header>
@@ -240,11 +244,11 @@
             <article class="carte flex_column">
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
-                        <span class="icon_horloge icon_taille_25"></span>
+                        <i class="fa-regular fa-clock icon_taille_20"></i>
                         <h2 data-filtre="finEnchere">10:35:47</h2>
                     </div>
                     <div class="like flex_row">
-                        <span class="icon_like icon_taille_25"></span>
+                        <span class="icon_like icon_taille_20"></span>
                         <h2 data-filtre="like">33</h2>
                     </div>
                 </header>
@@ -267,7 +271,7 @@
     </main>
     <footer class="footer_page flex_column">
         <div class="logo_footer flex_row flex_justify_center ">
-            <img src="/assets/img/logo/Logo.webp" alt="">
+            <img src="./assets/img/logo/Logo.webp" alt="Logo Lord Stempee">
         </div>
         <div class="aide_generale flex_row flex_justify_around">
             <div class="liste1 liste flex_column">
@@ -311,11 +315,11 @@
                 </div>
             </div>
             <div class="reseaux_sociaux flex_row flex_justify_center flex_align_center">
-                <span class="icon_facebook icon_taille_40"></span>
-                <span class="icon_instagram icon_taille_40"></span>
-                <span class="icon_twitter icon_taille_40"></span>
-                <span class="icon_snapchat icon_taille_40"></span>
-                <span class="icon_tikTok icon_taille_40"></span>
+                <i class="fa-brands fa-facebook icon_taille_40 icon_social"></i>
+                <i class="fa-brands fa-instagram icon_taille_40 icon_social"></i>
+                <i class="fa-brands fa-twitter icon_taille_40 icon_social"></i>
+                <i class="fa-brands fa-snapchat icon_taille_40 icon_social"></i>
+                <i class="fa-brands fa-tiktok icon_taille_40 icon_social"></i>
             </div>
         </div>
         <p>© Stampee 2022, Tous droits réservés
