@@ -1,31 +1,25 @@
-<menu class="menuGauche">
-    <h2>Menu</h2>
-    <h3>Bonjour {{session.nom_utilisateur}}</h3>
-    <a href="{{path}}">Accueil</a>
-    {% if guest %}
-    <li><a href='{{path}}user/create'>Créer un compte</a></li>
-    <li><a href="{{path}}user/login">Se connecter</a></li>
-    {% else %}
-    <a href="{{ path }}user/logout">Logout</a>
-    {% endif %}
-    {% if session.id_privilege == 1 or session.id_privilege == 2 %}
-    <a href="{{path}}book">Liste des enfants</a>
-    {% endif %}
-    {% if session.id_privilege == 1 %}
-    <a href="{{path}}book/create">Ajout d'un enfant sur la liste</a>
-    {% endif %}
-    <li>
-        <form action="" method="post">
-            <input class="small" type="submit" value="Envoyer moi un mail !">
-        </form>
-    </li>
-</menu>
-<header>
-    <h1>{{ pageHeader}}</h1>
-</header>
-<aside>
-    {% if errors is defined %}
-    <span class="error">{{ errors | raw}}</span>
-    {% endif %}
-</aside>
-</body>
+<body>
+    <header class="blur fixe" id="top">
+        <nav class="flex_row">
+            <div class="zone_gauche flex_row">
+                <img class="logo" src="{{ path }}assets/img/logo/Logo.webp" alt="Logo">
+                <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
+            </div>
+            <div class="zone_droite flex_row">
+                <a class="hover_underligne" href="../home/index">Actualités</a>
+                <a class="hover_underligne" href="../enchere/index">Enchères</a>
+                {% if session.Role_idRole == 1 %}
+                <h2>Bienvenue {{session.prenom}}</h2>
+                <a class="call_to_action blanc" href="#">Mon compte</a>
+                <a class="hover_underligne" href="{{ path }}membre/logout">Se déconnecter</a>
+
+                {% elseif session.Role_idRole == 1 %}
+                <a href="{{path}}book/create">Ajout d'un enfant sur la liste</a>
+                {% endif %}
+                {% if not session.Role_idRole == 1 or session.Role_idRole == 2 %}
+                <a class="call_to_action blanc" href="../membre/login">Connexion</a>
+                <a class="call_to_action blanc" href="../membre/create">Inscription</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>

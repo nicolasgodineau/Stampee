@@ -12,6 +12,9 @@ abstract class Crud extends PDO
     public function select($champ = 'idMembre', $order = 'ASC')
     {
         $sql = "SELECT * FROM $this->table ORDER BY $champ $order";
+        echo '<pre>';
+        print_r($sql);
+        echo '</pre>';
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }

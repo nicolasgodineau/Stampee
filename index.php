@@ -34,12 +34,6 @@ RewriteRule ^(.+)$ index.php?url=$1 [L]
 $_SESSION['url'] = $url;
 
 
-if ($url > 1) {
-    # code..
-    echo ('sup1');
-    echo $url;
-}
-
 
 print_r($url);
 if ($url == '/') {
@@ -51,16 +45,12 @@ if ($url == '/') {
     $requestURL = $url[0];
     $requestURL = ucfirst($requestURL);
     $controllerPath = __DIR__ . '/controller/Controller' . $requestURL . '.php';
-    $_SESSION['url'] = $requestURL;
-    echo '<pre>';
-    print_r($_SESSION['url']);
-    echo '</pre>';
 
     if (file_exists($controllerPath)) {
         require_once($controllerPath);
         $controllerName = 'Controller' . $requestURL;
         $controller = new $controllerName;
-        //print_r($controller);
+        print_r($controller);
         if (isset($url[1])) {
             $method = $url[1];
             if (isset($url[2])) {

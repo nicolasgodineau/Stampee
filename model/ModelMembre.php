@@ -8,29 +8,35 @@ class ModelMembre extends Crud
 
     protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole'];
 
-    public function checkUser($data)
+    public function checkMembre($data)
     {
 
         extract($data);
-        $sql = "SELECT * FROM $this->table WHERE username = ?";
-        echo '<pre>';
-        print_r($sql);
-        echo '</pre>';
+        $sql = "SELECT * FROM $this->table WHERE email = ?";
+
         $stmt = $this->prepare($sql);
-        $stmt->execute(array($username));
+        $stmt->execute(array($email));
         $count = $stmt->rowCount();
 
         if ($count == 1) {
-            $user_info = $stmt->fetch();
-            if (password_verify($password, $user_info['password'])) {
+            $membre_info = $stmt->fetch();
+            if (password_verify($password, $membre_info['password'])) {
 
                 session_regenerate_id();
+                $_SESSION['prenom'] = $membre_info['prenom'];
+                $_SESSION['Role_idRole'] = $membre_info['Role_idRole'];
+                $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+                //twig::render("home-index.php");
 
-                requirePage::redirectPage('../book', ['user_info' => $user_info]);
+                requirePage::redirectPage('home', ['membre_info' => $membre_info]);
             } else {
-                return "<ul><li>Verifier le mot de passe</li></ul>";
+                echo '<pre> errer';
+                print_r($membre_info);
+                echo '</pre>';
+                return "<h4>Verifier le mot de passe</h4>";
             }
         } else {
+            echo "text";
             return "<ul><li>Le non d'utilisateur n'existe pas</li></ul>";
         }
     }

@@ -14,11 +14,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ path }}assets/css/variables.css">
     <link rel="stylesheet" href="{{ path }}assets/css/style.css">
+    <link rel="stylesheet" href="{{ path }}assets/css/accueil.css">
     <link rel="stylesheet" href="{{ path }}assets/css/menu.css">
-    <link rel="stylesheet" href="{{ path }}assets/css/fiche.css">
     <link rel="stylesheet" href="{{ path }}assets/css/carte.css">
-    <link rel="stylesheet" href="{{ path }}assets/css/catalogue.css">
-    <link rel="stylesheet" href="{{ path }}assets/css/aside.css">
     <link rel="stylesheet" href="{{ path }}assets/css/icon.css">
     <link rel="stylesheet" href="{{ path }}assets/css/formulaire.css">
     <link rel="stylesheet" href="{{ path }}assets/css/footer.css">

@@ -61,18 +61,24 @@ Twig::render('membre-create.php', ['privileges' => $select]);
     public function auth()
     {
         $validation = new Validation;
+
         extract($_POST);
-        $validation->name('username')->value($username)->pattern('email')->required()->max(50);
+        $validation->name('email')->value($email)->pattern('email')->required()->max(50);
         $validation->name('password')->value($password)->required();
 
         if ($validation->isSuccess()) {
-            $user = new ModelMembre;
-            $checkUser = $user->checkUser($_POST);
+            echo "text";
+            $membre = new ModelMembre;
+            $checkMembre = $membre->checkMembre($_POST);
+            echo '<pre>';
+            print_r($_POST);
+            echo '</pre>';
+            RequirePage::redirectPage('home/index');
 
-            twig::render('book-index.php', ['errors' => $checkUser, 'user' => $_POST]);
+            //twig::render('home-index.php', ['errors' => $checkMembre, 'membre' => $_POST]);
         } else {
             $errors = $validation->displayErrors();
-            twig::render('membre-login.php', ['errors' => $errors, 'user' => $_POST]);
+            twig::render('membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
         }
     }
 
