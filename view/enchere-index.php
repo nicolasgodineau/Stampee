@@ -2,7 +2,7 @@
 {{include('menu.php')}}
 <nav class="fil_ariane">
     <i class="fa-solid fa-house"></i>
-    <a class='retour' href="./index.html">Accueil</a>
+    <a class='retour' href="../home/index">Accueil</a>
     <i class="fa-solid fa-arrow-right"></i>
     <em>Catalogue des enchères</em>
 </nav>
@@ -116,7 +116,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu call_to_action_petit">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">

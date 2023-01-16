@@ -1,24 +1,16 @@
-{{ include('header.php', {title: 'Fiche d'enchère'})}}
+{{ include('header.php', {title: 'Connexion'})}}
 {{include('menu.php')}}
-<nav class="fil_ariane">
-    <i class="fa-solid fa-house"></i>
-    <a class='retour' href="./index.html">Accueil</a>
-    <i class="fa-solid fa-arrow-right"></i>
-    <a class='retour' href="./catalogue.html">Catalogue des enchères</a>
-    <i class="fa-solid fa-arrow-right"></i>
-    <em>Fiche d'enchère</em>
-</nav>
 <main class="flex_column">
     <div class="fiche flex_row">
         <section class="image flex_column">
             <div>
-                <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre1.webp" alt="timbre à vendre">
                 <p>Passez dessus pour voir plus grand</p>
             </div>
             <div class="carrousel">
-                <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre1.webp" alt="timbre à vendre">
             </div>
             <div>
                 <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
@@ -83,7 +75,7 @@
                         <li>Livraison internationale gratuite</li>
                         <li>Certification garantie</li>
                     </ul>
-                    <img src="./assets/img/icons/icone-payment.webp" alt="information payment">
+                    <img src="{{ path }}assets/img/icons/icone-payment.webp" alt="information payment">
                 </div>
             </footer>
         </section>
@@ -105,7 +97,7 @@
                 </div>
             </header>
             <div class="flex_column">
-                <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre à vendre">
             </div>
             <footer class="footer_carte flex_column">
                 <p data-filtre="nomTimbre">
@@ -131,7 +123,7 @@
                 </div>
             </header>
             <div class="flex_column">
-                <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre à vendre">
             </div>
             <footer class="footer_carte flex_column">
                 <p data-filtre="nomTimbre">
@@ -157,7 +149,7 @@
                 </div>
             </header>
             <div class="flex_column">
-                <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre à vendre">
             </div>
             <footer class="footer_carte flex_column">
                 <p data-filtre="nomTimbre">
@@ -183,7 +175,7 @@
                 </div>
             </header>
             <div class="flex_column">
-                <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre à vendre">
             </div>
             <footer class="footer_carte flex_column">
                 <p data-filtre="nomTimbre">
@@ -209,7 +201,7 @@
                 </div>
             </header>
             <div class="flex_column">
-                <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
+                <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre à vendre">
             </div>
             <footer class="footer_carte flex_column">
                 <p data-filtre="nomTimbre">
@@ -225,3 +217,4 @@
         </article>
     </div>
 </main>
+{{ include('footer.php') }}
