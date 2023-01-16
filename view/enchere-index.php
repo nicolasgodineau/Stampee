@@ -143,7 +143,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -170,7 +170,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -197,7 +197,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -224,7 +224,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -251,7 +251,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -278,7 +278,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -305,7 +305,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -332,7 +332,7 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
         <article class="carte flex_column">
@@ -359,8 +359,9 @@
                     <p data-filtre="etat">Très bon</p>
                 </div>
                 <h3 class="call_to_action bleu">Enchérir</h3>
-                <a class="plus_infos" href="./fiche.html">Voir plus d'informations</a>
+                <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
             </footer>
         </article>
     </div>
 </main>
+{{ include('footer.php') }}

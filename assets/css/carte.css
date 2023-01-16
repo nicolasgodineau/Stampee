@@ -7,6 +7,7 @@
     justify-content: space-between;
     overflow-y: hidden;
     background-color: var(--couleur_carte);
+    box-shadow: 0 7px 12px -3px rgba(128, 128, 128, 0.24);
 }
 
 .carte h2 {
@@ -27,6 +28,7 @@
     padding: 5px 10px;
     background-color: var(--couleur_dynamic_island);
     border-radius: 30px;
+    box-shadow: 0 7px 12px -3px rgba(128, 128, 128, 0.4);
 }
 
 .carte .heure {

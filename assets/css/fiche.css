@@ -52,7 +52,7 @@
     padding: 10px 0px;
 }
 .fiche tr:nth-child(odd) {
-    background-color: #eceff7;
+    background-color: var(--couleur_dynamic_island);
 }
 
 .fiche .like {
@@ -168,4 +168,9 @@ footer h2 {
     max-height: 100px;
     width: auto;
     object-fit: contain;
+}
+
+/* NOTE Zone pour la création d'une enchère */
+.fiche form ul {
+    gap: 20px;
 }

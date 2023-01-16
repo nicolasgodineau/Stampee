@@ -1,4 +1,4 @@
-{{ include('header.php', {title: 'Connexion'})}}
+{{ include('header.php', {title: 'Fiche d\'enchere'})}}
 {{include('menu.php')}}
 <main class="flex_column">
     <div class="fiche flex_row">
@@ -67,7 +67,7 @@
                     <input aria-label="miser" data-filtre="enchere" class="zone_enchere" type="text" name="miser"
                         placeholder="min $500.00" id="miser">
                     <a class="call_to_action bleu" href="#">Enchérir</a>
-                    <span class="icon_like icon_taille_20"></span>
+                    <span class="icon_like icon_taille_25"></span>
                 </div>
                 <div class="information_importante flex_row">
                     <ul>
