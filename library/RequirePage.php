@@ -1,11 +1,15 @@
 <?php
 
-/* class RequirePage{
-    static public function requireModel($model){
+/* class RequirePage
+{
+    static public function requireModel($model)
+    {
         return require_once "model/$model.php";
     }
-    static public function redirectPage($page){
-        return header("Location: http://localhost:8888/200-PHP/220-Cours/223-Session3/Cours20/".$page);
+    static public function redirectPage($page)
+    {
+        // return header("Location: $page");
+        return header("Location: http://localhost:8888/200-PHP/230-Exercices/233-Session3/TP3/" . $page);
     }
 } */
 

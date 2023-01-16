@@ -2,15 +2,15 @@
 
 class Twig
 {
+
     static public function render($template, $data = array())
     {
         $loader = new \Twig\Loader\FilesystemLoader('view');
         // $twig = new \Twig\Environment($loader, array('auto_reload' => true,'cache' => false));
-        $twig = new \Twig\Environment($loader, [
-            'debug' => true,
-        ]);
-        $twig->addExtension(new \Twig\Extension\DebugExtension());
-        $twig->addGlobal('path', 'http://localhost:8888/200-PHP/220-Cours/223-Session3/Cours20/');
+        $twig = new \Twig\Environment($loader, array('auto_reload' => true));
+        $twig->addGlobal('path', 'http://localhost:8888/400-WEB1/430-Exercices/Stempee/');
+        //$twig->addGlobal('path', 'https://e2295324.webdev.cmaisonneuve.qc.ca/TP3_PHP/');
+
         $twig->addGlobal('session', $_SESSION);
 
 
