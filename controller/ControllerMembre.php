@@ -33,9 +33,6 @@ Twig::render('membre-create.php', ['privileges' => $select]);
             $_POST['Role_idRole'] = 3;
         }
         $validation = new Validation;
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
         extract($_POST);
         $validation->name('nom')->value($nom)->pattern('alpha')->required()->max(45);
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
@@ -49,11 +46,7 @@ Twig::render('membre-create.php', ['privileges' => $select]);
             ];
             $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
             $userInsert = $user->insert($_POST);
-            echo '<pre>';
-            print_r($userInsert);
-            echo '</pre>';
-            echo "text yes";
-            requirePage::redirectPage('book/index');
+            twig::render('membre-login.php');
         } else {
             $errors = $validation->displayErrors();
             $privilege = new ModelRole;

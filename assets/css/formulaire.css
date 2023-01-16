@@ -28,6 +28,10 @@ form input {
     border-radius: 30px;
 }
 
+form input:invalid {
+    border-color: red;
+}
+
 form .info_perso,
 form .info_connexion,
 form .info_date_naissance,

@@ -29,7 +29,8 @@
                 <input type="hidden" name="Role_idRole" value=1>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
-                        placeholder="Nom" required>
+                        placeholder="Nom" value="{{membre.nom}}" pattern="[A-Za-z]{1,15}"
+                        title="Champ prénom invalide 15 lettres maximum exemple: john" required>
                 </div>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-user"></i><input aria-label="prenom" type="text" name="prenom" id="prenom"
@@ -77,7 +78,8 @@
                 </div>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
-                        id="password" placeholder="Mot de passe" required>
+                        id="password" placeholder="Mot de passe ex: 123456" pattern="[0-9]{6,9}"
+                        title="6 caractères minimum et uniquement des chiffres" required>
                 </div>
                 <!--                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text"
