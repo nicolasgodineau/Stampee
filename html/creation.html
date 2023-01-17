@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='author' content='Nicolas Godineau - 2295324'>
+    <meta name="description" content="Platforme de vente de timbre">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/fiche.css">
+    <link rel="stylesheet" href="./assets/css/carte.css">
+    <link rel="stylesheet" href="./assets/css/icon.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/formulaire.css">
+    <script type="module" src="./assets/scripts/main.mjs" defer></script>
+    <script src="https://kit.fontawesome.com/4890a1a8f5.js" crossorigin="anonymous"></script>
+
+
+    <title>Fiche</title>
+</head>
+
+<body>
+    <nav class="fixe nav_blanche flex_row">
+        <div class="zone_gauche flex_row">
+            <img class="logo" src="./assets/img/logo/Logo.webp" alt="Logo">
+            <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
+        </div>
+        <div class="zone_droite flex_row">
+            <input aria-label="recherche" class="recherche" type="text" name="recherche" id="recherche"
+                placeholder="Votre recherche">
+            <a class="hover_underligne" href="./index.html">Actualités</a>
+            <a class="hover_underligne" href="./catalogue.html">Enchères</a>
+        </div>
+    </nav>
+    <header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
+        <h1 class="principale">Création d'une enchère</h1>
+    </header>
+    <nav class="fil_ariane">
+        <i class="fa-solid fa-house"></i>
+        <a class='retour' href="./index.html">Accueil</a>
+        <i class="fa-solid fa-arrow-right"></i>
+        <em>Création d'une enchère</em>
+    </nav>
+    <main class="flex_column ">
+        <div class="fiche flex_column">
+            <section class="image flex_column">
+                <div>
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <p>Passez dessus pour voir plus grand</p>
+                </div>
+                <div class="carrousel">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
+                </div>
+                <div>
+                    <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
+                </div>
+            </section>
+            <form class="flex_column" action="" method="post">
+                <div class="info_perso flex_column">
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-font"></i><input aria-label="nom" type="text" name="nom" id="nom"
+                            placeholder="Nom" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-font"></i><textarea placeholder="Description du timbre"
+                            aria-label="description" name="description" id="description" rows="5" required></textarea>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-font"></i><input aria-label="prix" type="text" name="prix" id="prix"
+                            placeholder="Prix de début d'enchère" required>
+                    </div>
+                </div>
+                <button class="call_to_action bleu" type="submit">Valider</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
+
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-user"></i><input aria-label="condition" type="text" name="condition"
+                            id="condition" placeholder="Condition" required>
+                    </div> -->
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="scott" type="text" name="scott" id="scott"
+                            placeholder="Scott" required>
+                    </div> -->
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="emission" type="text" name="emission"
+                            id="emission" placeholder="Émission" required>
+                    </div> -->
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="valeur" type="text" name="valeur"
+                            id="valeur" placeholder="Valeur" required>
+                    </div> -->
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="date" type="text" name="date" id="date"
+                            placeholder="Date de parution" required>
+                    </div> -->
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="couleur" type="text" name="couleur"
+                            id="couleur" placeholder="Couleur" required>
+                    </div> -->
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="perforation" type="text" name="perforation"
+                            id="perforation" placeholder="Perforation" required>
+                    </div> -->
+
+<!--                     <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-house"></i><input aria-label="paysEnvoi" type="text" name="paysEnvoi"
+                            id="paysEnvoi" placeholder="Pays d'envoi" required>
+                    </div> -->
