@@ -12,9 +12,6 @@ abstract class Crud extends PDO
     public function select($champ = 'idMembre', $order = 'ASC')
     {
         $sql = "SELECT * FROM $this->table ORDER BY $champ $order";
-        echo '<pre>';
-        print_r($sql);
-        echo '</pre>';
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
@@ -41,9 +38,6 @@ abstract class Crud extends PDO
         $valeurChamp = ":" . implode(", :", array_keys($data_map));
         $sql = "INSERT INTO $this->table ($nomChamp) VALUES 
         ($valeurChamp)";
-        echo '<pre>';
-        print_r($sql);
-        echo '</pre>';
 
         $stmt = $this->prepare($sql);
 
@@ -82,9 +76,8 @@ abstract class Crud extends PDO
 
     public function delete($id)
     {
-
         $sql = "DELETE FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
-
+        
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $id);
         if (!$stmt->execute()) {

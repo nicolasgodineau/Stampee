@@ -7,53 +7,49 @@ RequirePage::requireModel('ModelRole');
 class ControllerMembre
 {
 
-    public function index()
-    {
-    }
-
     public function create()
     {
-Twig::render('membre-create.php', ['privileges' => $select]);
+    Twig::render('membre-create.php', ['privileges' => $select]);
     }
-/*     public function create()
-    {
-        echo '<pre>';
-        print_r($_SESSION);
-        echo '</pre>';
-        $privileges = new ModelRole;
-        echo '<pre>';
-        print_r($privileges);
-        echo '</pre>';
-        $select = $privileges->select('privilege');
-        return Twig::render('membre-create.php', ['privileges' => $select]);
-    } */
+
+    
     public function store()
     {
-        if ($_SESSION['Role_idRole'] == 2) {
-            $_POST['Role_idRole'] = 3;
-        }
+   
         $validation = new Validation;
         extract($_POST);
         $validation->name('nom')->value($nom)->pattern('alpha')->required()->max(45);
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
         $validation->name('password')->value($password)->max(20)->min(6);
         $validation->name('Role_idRole')->value($Role_idRole)->pattern('int')->required();
+/* 
+        if ( $_POST['password'] !== $_POST['passwordConfirm']) {
+            return '<h3>Non valide</h3>';
+            
+            twig::render('membre-create.php',['membre' => $_POST]);
+            die();
+        }  */ 
 
-        if ($validation->isSuccess()) {
-            $user = new ModelMembre;
-            $options = [
-                'cost' => 10,
-            ];
-            $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
-            $userInsert = $user->insert($_POST);
-            twig::render('membre-login.php');
+        
+            if ($validation->isSuccess()) {
+                $user = new ModelMembre;
+                $options = [
+                    'cost' => 10,
+                ];
+                $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
+
+                $userInsert = $user->insert($_POST);
+                twig::render('membre-login.php');
         } else {
-            $errors = $validation->displayErrors();
-            $privilege = new ModelRole;
-            $selectPrivilege = $privilege->select();
-            twig::render('book-index.php', ['errors' => $errors, 'privileges' => $selectPrivilege, 'user' => $_POST]);
-        }
+                $errors = $validation->displayErrors();
+                $privilege = new ModelRole;
+                $selectPrivilege = $privilege->select();
+                twig::render('book-index.php', ['errors' => $errors, 'privileges' => $selectPrivilege, 'user' => $_POST]);
+            }
+        
     }
+
+    
     public function login()
     {
         twig::render('membre-login.php');
@@ -61,60 +57,54 @@ Twig::render('membre-create.php', ['privileges' => $select]);
     public function auth()
     {
         $validation = new Validation;
-
         extract($_POST);
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
         $validation->name('password')->value($password)->required();
-
         if ($validation->isSuccess()) {
-            echo "text";
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
-            echo '<pre>';
-            print_r($_POST);
-            echo '</pre>';
-            RequirePage::redirectPage('home/index');
 
-            //twig::render('home-index.php', ['errors' => $checkMembre, 'membre' => $_POST]);
+            //RequirePage::redirectPage('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
+
+            twig::render('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
         } else {
             $errors = $validation->displayErrors();
             twig::render('membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
-        }
+        } 
     }
 
     public function update()
     {
-        $user = new ModelMembre;
-        $update = $user->update($_POST);
-        RequirePage::redirectPage('book/index');
+        $membre = new ModelMembre;
+        $update = $membre->update($_POST);
+        twig::render('membre-edit.php', ['membre' => $_POST]);
     }
 
     public function delete()
     {
-        $user = new ModelMembre;
-        $delete = $user->delete($_POST['id']);
-        RequirePage::redirectPage('book/index');
+        $membre = new ModelMembre;
+        $delete = $membre->delete($_POST['idMembre']);
+        session_destroy();
+        twig::render('home-index.php');    
     }
 
     public function show($id)
     {
-        $user = new ModelMembre;
-        $selectUser = $user->selectId($id);
-        twig::render('user-show.php', ['user' => $selectUser]);
+        $membre = new ModelMembre;
+        $selectMembre = $membre->selectId($id);
+        twig::render('membre-show.php');
     }
 
     public function edit($id)
     {
-        $user = new ModelMembre;
-        $privilege = new ModelRole;
-        $selectUser = $user->selectId($id);
-        $selectPrivilege = $privilege->select();
-        twig::render('user-edit.php', ['user' => $selectUser, 'privilege' => $selectPrivilege]);
+        $membre = new ModelMembre;
+        $selectMembre = $membre->selectId($id);
+        twig::render('membre-edit.php', ['membre' => $selectMembre]);
     }
 
     public function logout()
     {
         session_destroy();
-        twig::render('home-index.php');
+        requirePage::redirectPage('../home/index');
     }
 }

@@ -12,6 +12,19 @@ body {
     margin: 0 auto;
 }
 
+.body_accueil {
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        ),
+        url(../img/accueil.webp) no-repeat;
+    background-size: 1920px;
+    background-attachment: fixed;
+    background-position: center;
+    max-width: 1920px;
+    min-height: 100vh;
+}
+
 .header_principal {
     min-height: 500px;
     background: linear-gradient(
@@ -20,7 +33,7 @@ body {
         ),
         url(../img/accueil.webp) no-repeat;
     background-size: 1920px;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     max-width: 1920px;
 }
@@ -130,6 +143,7 @@ input[type="button"] {
     border: 2px solid var(--couleur_call_to_action);
     background-color: transparent;
     transition: all 0.2s;
+    box-shadow: none;
 }
 
 .flex_row {

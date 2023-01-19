@@ -14,6 +14,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="{{ path }}assets/css/variables.css">
     <link rel="stylesheet" href="{{ path }}assets/css/style.css">
+    <link rel="stylesheet" href="{{ path }}assets/css/accueil.css">
     <link rel="stylesheet" href="{{ path }}assets/css/menu.css">
     <link rel="stylesheet" href="{{ path }}assets/css/fiche.css">
     <link rel="stylesheet" href="{{ path }}assets/css/carte.css">

@@ -9,7 +9,10 @@ class ControllerHome
 
   public function index()
   {
-    twig::render("home-index.php");
+    CheckSession::sessionAuth();
+    $membre = new ModelMembre;
+    $select = $membre->select();
+    twig::render("home-index.php",['membre' => $membre]);
   }
 
   public function indexAuth()
