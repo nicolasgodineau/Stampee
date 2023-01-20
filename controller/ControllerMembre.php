@@ -33,11 +33,9 @@ class ControllerMembre
             die();
         }  */ 
 
-        
+
             if ($validation->isSuccess()) {
-                $ville = new ModelVille;
-                $villeInsert = $ville->insert($_POST);
-                $_POST['Ville_idVille']=$villeInsert;                
+                $_POST['Pays_idPays'] = $pays;
                 $user = new ModelMembre;
                 $options = [
                     'cost' => 10,
@@ -71,8 +69,8 @@ class ControllerMembre
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
 
-            //RequirePage::redirectPage('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
 
+            //RequirePage::redirectPage('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
             twig::render('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
         } else {
             $errors = $validation->displayErrors();
@@ -106,7 +104,10 @@ class ControllerMembre
     {
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
-        twig::render('membre-edit.php', ['membre' => $selectMembre]);
+
+        $pays = new ModelPays;
+        $paysSelect = $pays->select("pays"); 
+        twig::render('membre-edit.php', ['membre' => $selectMembre, 'paysS' => $paysSelect]);
     }
 
     public function logout()

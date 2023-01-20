@@ -34,6 +34,19 @@
                     <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
                         placeholder="Adresse" value="{{membre.adresse}}">
                 </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-house"></i>
+                    <select class="placeholder" aria-label="pays" type="text" name="pays" id="pays" placeholder="Pays"
+                        required">
+                        <option selected>Votre pays</option>
+                        {% for pays in paysS %}
+                        <option value="{{ pays.idPays }}" {% if pays.idPays == membre.Pays_idPays %} selected
+                            {% endif %}>
+                            {{pays.pays}}</option>
+
+                        {% endfor %}
+                    </select>
+                </div>
                 <input class="call_to_action bleu" type="submit" value="Sauvegarder">
 
 

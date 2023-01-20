@@ -6,7 +6,7 @@ class ModelMembre extends Crud
     protected $table = 'Membre';
     protected $primaryKey = 'idMembre';
 
-    protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole','Ville_idVille'];
+    protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole','Pays_idPays'];
 
     public function checkMembre($data)
     {
@@ -27,7 +27,8 @@ class ModelMembre extends Crud
                 $_SESSION['Role_idRole'] = $membre_info['Role_idRole'];
                 $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
                 
-                requirePage::redirectPage('../home/index',['membre_info' => $_SESSION]);
+
+                //requirePage::redirectPage('../home/index',['membre_info' => $_SESSION]);
 
             } else {
 
