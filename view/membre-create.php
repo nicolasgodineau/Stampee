@@ -39,6 +39,10 @@
                     <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
                         placeholder="Adresse" value="{{membre.adresse}}">
                 </div>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-house"></i><input aria-label="ville" type="text" name="ville" id="ville"
+                        placeholder="Ville" value="{{membre.ville}}">
+                </div>
             </div>
             <div class="info_connexion flex_column">
                 <h4>Informations de connexion</h4>

@@ -6,7 +6,7 @@ class ModelMembre extends Crud
     protected $table = 'Membre';
     protected $primaryKey = 'idMembre';
 
-    protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole'];
+    protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole','Ville_idVille'];
 
     public function checkMembre($data)
     {

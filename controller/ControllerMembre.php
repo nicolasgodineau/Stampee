@@ -1,7 +1,8 @@
-composer update<?php
+<?php
 RequirePage::requireModel('Crud');
 RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');
+RequirePage::requireModel('ModelVille');
 RequirePage::requireModel('ModelRole');
 
 class ControllerMembre
@@ -15,7 +16,6 @@ class ControllerMembre
     
     public function store()
     {
-   
         $validation = new Validation;
         extract($_POST);
         $validation->name('nom')->value($nom)->pattern('alpha')->required()->max(45);
@@ -32,6 +32,9 @@ class ControllerMembre
 
         
             if ($validation->isSuccess()) {
+                $ville = new ModelVille;
+                $villeInsert = $ville->insert($_POST);
+                $_POST['Ville_idVille']=$villeInsert;                
                 $user = new ModelMembre;
                 $options = [
                     'cost' => 10,
@@ -39,6 +42,7 @@ class ControllerMembre
                 $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
 
                 $userInsert = $user->insert($_POST);
+
                 twig::render('membre-login.php');
         } else {
                 $errors = $validation->displayErrors();
