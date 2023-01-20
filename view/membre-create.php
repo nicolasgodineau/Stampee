@@ -2,7 +2,7 @@
 
 {% block my_javascripts %}
 <script src="{{ path }}assets/scripts/validation.js" type="text/javascript" defer></script>
-<script src="{{ path }}assets/scripts/api.js" type="text/javascript" defer></script>
+<!-- <script src="{{ path }}assets/scripts/api.js" type="text/javascript" defer></script> -->
 
 {% endblock %}
 
@@ -40,8 +40,14 @@
                         placeholder="Adresse" value="{{membre.adresse}}">
                 </div>
                 <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-house"></i><input aria-label="ville" type="text" name="ville" id="ville"
-                        placeholder="Ville" value="{{membre.ville}}">
+                    <i class="fa-solid fa-house"></i>
+                    <select class="placeholder" aria-label="pays" type="text" name="pays" id="pays" placeholder="Pays"
+                        required">
+                        <option selected>Votre pays</option>
+                        {% for pays in paysS %}
+                        <option value="{{pays.idPays}}">{{pays.pays}}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             <div class="info_connexion flex_column">

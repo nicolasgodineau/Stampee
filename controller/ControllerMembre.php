@@ -5,12 +5,15 @@ RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelVille');
 RequirePage::requireModel('ModelRole');
 
+
 class ControllerMembre
 {
 
     public function create()
     {
-    Twig::render('membre-create.php', ['privileges' => $select]);
+        $pays = new ModelPays;
+        $paysSelect = $pays->select("pays"); 
+        Twig::render('membre-create.php', ['paysS' => $paysSelect]);
     }
 
     

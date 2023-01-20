@@ -9,8 +9,8 @@ abstract class Crud extends PDO
         //parent::__construct('mysql:host=localhost; dbname=e2295324; charset=utf8', 'e2295324', '0RsAGIPo4eNLirX4FvwH');
     }
 
-    public function select($champ = 'idMembre', $order = 'ASC')
-    {
+    public function select($champ = 'id', $order = 'ASC')
+    {   
         $sql = "SELECT * FROM $this->table ORDER BY $champ $order";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();

@@ -1,5 +1,6 @@
 {
     "require": {
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.0",
+        "stefangabos/world_countries": "^2.6"
     }
 }

@@ -7,4 +7,7 @@ class ModelPays extends Crud
     protected $primaryKey = 'idPays';
 
     protected $fillable = ['idPays', 'pays'];
+
+
+
 }
