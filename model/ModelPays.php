@@ -3,8 +3,8 @@
 class ModelPays extends Crud
 {
 
-    protected $table = 'pays';
+    protected $table = 'Pays';
     protected $primaryKey = 'idPays';
 
-    protected $fillable = ['idPays', 'nom'];
+    protected $fillable = ['idPays', 'pays'];
 }
