@@ -1,4 +1,4 @@
-<?php
+composer update<?php
 RequirePage::requireModel('Crud');
 RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');

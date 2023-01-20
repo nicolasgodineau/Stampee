@@ -8,7 +8,7 @@ class Twig
         $loader = new \Twig\Loader\FilesystemLoader('view');
         // $twig = new \Twig\Environment($loader, array('auto_reload' => true,'cache' => false));
         $twig = new \Twig\Environment($loader, array('auto_reload' => true));
-        $twig->addGlobal('path', 'http://localhost:8888/400-WEB1/430-Exercices/Stempee/');
+        $twig->addGlobal('path', 'http://localhost:8888/400-WEB1/430-Exercices/Stampee/');
         //$twig->addGlobal('path', 'https://e2295324.webdev.cmaisonneuve.qc.ca/TP3_PHP/');
 
         $twig->addGlobal('session', $_SESSION);
