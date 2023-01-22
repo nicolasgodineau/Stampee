@@ -3,8 +3,8 @@ RequirePage::requireModel('Crud');
 RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelRole');
-RequirePage::requireModel('ModelEnchere');
-RequirePage::requireModel('ModelFiche');
+// RequirePage::requireModel('ModelEnchere');
+// RequirePage::requireModel('ModelFiche');
 
 
 class ControllerMembre
