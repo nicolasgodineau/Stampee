@@ -3,8 +3,7 @@ RequirePage::requireModel('Crud');
 RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelRole');
-// RequirePage::requireModel('ModelEnchere');
-// RequirePage::requireModel('ModelFiche');
+RequirePage::requireModel('ModelEnchere');
 
 
 class ControllerMembre
@@ -78,7 +77,7 @@ class ControllerMembre
         if ($validation->isSuccess()) {
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
-            twig::render('membre-login.php', ['errors' => $checkMembre, 'membre' => $_POST]);
+            twig::render('home-index.php', ['errors' => $checkMembre, 'membre' => $_POST]);
         } else {
             $errors = $validation->displayErrors();
             twig::render('membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
