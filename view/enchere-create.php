@@ -25,8 +25,8 @@
                     <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
                 </div>
             </section> -->
-            <form class="flex_column" action="" method="post">
-                <input type="text" name="idMembre" value="{{membre.idMembre}}">
+            <form class="flex_column" action="{{ path }}enchere/store" method="post">
+                <input type="text" name="idMembre" value="{{session.idMembre}}">
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><input aria-label="nom" type="text" name="nom" id="nom"

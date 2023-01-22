@@ -20,6 +20,7 @@ class ControllerMembre
 
     public function create()
     {
+        // A déplacer dans la fonction store (faire tests)
         $pays = new ModelPays;
         $paysSelect = $pays->select("pays"); 
         Twig::render('membre-create.php', ['paysS' => $paysSelect]);
