@@ -62,7 +62,7 @@
                         title="6 caractères minimum et uniquement des chiffres" required>
                 </div>
             </div>
-            <button class="call_to_action bleu" type="submit">S'inscrire</button>
+            <input class="call_to_action bleu" type="submit" value="S'inscrire">
         </form>
     </main>
     {{ include('footer.php') }}

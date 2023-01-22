@@ -1,6 +1,7 @@
 {{ include('header.php', {title: 'Fiche d\'enchere'})}}
 
 <body>
+
     {{include('menu.php')}}
     <main class="flex_column">
         <div class="fiche flex_row">

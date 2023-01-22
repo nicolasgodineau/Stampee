@@ -2,12 +2,22 @@
 RequirePage::requireModel('Crud');
 RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');
-RequirePage::requireModel('ModelVille');
 RequirePage::requireModel('ModelRole');
+RequirePage::requireModel('ModelEnchere');
+RequirePage::requireModel('ModelFiche');
 
 
 class ControllerMembre
 {
+    public function index($id){
+        $membre = new ModelMembre;
+        $selectMembre = $membre->selectId($id);
+
+        $pays = new ModelPays;
+        $paysSelect = $pays->select("pays"); 
+        twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect]);
+
+    }
 
     public function create()
     {
@@ -68,10 +78,7 @@ class ControllerMembre
         if ($validation->isSuccess()) {
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
-
-
-            //RequirePage::redirectPage('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
-            twig::render('home/index', ['errors' => $checkMembre, 'membre' => $_POST]);
+            twig::render('membre-login.php', ['errors' => $checkMembre, 'membre' => $_POST]);
         } else {
             $errors = $validation->displayErrors();
             twig::render('membre-login.php', ['errors' => $errors, 'membre' => $_POST]);

@@ -48,8 +48,7 @@
                     </select>
                 </div>
                 <input class="call_to_action bleu" type="submit" value="Sauvegarder">
-
-
+            </div>
         </form>
         <form action="{{ path }}membre/delete" method="post">
             <input type="hidden" name="idMembre" value="{{membre.idMembre}}">

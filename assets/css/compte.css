@@ -1,4 +1,5 @@
 .compte {
+    min-width: 80%;
     gap: 20px;
     max-width: fit-content;
     min-height: fit-content;
@@ -11,7 +12,7 @@
 
 .compte_profil {
     gap: 30px;
-    min-width: 250px;
+    min-width: 100%;
     border-right: 1px solid #ddd;
 }
 
@@ -22,6 +23,13 @@
 .compte form {
     justify-content: space-between;
     min-height: 500px;
+}
+
+.compte summary {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
 }
 
 .compte_photo {
@@ -35,6 +43,10 @@
 
 .compte_photo img {
     max-height: 50px;
+}
+
+.compte_menu {
+    justify-content: flex-start;
 }
 
 .compte_menu div {

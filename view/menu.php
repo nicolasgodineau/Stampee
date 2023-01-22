@@ -8,7 +8,8 @@
             <a class="hover_underligne" href="{{ path }}home/index">Actualités</a>
             <a class="hover_underligne" href="{{ path }}enchere/index">Enchères</a>
             {% if session.Role_idRole == 1 %}
-            <a class="call_to_action blanc" href="{{ path }}membre/edit/ {{session.idMembre}}">Mon compte</a>
+            <a class="call_to_action blanc" href="{{ path }}membre/index/{{session.idMembre}}">Mon compte</a>
+            <a class="call_to_action bleu" href="{{ path }}home/create">Créer une enchère</a>
             <a class="hover_underligne" href="{{ path }}membre/logout">Se déconnecter</a>
 
             {% elseif session.Role_idRole == 2 %}
