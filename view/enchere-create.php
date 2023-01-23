@@ -27,6 +27,9 @@
             </section> -->
             <form class="flex_column" action="{{ path }}enchere/store" method="post">
                 <input type="text" name="idMembre" value="{{session.idMembre}}">
+                <input type="text" name="Membre_idMembre" value="{{session.idMembre}}">
+                <input type="text" name="Timbre_idTimbre" value="">
+
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><input aria-label="nom" type="text" name="nom" id="nom"
@@ -41,6 +44,8 @@
                         <i class="fa-solid fa-font"></i><input aria-label="prix" type="text" name="prix" id="prix"
                             placeholder="Prix de début d'enchère" value="150">
                     </div>
+
+                    <input type="file" name="image" id="image">
                 </div>
                 <input class="call_to_action bleu" type="submit" value="Valider">
             </form>

@@ -4,6 +4,7 @@ RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelRole');
 RequirePage::requireModel('ModelTimbre');
+RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelEnchere');
 
 
@@ -26,21 +27,32 @@ class ControllerEnchere
 
     public function store()
     {
-        //$timbre = new ModelTimbre;
-        //$timbreInsert = $timbre->insert($_POST);
+        $image = new ModelImage;
+        $imageInsert = $image->insertImage($_POST);
 
-        $enchere = new ModelEnchere;
-        $enchereInsert = $enchere->insert($_POST);
-        echo '<pre>';
-        print_r($enchereInsert);
+        $_POST["Image_idImage"] = $imageInsert;
+
+
+        $timbre = new ModelTimbre;
+        $timbreInsert = $timbre->insert($_POST);
+
+        // Ajout l'id de l'insert dans la table timbre
+        $_POST["Timbre_idTimbre"] = $timbreInsert;
+/*         echo '<pre> POST';
+        print_r($_POST);
         echo '</pre>';
-        die();
+        echo '<pre>';
+        print_r($timbreInsert);
+        echo '</pre>';
+        die(); */
 
-        // NOTE l'insert dans la table enchère ne marche pas
-        // Piste à chercher:
-        // Il faut peuetre faire l'insert du timbre dans sa table, puis récupere l'id du timbre, via lastinsert (chercher dans le code ou c'est)
-        // avec ce lastInsert, on peut créer un tableau ? ou faire un insert dans la table enchère de cet id du timbre, il faut aussi l'id du membre
+        // Dans le formulaire, j'utilise l'id de la session comme FK_Membre pour la table enchère, la FK_Timbre est récupérer via lastInsert (id) du timbre
+        $enchere = new ModelEnchere;
+        $enchereInsert = $enchere->insertEnchere($_POST);
 
+
+
+   
 
         //twig::render("enchere-create.php",['membre' => $selectMembre]);
     }

@@ -31,7 +31,7 @@ abstract class Crud extends PDO
     }
 
     public function insert($data){
-        echo '<pre>';
+        echo '<pre> CRUD';
         print_r($data);
         echo '</pre>';
         $data_keys = array_fill_keys($this->fillable, '');
@@ -42,6 +42,7 @@ abstract class Crud extends PDO
         echo '<pre>';
         print_r($sql);
         echo '</pre>';
+      
         $stmt = $this->prepare($sql);
         foreach($data_map as $key=>$value){
             $stmt->bindValue(":$key", $value);
@@ -50,6 +51,9 @@ abstract class Crud extends PDO
             print_r($stmt->errorInfo());
             die();
         }else{
+            echo '<pre>';
+            print_r($this->lastInsertId());
+            echo '</pre>';
             return $this->lastInsertId();
         }
     }
