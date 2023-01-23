@@ -21,7 +21,7 @@ nav .zone_droite {
 
 nav a {
     position: relative;
-    font-size: clamp(0.2rem, 5vw, 1rem);
+    font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
 nav .recherche {
@@ -53,9 +53,9 @@ nav .recherche::placeholder {
     }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1200px) {
     .fixe {
-        height: 210px;
+        height: fit-content;
     }
     nav.flex_row {
         flex-direction: column;

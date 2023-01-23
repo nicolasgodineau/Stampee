@@ -1,6 +1,7 @@
 .formulaire_inscription,
-.formulaire_connexion {
-    max-width: 38em;
+.formulaire_connexion,
+.formulaire_compte {
+    max-width: 40em;
     min-height: fit-content;
     padding: 3em;
     margin: 2em auto;
