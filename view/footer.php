@@ -4,32 +4,32 @@
     </div>
     <div class="aide_generale flex_row flex_justify_around">
         <div class="liste1 liste flex_column">
-            <a class="hover_underligne" href="#">Contactez-nous</a>
-            <a class="hover_underligne" href="#">Angleterre</a>
-            <a class="hover_underligne" href="#">Canada</a>
-            <a class="hover_underligne" href="#">États-Units</a>
-            <a class="hover_underligne" href="#">Australie</a>
+            <a href="#">Contactez-nous</a>
+            <a href="#">Angleterre</a>
+            <a href="#">Canada</a>
+            <a href="#">États-Units</a>
+            <a href="#">Australie</a>
         </div>
         <div class="liste2 liste flex_column">
-            <a class="hover_underligne" href="#">Actualité</a>
-            <a class="hover_underligne" href="#">Timbres</a>
-            <a class="hover_underligne" href="#">Enchères</a>
-            <a class="hover_underligne" href="#">Bridge</a>
+            <a href="#">Actualité</a>
+            <a href="#">Timbres</a>
+            <a href="#">Enchères</a>
+            <a href="#">Bridge</a>
         </div>
         <div class="liste3 liste flex_column">
-            <a class="hover_underligne" href="#">À propos</a>
-            <a class="hover_underligne" href="#">La philatélie, c’est la vie</a>
-            <a class="hover_underligne" href="#">Biographie du Lord</a>
-            <a class="hover_underligne" href="#">Historique familial</a>
+            <a href="#">À propos</a>
+            <a href="#">La philatélie, c’est la vie</a>
+            <a href="#">Biographie du Lord</a>
+            <a href="#">Historique familial</a>
         </div>
         <div class="liste4 liste flex_column">
-            <a class="hover_underligne" href="#">Questions générales</a>
-            <a class="hover_underligne" href="#">Profil</a>
-            <a class="hover_underligne" href="#">Comment placer une offre</a>
-            <a class="hover_underligne" href="#">Suivre une enchère</a>
-            <a class="hover_underligne" href="#">Trouver l’enchère désirée</a>
-            <a class="hover_underligne" href="#">Contacter le webmestre</a>
-            <a class="hover_underligne" href="#">Termes et condition</a>
+            <a href="#">Questions générales</a>
+            <a href="#">Profil</a>
+            <a href="#">Comment placer une offre</a>
+            <a href="#">Suivre une enchère</a>
+            <a href="#">Trouver l’enchère désirée</a>
+            <a href="#">Contacter le webmestre</a>
+            <a href="#">Termes et condition</a>
         </div>
     </div>
     <div class="info_lettre_media_sociaux flex_row flex_align_center flex_justify_around">
@@ -40,7 +40,7 @@
             <div class="info_lettre_form flex_row">
                 <input aria-label="info_lettre" type="text" name="info_lettre" id="info_lettre"
                     placeholder="Votre email">
-                <input type="button" value="s'abonner">
+                <input type="button" value="S'abonner">
             </div>
         </div>
         <div class="reseaux_sociaux flex_row flex_justify_center flex_align_center">

@@ -2,7 +2,7 @@
 
 <body class="body_accueil">
     {{include('menu.php')}}
-    <main>
+    <main class="main_accueil">
         <div class=" zone_principale flex_column flex_justify_evenly flex_align_center">
             <h1 class="principale"><strong>Stampee</strong>, simple comme un timbre.</h1>
             <div class="bienvenue flex_column flex_justify_center flex_align_center">
