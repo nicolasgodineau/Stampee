@@ -28,11 +28,6 @@ class ModelEnchere extends Crud
     }
 
     public function selectEnchere($value){
-        echo '<pre> MODEL';
-        print_r($value);
-        echo '</pre>';
-        
-        //$sql =  "SELECT Timbre.idTimbre,Timbre.nom FROM Timbre INNER JOIN Enchere ON idTimbre = Timbre_idTimbre INNER JOIN Membre ON idMembre = $value";
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,

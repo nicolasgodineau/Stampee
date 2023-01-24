@@ -130,7 +130,7 @@
                     <div class="flex_row flex_align_center">
                         <ul>
                             {% for enchere in enchere %}
-                            <li>{{enchere.nom}}{{enchere.mise}}</li>
+                            <li>{{enchere.nom}} <br> enchère actuelle: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
                             {% endfor %}
                         </ul>
                     </div>

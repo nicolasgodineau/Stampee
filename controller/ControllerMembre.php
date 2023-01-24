@@ -19,13 +19,7 @@ class ControllerMembre
 
         $enchere = new ModelEnchere;
         $enchereSelect = $enchere->selectEnchere($_SESSION['idMembre']);
-        echo '<pre>';
-        print_r($enchereSelect);
-        echo '</pre>';
         
-
-/*         $mise = new ModelMise;
-        $miseSelect = $mise->selectMise() */
         twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect,'session' => $_SESSION,'enchere' => $enchereSelect]);
 
     }
