@@ -5,7 +5,7 @@
             <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
         </div>
         <div class="zone_droite flex_row">
-            {% if not session.Role_idRole == 2 %}
+            {% if session.Role_idRole == null or session.Role_idRole == 1 %}
             <a class="hover_underligne" href="{{ path }}home/index">Actualités</a>
             <a class="hover_underligne" href="{{ path }}enchere/index">Enchères</a>
             {% endif %}

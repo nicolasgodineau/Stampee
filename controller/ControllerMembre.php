@@ -13,18 +13,19 @@ class ControllerMembre
 
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
+        $selectMembres = $membre->select("idMembre");
 
         $pays = new ModelPays;
-        $paysSelect = $pays->select("pays"); 
+        /* Pour l'affichage de tous les pays dans un select */
+        $selectAllPays = $pays->select("pays"); 
+        /* Pour l'affichage du pays du membre */
+        $selectPaysMembre = $pays->selectPaysMembre(); 
 
         $enchere = new ModelEnchere;
-        $enchereSelectMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
-        $encheresSelect = $enchere->selectEncheres();
-        echo '<pre>';
-        print_r($encheresSelect);
-        echo '</pre>';
+        $selectEnchereMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
+        $selectAllEncheres = $enchere->selectEncheres();
 
-        twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect,'session' => $_SESSION,'enchereMembre' => $enchereSelectMembre,'encheres' => $encheresSelect]);
+        twig::render('membre-index.php', ['membre' => $selectMembre, 'allPays' => $paysAllSelect,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres, 'paysMembre' => $selectPaysMembre]);
 
     }
 

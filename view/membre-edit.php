@@ -43,7 +43,6 @@
                         <option value="{{ pays.idPays }}" {% if pays.idPays == membre.Pays_idPays %} selected
                             {% endif %}>
                             {{pays.pays}}</option>
-
                         {% endfor %}
                     </select>
                 </div>

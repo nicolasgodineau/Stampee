@@ -22,7 +22,8 @@
                     <h4>Informations personnelles</h4>
                 </summary>
                 <div class="info_perso flex_column">
-                    <input type="hidden" name="Role_idRole" value=1>
+                    <input type="text" name="Role_idRole" value="{{membre.Role_idRole}}">
+                    <input type="text" name="" value="{{membre.idMembre}}">
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
                             placeholder="Nom" value="{{membre.nom}}" pattern="[A-Za-z]{1,15}"
@@ -61,12 +62,14 @@
                         <select class="placeholder" aria-label="pays" type="text" name="pays" id="pays"
                             placeholder="Pays" required">
                             <option selected>Votre pays</option>
-                            {% for pays in paysS %}
+                            {% for pays in allPays %}
                             <option value="{{pays.idPays}}">{{pays.pays}}</option>
                             {% endfor %}
                         </select>
                     </div>
             </details>
+            <!-- Zone pour le membre  -->
+            {% if session.Role_idRole == 1 %}
             <details>
                 <summary>
                     <i class="fa-solid fa-circle-arrow-right"></i>
@@ -99,6 +102,7 @@
                     </div>
                 </div>
             </details>
+            {% endif %}
             <details>
                 <summary>
                     <i class="fa-solid fa-circle-arrow-right"></i>
@@ -121,47 +125,88 @@
                     </div>
                 </div>
             </details>
+            <!-- Zone pour le membre  -->
+            {% if session.Role_idRole == 1 %}
             <details>
                 <summary>
                     <i class="fa-solid fa-circle-arrow-right"></i>
-                    <h4>Liste de tous les membres</h4>
+                    <h4>Liste de mes enchères</h4>
                 </summary>
                 <div class="info_connexion flex_column">
                     <div class="flex_row flex_align_center">
                         <ul>
-                            {% for enchere in enchere %}
-                            <li>{{enchere.nom}} <br> enchère actuelle: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
-                            {% endfor %}
+                            {% for enchere in enchereMembre %}
+                            <li>Nom de l'enchère: {{enchere.nom}} <br> Mise: {{enchere.mise}} $ <br> <a href="">Voir</a>
+                                {% endfor %}
                         </ul>
                     </div>
                 </div>
             </details>
+            {% endif %}
+            <!-- Zone pour l'administrateur  -->
+            {% if session.Role_idRole == 2 %}
             <details>
                 <summary>
                     <i class="fa-solid fa-circle-arrow-right"></i>
                     <h4>Liste de toutes les enchères</h4>
                 </summary>
-                <div class="info_connexion flex_column">
-                    <div class="flex_row flex_align_center">
-                        <ul>
-                            {% if session.Role_idRole == 1 %}
-                            {% for enchere in enchereMembre %}
-                            <li>{{enchere.nom}} <br> enchère actuelle: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
-                            {% endfor %}
-                            {% endif %}
-                            <!-- Zone pour l'administrateur  -->
-                            {% if session.Role_idRole == 2 %}
-                            {% for enchere in encheres %}
-                            <li>ID: {{enchere.idMembre}} <br> Prénom: {{enchere.prenom}} <br>
-                                Nom de l'enchère: {{enchere.nom}} <br>
-                                Mise: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
-                            {% endfor %}
-                            {% endif %}
-                        </ul>
+                <div class="info_pour_admin flex_column">
+                    <div class="flex_column">
+                        {% if session.Role_idRole == 2 %}
+                        {% for enchere in encheres %}
+                        <details>
+                            <summary><i class="fa-solid fa-circle-arrow-right"></i>ID timbre: {{enchere.idTimbre}}
+                            </summary>
+                            <div class="info_pour_admin flex_column">
+                                <p>Prénom: {{enchere.prenom}}</p>
+                                <p>Nom de l'enchère: {{enchere.nom}}</p>
+                                <p>Mise: {{enchere.mise}} $ </p>
+                                <a class="call_to_action bleu fit_content" href="">Voir l'enchère</a>
+                                <a class="call_to_action rouge fit_content" href="{{ path }}">Supprimer
+                                    membre (ne marche pas</a>
+                            </div>
+                        </details>
+                        {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </details>
-            <input class="call_to_action bleu" type="submit" value="Enregister les modifications">
+            <details>
+                <summary>
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    <h4>Liste de tous les membres</h4>
+                </summary>
+                <div class="info_pour_admin flex_column">
+                    <div class="flex_column">
+                        {% for membre in membres %}
+                        <details>
+                            <summary><i class="fa-solid fa-circle-arrow-right"></i>ID membre: {{membre.idMembre}}
+                            </summary>
+                            <div class="info_pour_admin flex_column">
+                                <p>Nom: {{membre.nom}}</p>
+                                <p>Prénom: {{membre.prenom}}</p>
+                                <p>Adresse: {{membre.adresse}}</p>
+
+                                <!-- Affichage du pays du membre -->
+                                {% for pays in paysMembre %}
+                                {% if pays.idMembre == membre.idMembre %}
+                                <p>Pays: {{ pays.pays }}</p>
+                                {% endif %}
+                                {% endfor %}
+
+                                <p>Téléphone: {{membre.telephone}}</p>
+                                <p>Email: {{membre.email}}</p>
+                                <a class="call_to_action rouge fit_content"
+                                    href="{{ path }}membre/delete/{{membre.idMembre}}">Supprimer
+                                    membre</a>
+                            </div>
+                        </details>
+                        {% endfor %}
+                    </div>
+                </div>
+            </details>
+            {% endif %}
+            <input class="call_to_action bleu fit_content" type="submit" value="Enregister les modifications">
         </form>
     </main>
     {{ include('footer.php') }}

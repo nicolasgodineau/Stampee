@@ -116,7 +116,7 @@ input[type="button"] {
 
 .call_to_action_petit {
     font-weight: normal;
-    width: 100%;
+    width: fit-content;
     padding: 5px 15px;
 }
 
@@ -141,6 +141,20 @@ input[type="button"] {
 .bleu:hover {
     color: black;
     border: 2px solid var(--couleur_call_to_action);
+    background-color: transparent;
+    transition: all 0.2s;
+    box-shadow: none;
+}
+.rouge {
+    color: whitesmoke;
+    border: 2px solid var(--couleur_danger);
+    background-color: var(--couleur_danger);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+}
+
+.rouge:hover {
+    color: black;
+    border: 2px solid var(--couleur_danger);
     background-color: transparent;
     transition: all 0.2s;
     box-shadow: none;

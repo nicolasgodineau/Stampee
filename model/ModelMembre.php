@@ -10,7 +10,6 @@ class ModelMembre extends Crud
 
     public function checkMembre($data)
     {
-
         extract($data);
         $sql = "SELECT * FROM $this->table WHERE email = ?";
         $stmt = $this->prepare($sql);

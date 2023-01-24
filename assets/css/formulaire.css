@@ -31,6 +31,10 @@ form select {
     border-radius: 30px;
 }
 
+.fit_content {
+    width: fit-content;
+}
+
 form .placeholder {
     color: #656565;
 }
@@ -56,14 +60,7 @@ form .date_naissance {
 
 form .call_to_action {
     font-size: 1.1rem;
-    width: 100%;
-    margin: 30px 0px 0px 0px;
-}
-form .call_to_action.blanc {
-    background-color: var(--couleur_carte);
-}
-form .call_to_action.blanc:hover {
-    background-color: var(--couleur_call_to_action);
+    /* margin: 30px 0px 0px 0px; */
 }
 
 form .info_perso div,

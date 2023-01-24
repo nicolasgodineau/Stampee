@@ -71,3 +71,11 @@
 .compte_menu .compte_menu_actif {
     background-color: var(--couleur_dynamic_island);
 }
+
+.compte .info_pour_admin {
+    margin-left: 26px;
+}
+
+.compte .info_pour_admin > * {
+    margin-bottom: 10px;
+}
