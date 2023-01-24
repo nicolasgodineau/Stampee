@@ -8,18 +8,12 @@ class ModelEnchere extends Crud
     protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre'];
     
     public function insertEnchere($data){
-        echo '<pre> enchere';
-        print_r($data);
-        echo '</pre>';
-        
+
         $data_keys = array_fill_keys($this->fillable, '');
         $data_map = array_intersect_key($data, $data_keys);
         $nomChamp = implode(", ",array_keys($data_map));
         $valeurChamp = ":".implode(", :", array_keys($data_map));
         $sql = "INSERT INTO $this->table ($nomChamp) VALUES ($valeurChamp)";
-        echo '<pre>';
-        print_r($sql);
-        echo '</pre>';
 
         $stmt = $this->prepare($sql);
         foreach($data_map as $key=>$value){
@@ -30,6 +24,41 @@ class ModelEnchere extends Crud
             die();
         }else{
             return $this->lastInsertId();
+        }
+    }
+
+    public function selectEnchere($value){
+        echo '<pre> MODEL';
+        print_r($value);
+        echo '</pre>';
+        
+        //$sql =  "SELECT Timbre.idTimbre,Timbre.nom FROM Timbre INNER JOIN Enchere ON idTimbre = Timbre_idTimbre INNER JOIN Membre ON idMembre = $value";
+        $sql =  "SELECT
+        Timbre.idTimbre,
+        Timbre.nom,
+        Mise.mise
+        FROM
+            Timbre
+        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
+        INNER JOIN Membre ON idMembre = Membre_idMembre
+        INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre
+        WHERE
+        idMembre = $value";
+        $stmt  = $this->query($sql);
+        return  $stmt->fetchAll();
+    }
+
+    public function selectId($value)
+    {
+        $sql = "SELECT * FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$this->primaryKey", $value);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+        if ($count == 1) {
+            return $stmt->fetch();
+        } else {
+            header("location: ../../home/error");
         }
     }
 }

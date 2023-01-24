@@ -5,6 +5,7 @@ RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelRole');
 RequirePage::requireModel('ModelTimbre');
 RequirePage::requireModel('ModelImage');
+RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 
 
@@ -29,30 +30,26 @@ class ControllerEnchere
     {
         $image = new ModelImage;
         $imageInsert = $image->insertImage($_POST);
-
+        
+        // Ajout l'id de l'insert de la table image dans le POST pour faire l'insert de l'image
         $_POST["Image_idImage"] = $imageInsert;
-
 
         $timbre = new ModelTimbre;
         $timbreInsert = $timbre->insert($_POST);
 
-        // Ajout l'id de l'insert dans la table timbre
+        // Ajout des ids de l'insert de la table timbre dans le POST pour faire l'insert de l'enchère
         $_POST["Timbre_idTimbre"] = $timbreInsert;
-/*         echo '<pre> POST';
-        print_r($_POST);
-        echo '</pre>';
-        echo '<pre>';
-        print_r($timbreInsert);
-        echo '</pre>';
-        die(); */
+        $_POST['Membre_idMembre'] = $_POST['idMembre'];
 
-        // Dans le formulaire, j'utilise l'id de la session comme FK_Membre pour la table enchère, la FK_Timbre est récupérer via lastInsert (id) du timbre
         $enchere = new ModelEnchere;
         $enchereInsert = $enchere->insertEnchere($_POST);
 
-
-
-   
+        // Ajout des ids de l'insert de la table enchere dans le POST pour faire l'insert de la mise
+        $_POST["Enchere_Membre_idMembre"] = $_POST["Membre_idMembre"];
+        $_POST["Enchere_Timbre_idTimbre"] = $_POST["Timbre_idTimbre"];
+        
+        $mise = new ModelMise;
+        $miseInsert = $mise->insertMise($_POST);
 
         //twig::render("enchere-create.php",['membre' => $selectMembre]);
     }

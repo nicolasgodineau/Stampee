@@ -27,8 +27,9 @@
             </section> -->
             <form class="flex_column" action="{{ path }}enchere/store" method="post">
                 <input type="text" name="idMembre" value="{{session.idMembre}}">
-                <input type="text" name="Membre_idMembre" value="{{session.idMembre}}">
-                <input type="text" name="Timbre_idTimbre" value="">
+                <!--                 <input type="text" name="Membre_idMembre" value="{{session.idMembre}}">
+                <input type="text" name="Enchere_Membre_idMembre" value="{{session.idMembre}}">
+                <input type="text" name="Timbre_idTimbre" value=""> -->
 
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
@@ -41,7 +42,7 @@
                             rows="5">Coucou ca va ?</textarea>
                     </div>
                     <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-font"></i><input aria-label="prix" type="text" name="prix" id="prix"
+                        <i class="fa-solid fa-font"></i><input aria-label="mise" type="text" name="mise" id="mise"
                             placeholder="Prix de début d'enchère" value="150">
                     </div>
 

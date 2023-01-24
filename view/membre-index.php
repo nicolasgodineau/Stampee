@@ -121,6 +121,21 @@
                     </div>
                 </div>
             </details>
+            <details>
+                <summary>
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    <h4>Mes enchères </h4>
+                </summary>
+                <div class="info_connexion flex_column">
+                    <div class="flex_row flex_align_center">
+                        <ul>
+                            {% for enchere in enchere %}
+                            <li>{{enchere.nom}}{{enchere.mise}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </details>
             <input class="call_to_action bleu" type="submit" value="Enregister les modifications">
         </form>
     </main>

@@ -4,17 +4,29 @@ RequirePage::requireModel('ModelMembre');
 RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelRole');
 RequirePage::requireModel('ModelEnchere');
+RequirePage::requireModel('ModelMise');
 
 
 class ControllerMembre
 {
     public function index($id){
+
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
 
         $pays = new ModelPays;
         $paysSelect = $pays->select("pays"); 
-        twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect]);
+
+        $enchere = new ModelEnchere;
+        $enchereSelect = $enchere->selectEnchere($_SESSION['idMembre']);
+        echo '<pre>';
+        print_r($enchereSelect);
+        echo '</pre>';
+        
+
+/*         $mise = new ModelMise;
+        $miseSelect = $mise->selectMise() */
+        twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect,'session' => $_SESSION,'enchere' => $enchereSelect]);
 
     }
 
