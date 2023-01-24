@@ -132,14 +132,20 @@
                     <i class="fa-solid fa-circle-arrow-right"></i>
                     <h4>Liste de mes enchères</h4>
                 </summary>
-                <div class="info_connexion flex_column">
-                    <div class="flex_row flex_align_center">
-                        <ul>
-                            {% for enchere in enchereMembre %}
-                            <li>Nom de l'enchère: {{enchere.nom}} <br> Mise: {{enchere.mise}} $ <br> <a href="">Voir</a>
-                                {% endfor %}
-                        </ul>
-                    </div>
+                <div class="info_pour_admin flex_column"">
+                    <div class=" flex_column">
+                    {% for enchere in enchereMembre %}
+                    <details>
+                        <summary><i class="fa-solid fa-circle-arrow-right"></i>Nom de l'enchère: {{enchere.nom}} - Mise:
+                            {{enchere.mise}} $
+                        </summary>
+                        <div class="info_pour_admin flex_column">
+                            <a class="call_to_action bleu fit_content" href="">Voir l'enchère</a>
+                            <a class="call_to_action rouge fit_content" href="{{ path }}">Supprimer
+                                membre (ne marche pas</a>
+                        </div>
+                    </details>
+                    {% endfor %}
                 </div>
             </details>
             {% endif %}
