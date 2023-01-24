@@ -27,7 +27,7 @@ class ModelEnchere extends Crud
         }
     }
 
-    public function selectEnchere($value){
+    public function selectEnchereMembre($value){
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,
@@ -42,18 +42,20 @@ class ModelEnchere extends Crud
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
-
-    public function selectId($value)
-    {
-        $sql = "SELECT * FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
-        $stmt = $this->prepare($sql);
-        $stmt->bindValue(":$this->primaryKey", $value);
-        $stmt->execute();
-        $count = $stmt->rowCount();
-        if ($count == 1) {
-            return $stmt->fetch();
-        } else {
-            header("location: ../../home/error");
-        }
+    public function selectEncheres(){
+        $sql =  "SELECT
+        Timbre.idTimbre,
+        Timbre.nom,
+        Membre.prenom,
+        Membre.idMembre,
+        Mise.mise
+        FROM
+            Timbre
+        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
+        INNER JOIN Membre ON idMembre = Membre_idMembre
+        INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre";
+        $stmt  = $this->query($sql);
+        return  $stmt->fetchAll();
     }
+
 }

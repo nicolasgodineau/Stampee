@@ -5,17 +5,20 @@
             <a class="hover_underligne" href="#">À propos de Lord Reginald Stampee III</a>
         </div>
         <div class="zone_droite flex_row">
+            {% if not session.Role_idRole == 2 %}
             <a class="hover_underligne" href="{{ path }}home/index">Actualités</a>
             <a class="hover_underligne" href="{{ path }}enchere/index">Enchères</a>
+            {% endif %}
             {% if session.Role_idRole == 1 %}
             <a class="call_to_action blanc" href="{{ path }}membre/index/{{session.idMembre}}">Mon compte</a>
             <a class="call_to_action bleu" href="{{ path }}enchere/create">Créer une enchère</a>
             <a class="hover_underligne" href="{{ path }}membre/logout">Se déconnecter</a>
 
             {% elseif session.Role_idRole == 2 %}
-            <h2>Administrateur</h2>
+            <a class="call_to_action blanc" href="{{ path }}membre/index/{{session.idMembre}}">Espace administrateur</a>
+            <a class="hover_underligne" href="{{ path }}membre/logout">Se déconnecter</a>
             {% endif %}
-            {% if not session.Role_idRole == 1 or session.Role_idRole == 2 %}
+            {% if not session.Role_idRole == 1 or not session.Role_idRole == 2 %}
             <a class="call_to_action blanc" href="{{ path }}membre/login">Connexion</a>
             <a class="call_to_action blanc" href="{{ path }}membre/create">Inscription</a>
             {% endif %}

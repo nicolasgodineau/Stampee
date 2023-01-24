@@ -124,7 +124,7 @@
             <details>
                 <summary>
                     <i class="fa-solid fa-circle-arrow-right"></i>
-                    <h4>Mes enchères </h4>
+                    <h4>Liste de tous les membres</h4>
                 </summary>
                 <div class="info_connexion flex_column">
                     <div class="flex_row flex_align_center">
@@ -132,6 +132,31 @@
                             {% for enchere in enchere %}
                             <li>{{enchere.nom}} <br> enchère actuelle: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
                             {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </details>
+            <details>
+                <summary>
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    <h4>Liste de toutes les enchères</h4>
+                </summary>
+                <div class="info_connexion flex_column">
+                    <div class="flex_row flex_align_center">
+                        <ul>
+                            {% if session.Role_idRole == 1 %}
+                            {% for enchere in enchereMembre %}
+                            <li>{{enchere.nom}} <br> enchère actuelle: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
+                            {% endfor %}
+                            {% endif %}
+                            <!-- Zone pour l'administrateur  -->
+                            {% if session.Role_idRole == 2 %}
+                            {% for enchere in encheres %}
+                            <li>ID: {{enchere.idMembre}} <br> Prénom: {{enchere.prenom}} <br>
+                                Nom de l'enchère: {{enchere.nom}} <br>
+                                Mise: {{enchere.mise}} $ <br> <a href="">Voir</a></li>
+                            {% endfor %}
+                            {% endif %}
                         </ul>
                     </div>
                 </div>

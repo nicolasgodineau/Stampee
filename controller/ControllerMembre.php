@@ -18,9 +18,13 @@ class ControllerMembre
         $paysSelect = $pays->select("pays"); 
 
         $enchere = new ModelEnchere;
-        $enchereSelect = $enchere->selectEnchere($_SESSION['idMembre']);
-        
-        twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect,'session' => $_SESSION,'enchere' => $enchereSelect]);
+        $enchereSelectMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
+        $encheresSelect = $enchere->selectEncheres();
+        echo '<pre>';
+        print_r($encheresSelect);
+        echo '</pre>';
+
+        twig::render('membre-index.php', ['membre' => $selectMembre, 'paysS' => $paysSelect,'session' => $_SESSION,'enchereMembre' => $enchereSelectMembre,'encheres' => $encheresSelect]);
 
     }
 
@@ -32,7 +36,6 @@ class ControllerMembre
         Twig::render('membre-create.php', ['paysS' => $paysSelect]);
     }
 
-    
     public function store()
     {
         $validation = new Validation;
@@ -41,7 +44,7 @@ class ControllerMembre
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
         $validation->name('password')->value($password)->max(20)->min(6);
         $validation->name('Role_idRole')->value($Role_idRole)->pattern('int')->required();
-/* 
+        /* 
         if ( $_POST['password'] !== $_POST['passwordConfirm']) {
             return '<h3>Non valide</h3>';
             
@@ -70,11 +73,11 @@ class ControllerMembre
         
     }
 
-    
     public function login()
     {
         twig::render('membre-login.php');
     }
+
     public function auth()
     {
         $validation = new Validation;
