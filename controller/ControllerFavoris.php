@@ -10,10 +10,6 @@ RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
 
 
-class ControllerFiche
-{
-    public function index()
-    {
-    twig::render("fiche-index.php");
-    }
+class ControllerFavoris {
+
 }

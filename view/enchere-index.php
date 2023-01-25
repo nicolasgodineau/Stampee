@@ -2,6 +2,9 @@
 
 <body>
     {{include('menu.php')}}
+    <header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
+        <h1 class="principale">Catalogue des enchères</h1>
+    </header>
     <nav class="fil_ariane">
         <i class="fa-solid fa-house"></i>
         <a class='retour' href="../home/index">Accueil</a>
@@ -94,276 +97,35 @@
             </div>
         </aside>
         <div data-filtre="catalogue" class="catalogue flex_column">
+            {% for enchere in encheres %}
             <article class="carte flex_column">
-                <header class="header_carte flex_row">
+                <!--                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
                         <i class="fa-regular fa-clock icon_taille_20"></i>
                         <h2 data-filtre="finEnchere">10:35:47</h2>
                     </div>
                     <div class="like flex_row">
                         <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
+                        <h2 data-filtre="like">0</h2>
                     </div>
-                </header>
+                </header> -->
                 <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
+                    <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre">
                 </div>
                 <footer class="footer_carte flex_column">
                     <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
+                        {{enchere.nom}}
                     </p>
                     <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
+                        <p data-filtre="prix">{{enchere.mise}} $CAD</p>
                         <p data-filtre="etat">Très bon</p>
                     </div>
                     <h3 class="call_to_action bleu call_to_action_petit">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
+                    <a class="plus_infos" href="">Voir plus d'informations</a>
                 </footer>
             </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/timbre4.webp" alt="timbre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action bleu">Enchérir</h3>
-                    <a class="plus_infos" href="../fiche/index">Voir plus d'informations</a>
-                </footer>
-            </article>
+            {% endfor %}
+
         </div>
     </main>
     {{ include('footer.php') }}

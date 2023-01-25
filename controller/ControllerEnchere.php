@@ -7,10 +7,18 @@ RequirePage::requireModel('ModelTimbre');
 RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
+RequirePage::requireModel('ModelFavoris');
 
 
 class ControllerEnchere
 {
+
+    public function index()
+    {
+        $enchere = new ModelEnchere;
+        $selectAllEncheres = $enchere->selectEncheres();
+        twig::render("enchere-index.php",['encheres' => $selectAllEncheres,]);
+    }
 
     public function create()
     {

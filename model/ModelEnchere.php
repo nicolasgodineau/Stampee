@@ -6,6 +6,10 @@ class ModelEnchere extends Crud
     protected $table = 'Enchere';
     protected $primaryKey = ['Membre_idMembre','Timbre_idTimbre'];
     protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre'];
+
+    public function show(){
+
+    }
     
     public function insertEnchere($data){
 
@@ -42,10 +46,13 @@ class ModelEnchere extends Crud
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
+    
     public function selectEncheres(){
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,
+        Timbre.description,
+        Image.image,
         Membre.prenom,
         Membre.idMembre,
         Mise.mise
@@ -53,6 +60,7 @@ class ModelEnchere extends Crud
             Timbre
         INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
         INNER JOIN Membre ON idMembre = Membre_idMembre
+        INNER JOIN Image ON Image_idImage = idImage
         INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
