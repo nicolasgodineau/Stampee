@@ -1,4 +1,4 @@
-{{ include('header.php', {title: 'Fiche d\'enchere'})}}
+{{ include('header.php', {title: 'Création d\'enchere'})}}
 
 <body>
     {{include('menu.php')}}
@@ -7,7 +7,7 @@
     </header>
     <nav class="fil_ariane">
         <i class="fa-solid fa-house"></i>
-        <a class='retour' href="./index.html">Accueil</a>
+        <a class='retour' href="{{ path }}home/index">Accueil</a>
         <i class="fa-solid fa-arrow-right"></i>
         <em>Création d'une enchère</em>
     </nav>

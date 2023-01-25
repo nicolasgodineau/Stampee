@@ -13,8 +13,6 @@
 }
 
 .fiche .image {
-    align-items: center;
-    justify-content: space-between;
     min-width: 50%;
     gap: 30px;
 }
@@ -36,7 +34,6 @@
 
 .fiche .description {
     align-items: initial;
-    justify-content: space-between;
     gap: 30px;
     min-width: 30%;
 }
@@ -76,14 +73,18 @@ footer h2 {
     gap: 50px;
 }
 
+.fiche footer a {
+    max-width: 50%;
+    min-width: fit-content;
+    margin: 0 auto;
+}
+
 .fiche footer h2 {
     text-align: center;
 }
 
 .fiche .prix {
-    align-items: center;
     gap: 20px;
-    justify-content: space-between;
 }
 
 .fiche .prix a {
@@ -102,20 +103,12 @@ footer h2 {
 }
 
 .fiche .information_importante {
-    justify-content: space-between;
+    min-width: 100%;
 }
 
 .fiche .information_importante img {
     max-width: 200px;
     height: auto;
-}
-
-.voir_plus {
-    align-items: center;
-}
-
-.voir_plus a {
-    text-align: center;
 }
 
 .voir_plus img {
@@ -125,7 +118,6 @@ footer h2 {
 
 .autres_enchères {
     padding: 50px 50px 15px 50px;
-    display: flex;
     gap: 30px;
     overflow: scroll;
 }

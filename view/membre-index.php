@@ -172,7 +172,7 @@
                                 <p>Mise: {{enchere.mise}} $ </p>
                                 <a class="call_to_action bleu fit_content" href="">Voir l'enchère</a>
                                 <a class="call_to_action rouge fit_content" href="{{ path }}">Supprimer
-                                    membre (ne marche pas</a>
+                                    membre (ne marche pas)</a>
                             </div>
                         </details>
                         {% endfor %}

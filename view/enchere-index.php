@@ -7,7 +7,7 @@
     </header>
     <nav class="fil_ariane">
         <i class="fa-solid fa-house"></i>
-        <a class='retour' href="../home/index">Accueil</a>
+        <a class='retour' href="{{ path }}home/index">Accueil</a>
         <i class="fa-solid fa-arrow-right"></i>
         <em>Catalogue des enchères</em>
     </nav>
@@ -118,10 +118,11 @@
                     </p>
                     <div class="details flex_row">
                         <p data-filtre="prix">{{enchere.mise}} $CAD</p>
-                        <p data-filtre="etat">Très bon</p>
+                        <p data-filtre="etat">{{enchere.idTimbre}}</p>
                     </div>
                     <h3 class="call_to_action bleu call_to_action_petit">Enchérir</h3>
-                    <a class="plus_infos" href="">Voir plus d'informations</a>
+                    <a class="plus_infos" href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir plus
+                        d'informations</a>
                 </footer>
             </article>
             {% endfor %}

@@ -16,7 +16,7 @@ class ControllerEnchere
     public function index()
     {
         $enchere = new ModelEnchere;
-        $selectAllEncheres = $enchere->selectEncheres();
+        $selectAllEncheres = $enchere->selectAllEncheres();
         twig::render("enchere-index.php",['encheres' => $selectAllEncheres,]);
     }
 
@@ -60,5 +60,16 @@ class ControllerEnchere
         $miseInsert = $mise->insertMise($_POST);
 
         //twig::render("enchere-create.php",['membre' => $selectMembre]);
+    }
+
+    public function show($id){
+        $enchere = new ModelEnchere;
+        $selectEnchere = $enchere->selectEnchere($id);
+
+        // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
+        $enchereSup = $selectEnchere['mise'] + 50;
+        $selectEnchere["enchereSuperieur"] = $enchereSup;
+        twig::render("enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre]);
+
     }
 }
