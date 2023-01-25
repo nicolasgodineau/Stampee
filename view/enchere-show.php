@@ -1,9 +1,10 @@
 {{ include('header.php', {title: 'Fiche d\'enchere'})}}
 
-<body>
+
+<body onload="countdown()>
     {{include('menu.php')}}
-    <header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
-        <h1 class="principale">Fiche d'enchère</h1>
+    <header class=" header_principal flex_row flex_align_center flex_justify_center" id="top">
+    <h1 class="principale">Fiche d'enchère</h1>
     </header>
     <nav class="fil_ariane">
         <i class="fa-solid fa-house"></i>
@@ -11,9 +12,10 @@
         <i class="fa-solid fa-arrow-right"></i>
         <a class='retour' href="{{ path }}enchere/index">Catalogue des enchères</a>
         <i class="fa-solid fa-arrow-right"></i>
-        <em>Création d'une enchère</em>
+        <em>Fiche d'enchère</em>
     </nav>
     <main class="flex_column">
+        <h1 id="counter"></h1>
         <div class="fiche flex_row">
             <section class="image flex_column flex_justify_between flex_align_center">
                 <div>
@@ -25,11 +27,12 @@
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                 </div>
-                <div>
-                    <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
+                <div class="temps_restant flex_row flex_justify_center">
+                    <h2 data-filtre="finEnchere">Termine dans <span></span></h2>
                 </div>
             </section>
             <section class="description flex_column flex_justify_between">
+
                 <h1 data-filtre="nomTimbre">{{enchere.nom}}</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores tenetur quisquam, illum velit
                     labore libero, beatae vitae mollitia est voluptatibus ipsum dolorum neque consectetur sed.</p>

@@ -8,6 +8,7 @@ RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
+RequirePage::requireModel('ModelTimer');
 
 
 class ControllerEnchere
@@ -63,13 +64,48 @@ class ControllerEnchere
     }
 
     public function show($id){
+
         $enchere = new ModelEnchere;
         $selectEnchere = $enchere->selectEnchere($id);
+
+        $timer = new ModelTimer;
+        $dateFin = $timer -> setTimer($selectEnchere['Timer_idTimer']);
+        $selectEnchere['dateFin'] = $dateFin['date'];
+        $fin = $selectEnchere['dateFin'];
 
         // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
         $enchereSup = $selectEnchere['mise'] + 50;
         $selectEnchere["enchereSuperieur"] = $enchereSup;
+        ?>
+<script>
+/* Source pour le script = https://www.nicesnippets.com/blog/creating-dynamic-countdown-in-php-javascript */
+<?php 
+$dateTime = strtotime($fin, '23:59:59');
+$getDateTime = date("F d, Y H:i:s", $dateTime); 
+        ?>
+var countDownDate = new Date("<?php echo "$getDateTime"; ?>").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    // Output the result in an element with id="counter"11
+    document.querySelector(".temps_restant h2 span").innerHTML = days + " Jour : " + hours + "h " +
+        minutes + "m " + seconds + "s ";
+    // If the count down is over, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.querySelector(".heure h2").innerHTML = "Terminer";
+    }
+}, 1000);
+</script>
+<?php
+        
         twig::render("enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre]);
-
     }
 }

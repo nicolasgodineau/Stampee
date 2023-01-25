@@ -25,6 +25,7 @@ function remplissageInformationTimbre() {
             let dateFin = new Date(
                 CatalogueTimbres[index].finEnchere
             ).getTime();
+
             // date du jours
             const dateMaintenant = new Date().getTime();
 

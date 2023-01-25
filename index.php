@@ -29,9 +29,14 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)$ index.php?url=$1 [L]
 */
 
+date_default_timezone_set("America/New_York");
 
+$date = date("d/m/y");
+$heure = date("H:i");
 
 $_SESSION['url'] = $url;
+$_SESSION['date'] = $date;
+$_SESSION['heure'] = $heure;
 
 
 

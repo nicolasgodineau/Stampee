@@ -14,7 +14,7 @@ export const CatalogueTimbres = [
         couleur: "Carmin laqué",
         perforation: "14",
         image: "assets/img/timbre/timbre1.webp",
-        finEnchere: "Dec 25, 2022 16:37:52",
+        finEnchere: "Dec 25, 2023 16:37:52",
         like: 35,
         etat: "parfaite",
         prix: 295,

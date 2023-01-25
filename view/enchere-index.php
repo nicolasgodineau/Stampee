@@ -99,16 +99,16 @@
         <div data-filtre="catalogue" class="catalogue flex_column">
             {% for enchere in encheres %}
             <article class="carte flex_column">
-                <!--                 <header class="header_carte flex_row">
+                <header class="header_carte flex_row">
                     <div class="heure flex_row">
                         <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
+                        <h2 data-filtre="finEnchere">{{enchere.date}} </h2>
                     </div>
                     <div class="like flex_row">
                         <span class="icon_like icon_taille_20"></span>
                         <h2 data-filtre="like">0</h2>
                     </div>
-                </header> -->
+                </header>
                 <div class="flex_column">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre">
                 </div>
@@ -120,9 +120,8 @@
                         <p data-filtre="prix">{{enchere.mise}} $CAD</p>
                         <p data-filtre="etat">{{enchere.idTimbre}}</p>
                     </div>
-                    <h3 class="call_to_action bleu call_to_action_petit">Enchérir</h3>
-                    <a class="plus_infos" href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir plus
-                        d'informations</a>
+                    <a class="call_to_action bleu call_to_action_petit"
+                        href="{{ path }}enchere/show/{{enchere.idTimbre}}">Plus de détails</a>
                 </footer>
             </article>
             {% endfor %}

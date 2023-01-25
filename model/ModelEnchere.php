@@ -5,7 +5,7 @@ class ModelEnchere extends Crud
 
     protected $table = 'Enchere';
     protected $primaryKey = ['Membre_idMembre','Timbre_idTimbre'];
-    protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre'];
+    protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre','Timer_idTimer'];
 
     public function show(){
 
@@ -55,25 +55,31 @@ class ModelEnchere extends Crud
         Image.image,
         Membre.prenom,
         Membre.idMembre,
-        Mise.mise
-        FROM
-            Timbre
-        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
-        INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Image ON Image_idImage = idImage
-        INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre";
+        Mise.mise,
+        Enchere.Timer_idTimer,
+        Timer.date
+    FROM
+        Timbre
+    INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
+    INNER JOIN Membre ON idMembre = Membre_idMembre
+    INNER JOIN Image ON Image_idImage = idImage
+    INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
+    left JOIN Timer ON idTimer = Timer_idTimer";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
 
     public function selectEnchere($id){
+
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,
         Timbre.description,
         Image.image,
         Membre.idMembre,
-        Mise.mise
+        Mise.mise,
+        Enchere.Timer_idTimer
+    
         FROM
             Timbre
         INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
@@ -85,7 +91,9 @@ class ModelEnchere extends Crud
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $value);
         $stmt->execute();
+
         $count = $stmt->rowCount();
+
         if ($count == 1) {
             return $stmt->fetch();
         } else {
