@@ -1,43 +1,35 @@
 <?php
 RequirePage::requireModel('Crud');
 RequirePage::requireModel('ModelMembre');
-RequirePage::requireModel('ModelPays');
 RequirePage::requireModel('ModelRole');
 RequirePage::requireModel('ModelTimbre');
 RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
+RequirePage::requireModel('ModelTimer');
+RequirePage::requireModel('ModelStatus');
 
 
 class ControllerMembre
 {
     public function index($id){
-
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
-        $selectMembres = $membre->select("idMembre");
-
-        $pays = new ModelPays;
-        /* Pour l'affichage de tous les pays dans un select */
-        $selectAllPays = $pays->select("pays"); 
-        /* Pour l'affichage du pays du membre */
-        $selectPaysMembre = $pays->selectPaysMembre(); 
+        $selectMembres = $membre->select("idMembre");        
 
         $enchere = new ModelEnchere;
         $selectEnchereMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
-        $selectAllEncheres = $enchere->selectEncheres();
+        $selectAllEncheres = $enchere->selectAllEncheres();
 
-        twig::render('membre-index.php', ['membre' => $selectMembre, 'allPays' => $paysAllSelect,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres, 'paysMembre' => $selectPaysMembre]);
+        twig::render('membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
 
     }
 
     public function create()
     {
         // A déplacer dans la fonction store (faire tests)
-        $pays = new ModelPays;
-        $paysSelect = $pays->select("pays"); 
-        Twig::render('membre-create.php', ['paysS' => $paysSelect]);
+        Twig::render('membre-create.php');
     }
 
     public function store()
@@ -58,7 +50,6 @@ class ControllerMembre
 
 
             if ($validation->isSuccess()) {
-                $_POST['Pays_idPays'] = $pays;
                 $user = new ModelMembre;
                 $options = [
                     'cost' => 10,
@@ -102,14 +93,22 @@ class ControllerMembre
     {
         $membre = new ModelMembre;
         $update = $membre->update($_POST);
-        twig::render('membre-edit.php', ['membre' => $_POST]);
-    }
+        twig::render('home-index.php');
+    } 
 
     public function delete()
     {
         $membre = new ModelMembre;
         $delete = $membre->delete($_POST['idMembre']);
         session_destroy();
+        twig::render('home-index.php');    
+    }
+    
+    public function adminDeleteMembre()
+    {
+
+        $membre = new ModelMembre;
+        $delete = $membre->delete($_POST['idMembre']);
         twig::render('home-index.php');    
     }
 
@@ -125,9 +124,7 @@ class ControllerMembre
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
 
-        $pays = new ModelPays;
-        $paysSelect = $pays->select("pays"); 
-        twig::render('membre-edit.php', ['membre' => $selectMembre, 'paysS' => $paysSelect]);
+        twig::render('membre-edit.php', ['membre' => $selectMembre]);
     }
 
     public function logout()

@@ -11,6 +11,6 @@ RequirePage::requireModel('ModelTimer');
 RequirePage::requireModel('ModelStatus');
 
 
-class ControllerFavoris {
+class ControllerStatus{
 
 }

@@ -7,7 +7,8 @@ require_once __DIR__ . '/library/Validation.php';
 require_once __DIR__ . '/library/CheckSession.php';
 
 
-$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : '/';
+/* NOTE pour WEBDEV */
+//$url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : '/';
 /* Utiliser cet htaccess
 RewriteEngine On
 
@@ -19,7 +20,7 @@ RewriteRule ^(.+)$ index.php/$1 [L]
 
 
 
-//$url = isset($_GET["url"]) ? explode('/', ltrim($_GET["url"], '/')) : '/';
+$url = isset($_GET["url"]) ? explode('/', ltrim($_GET["url"], '/')) : '/';
 /* Utiliser cet htaccess
 RewriteEngine On
 

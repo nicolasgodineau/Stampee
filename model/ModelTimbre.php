@@ -26,4 +26,18 @@ class ModelTimbre extends Crud
             return $this->lastInsertId();
         }
     }
+
+    public function deleteTimbre($id)
+    {
+        $sql = "DELETE FROM `Timbre` WHERE `idTimbre` = $id";
+        
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$this->primaryKey", $id);
+        
+        if (!$stmt->execute()) {
+            print_r($stmt->errorInfo());
+        } else {
+            return true;
+        }
+    }
 }

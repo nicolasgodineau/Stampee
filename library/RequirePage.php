@@ -23,8 +23,4 @@ class RequirePage
     {
         return header("Location: $page");
     }
-    static public function requireComposantePays()
-    {
-        return require_once "vendor/stefangabos/world_countries/data/countries/fr/countries.php";
-    }
 }

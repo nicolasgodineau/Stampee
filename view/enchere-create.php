@@ -29,26 +29,32 @@
             </section> -->
             <form class="flex_column" action="{{ path }}enchere/store" method="post">
                 <input type="hidden" name="idMembre" value="{{session.idMembre}}">
+                <input type="text" name="status" value="1">
 
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><input aria-label="nom" type="text" name="nom" id="nom"
-                            placeholder="Nom du timbre" value="">
+                            placeholder="Nom du timbre" value="gfdgdfgdf">
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><textarea placeholder="Description du timbre"
-                            aria-label="description" name="description" id="description" rows="5"></textarea>
+                            aria-label="description" name="description" id="description" rows="5">gdfgdfgdfdf</textarea>
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-sack-dollar"></i><input aria-label="mise" type="text" name="mise"
-                            id="mise" placeholder="Prix de début d'enchère" value="">
+                            id="mise" placeholder="Prix de début d'enchère" value="1234">
                     </div>
                     <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-image"></i><input type="file" name="image" id="image">
+                        <i class="fa-solid fa-sack-dollar"></i><input aria-label="date" type="date" name="date"
+                            id="date" placeholder="Choix de la date de fin" value="2023-01-31">
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-image"></i><input type="file" name="image" id="image"
+                            value='timbre1.webp'>
                     </div>
                 </div>
                 <input class="call_to_action bleu" type="submit" value="Valider">
             </form>
         </div>
-    </main>
+    </main>-
     {{ include('footer.php') }}

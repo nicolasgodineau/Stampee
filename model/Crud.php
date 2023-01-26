@@ -31,18 +31,12 @@ abstract class Crud extends PDO
     }
 
     public function insert($data){
-        echo '<pre> CRUD';
-        print_r($data);
-        echo '</pre>';
         $data_keys = array_fill_keys($this->fillable, '');
         $data_map = array_intersect_key($data, $data_keys);
         $nomChamp = implode(", ",array_keys($data_map));
         $valeurChamp = ":".implode(", :", array_keys($data_map));
         $sql = "INSERT INTO $this->table ($nomChamp) VALUES ($valeurChamp)";
-        echo '<pre>';
-        print_r($sql);
-        echo '</pre>';
-      
+
         $stmt = $this->prepare($sql);
         foreach($data_map as $key=>$value){
             $stmt->bindValue(":$key", $value);
@@ -51,15 +45,13 @@ abstract class Crud extends PDO
             print_r($stmt->errorInfo());
             die();
         }else{
-            echo '<pre>';
-            print_r($this->lastInsertId());
-            echo '</pre>';
             return $this->lastInsertId();
         }
     }
 
     public function update($data)
     {
+
         $champRequete = null;
         foreach ($data as $key => $value) {
             $champRequete .= "$key = :$key, ";
@@ -69,6 +61,7 @@ abstract class Crud extends PDO
         $sql = "UPDATE $this->table SET $champRequete WHERE $this->primaryKey = :$this->primaryKey";
 
         $stmt = $this->prepare($sql);
+
         foreach ($data as $key => $value) {
             $stmt->bindValue(":$key", $value);
         }
@@ -82,10 +75,18 @@ abstract class Crud extends PDO
 
     public function delete($id)
     {
+        echo '<pre>';
+        print_r($id);
+        echo '</pre>';
+        die();
         $sql = "DELETE FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
+        echo '<pre>';
+        print_r($sql);
+        echo '</pre>';
         
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $id);
+        die();
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo());
         } else {

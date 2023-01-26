@@ -28,7 +28,7 @@
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                 </div>
                 <div class="temps_restant flex_row flex_justify_center">
-                    <h2 data-filtre="finEnchere">Termine dans <span></span></h2>
+                    <h2 data-filtre="finEnchere"><span></span></h2>
                 </div>
             </section>
             <section class="description flex_column flex_justify_between">

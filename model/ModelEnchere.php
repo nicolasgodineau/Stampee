@@ -5,7 +5,7 @@ class ModelEnchere extends Crud
 
     protected $table = 'Enchere';
     protected $primaryKey = ['Membre_idMembre','Timbre_idTimbre'];
-    protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre','Timer_idTimer'];
+    protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre','Timer_idTimer','Status_idStatus'];
 
     public function show(){
 
@@ -31,18 +31,22 @@ class ModelEnchere extends Crud
         }
     }
 
-    public function selectEnchereMembre($value){
+    public function selectEnchereMembre($id){
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,
-        Mise.mise
+        Mise.mise,
+        Timer.date,
+        Status.idStatus
         FROM
             Timbre
         INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
         INNER JOIN Membre ON idMembre = Membre_idMembre
         INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre
+        INNER JOIN Status ON Status_idStatus = idStatus
+        left JOIN Timer ON idTimer = Timer_idTimer
         WHERE
-        idMembre = $value";
+        idMembre = $id";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
@@ -57,14 +61,16 @@ class ModelEnchere extends Crud
         Membre.idMembre,
         Mise.mise,
         Enchere.Timer_idTimer,
-        Timer.date
-    FROM
-        Timbre
-    INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
-    INNER JOIN Membre ON idMembre = Membre_idMembre
-    INNER JOIN Image ON Image_idImage = idImage
-    INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
-    left JOIN Timer ON idTimer = Timer_idTimer";
+        Timer.date,
+        Status.idStatus
+        FROM
+            Timbre
+        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
+        INNER JOIN Membre ON idMembre = Membre_idMembre
+        INNER JOIN Image ON Image_idImage = idImage
+        INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
+        INNER JOIN Status ON Status_idStatus = idStatus
+        left JOIN Timer ON idTimer = Timer_idTimer";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
@@ -98,6 +104,35 @@ class ModelEnchere extends Crud
             return $stmt->fetch();
         } else {
             header("location: ../../home/error");
+        }
+    }
+
+    public function changeStatus($timbre){
+        $sql = "UPDATE `Enchere` SET `Status_idStatus` = 3 WHERE Timbre_idTimbre = $timbre";
+
+        $stmt = $this->prepare($sql);
+        foreach ($data as $key => $value) {
+            $stmt->bindValue(":$key", $value);
+        }
+        if (!$stmt->execute()) {
+            print_r($stmt->errorInfo());
+        } else {
+            // header('Location: ' . $_SERVER['HTTP_REFERER']);
+            return true;
+        }
+    }
+
+    public function deleteEnchere($id)
+    {
+        $sql = "DELETE FROM `Enchere` WHERE `Timbre_idTimbre` = $id";
+        
+        $stmt = $this->prepare($sql);
+        $stmt->bindValue(":$this->primaryKey", $id);
+        
+        if (!$stmt->execute()) {
+            print_r($stmt->errorInfo());
+        } else {
+            return true;
         }
     }
 

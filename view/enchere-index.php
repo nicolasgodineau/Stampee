@@ -98,11 +98,18 @@
         </aside>
         <div data-filtre="catalogue" class="catalogue flex_column">
             {% for enchere in encheres %}
+            <!-- Affiche les enchères en cours (1) et les terminer (2) -->
+            {% if enchere.idStatus == 1 or enchere.idStatus == 2 %}
             <article class="carte flex_column">
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
                         <i class="fa-regular fa-clock icon_taille_20"></i>
+                        {% if enchere.idStatus == 1 %}
                         <h2 data-filtre="finEnchere">{{enchere.date}} </h2>
+                        {% endif %}
+                        {% if enchere.idStatus == 2 %}
+                        <h2 data-filtre="finEnchere">Terminer</h2>
+                        {% endif %}
                     </div>
                     <div class="like flex_row">
                         <span class="icon_like icon_taille_20"></span>
@@ -124,6 +131,7 @@
                         href="{{ path }}enchere/show/{{enchere.idTimbre}}">Plus de détails</a>
                 </footer>
             </article>
+            {% endif %}
             {% endfor %}
 
         </div>

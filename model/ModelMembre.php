@@ -6,7 +6,7 @@ class ModelMembre extends Crud
     protected $table = 'Membre';
     protected $primaryKey = 'idMembre';
 
-    protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole','Pays_idPays'];
+    protected $fillable = ['idMembre', 'nom', 'prenom','adresse','telephone','email', 'password','Role_idRole'];
 
     public function checkMembre($data)
     {
@@ -37,4 +37,5 @@ class ModelMembre extends Crud
             return "<ul><li>Le non d'utilisateur n'existe pas</li></ul>";
         }
     }
+
 }
