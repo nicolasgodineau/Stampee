@@ -18,7 +18,7 @@ class ControllerEnchere
     {
         $enchere = new ModelEnchere;
         $selectAllEncheres = $enchere->selectAllEncheres();
-        twig::render("enchere-index.php",['encheres' => $selectAllEncheres,]);
+        twig::render("Enchere/enchere-index.php",['encheres' => $selectAllEncheres]);
     }
 
     public function create()
@@ -32,7 +32,7 @@ class ControllerEnchere
         // twig::render("enchere-create.php",['membre' => $selectMembre]);
 
         $selectMembre = $_SESSION["idMembre"];
-        twig::render('enchere-create.php',['membre' => $selectMembre]);
+        twig::render('Enchere/enchere-create.php',['membre' => $selectMembre]);
     }
 
     public function adminDeleteEnchere()
@@ -45,7 +45,7 @@ class ControllerEnchere
         $timbreDelete = $timbre->deleteTimbre($id);
 
 
-        twig::render('home-index.php');    
+        twig::render('Home/home-index.php');    
     }
 
     public function store()
@@ -82,7 +82,7 @@ class ControllerEnchere
         $mise = new ModelMise;
         $miseInsert = $mise->insertMise($_POST);
 
-        twig::render("enchere-index.php");
+        twig::render("Enchere/enchere-index.php");
     }
 
     public function changeStatus($idTimbre){
@@ -92,7 +92,7 @@ class ControllerEnchere
         echo '<pre>';
         print_r($changeStatus);
         echo '</pre>';
-        twig::render("home-index.php");
+        twig::render("Home/home-index.php");
 
     }
 
@@ -142,7 +142,7 @@ var x = setInterval(function() {
 <?php
 
         
-        twig::render("enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre]);
+        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre]);
     }
     
 }

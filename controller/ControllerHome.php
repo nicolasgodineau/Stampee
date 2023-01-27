@@ -16,11 +16,11 @@ class ControllerHome
 
   public function index()
   {
-    twig::render("home-index.php");
+    twig::render("Home/home-index.php");
   }
 
   public function error()
   {
-    twig::render("home-error.php");
+    twig::render("Home/home-error.php");
   }
 }

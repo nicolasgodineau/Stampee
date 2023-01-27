@@ -22,14 +22,14 @@ class ControllerMembre
         $selectEnchereMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
         $selectAllEncheres = $enchere->selectAllEncheres();
 
-        twig::render('membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
+        twig::render('Membre/membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
 
     }
 
     public function create()
     {
         // A déplacer dans la fonction store (faire tests)
-        Twig::render('membre-create.php');
+        twig::render('Membre/membre-create.php');
     }
 
     public function store()
@@ -44,7 +44,7 @@ class ControllerMembre
         if ( $_POST['password'] !== $_POST['passwordConfirm']) {
             return '<h3>Non valide</h3>';
             
-            twig::render('membre-create.php',['membre' => $_POST]);
+            twig::render('Membre/membre-create.php',['membre' => $_POST]);
             die();
         }  */ 
 
@@ -58,7 +58,7 @@ class ControllerMembre
 
                 $userInsert = $user->insert($_POST);
 
-                twig::render('membre-login.php');
+                twig::render('Membre/membre-login.php');
         } else {
                 $errors = $validation->displayErrors();
                 $privilege = new ModelRole;
@@ -70,7 +70,7 @@ class ControllerMembre
 
     public function login()
     {
-        twig::render('membre-login.php');
+        twig::render('Membre/membre-login.php');
     }
 
     public function auth()
@@ -82,10 +82,10 @@ class ControllerMembre
         if ($validation->isSuccess()) {
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
-            twig::render('home-index.php', ['errors' => $checkMembre, 'membre' => $_POST]);
+            twig::render('Home/home-index.php', ['errors' => $checkMembre, 'membre' => $_POST]);
         } else {
             $errors = $validation->displayErrors();
-            twig::render('membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
+            twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
         } 
     }
 
@@ -93,7 +93,7 @@ class ControllerMembre
     {
         $membre = new ModelMembre;
         $update = $membre->update($_POST);
-        twig::render('home-index.php');
+        twig::render('Home/home-index.php');
     } 
 
     public function delete()
@@ -101,7 +101,7 @@ class ControllerMembre
         $membre = new ModelMembre;
         $delete = $membre->delete($_POST['idMembre']);
         session_destroy();
-        twig::render('home-index.php');    
+        twig::render('Home/home-index.php');    
     }
     
     public function adminDeleteMembre()
@@ -109,14 +109,14 @@ class ControllerMembre
 
         $membre = new ModelMembre;
         $delete = $membre->delete($_POST['idMembre']);
-        twig::render('home-index.php');    
+        twig::render('Home/home-index.php');    
     }
 
     public function show($id)
     {
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
-        twig::render('membre-show.php');
+        twig::render('Membre/membre-show.php');
     }
 
     public function edit($id)
@@ -124,7 +124,7 @@ class ControllerMembre
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
 
-        twig::render('membre-edit.php', ['membre' => $selectMembre]);
+        twig::render('Membre/membre-edit.php', ['membre' => $selectMembre]);
     }
 
     public function logout()

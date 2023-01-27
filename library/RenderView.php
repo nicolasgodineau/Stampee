@@ -5,6 +5,8 @@ class View{
     private $render = false;
 
     public function __construct($template){
+
+        echo "text";
         try{
             $file = 'view/'.$template.'.php';
             if(file_exists($file)){

@@ -103,10 +103,8 @@
                                 <p>Mise: {{enchere.mise}} $ </p>
                                 {% if enchere.idStatus == 1 or enchere.idStatus == 3 %}
                                 <a class="call_to_action bleu fit_content" href="">Voir l'enchère</a>
-                                <a class="call_to_action rouge fit_content" href="{{ path }}">Supprimer
-                                    membre (ne marche pas)</a>
                                 <form action="{{ path }}enchere/adminDeleteEnchere" method="post">
-                                    <input type="text" name="idTimbre" value="{{enchere.idTimbre}}">
+                                    <input type="hidden" name="idTimbre" value="{{enchere.idTimbre}}">
                                     <input class="call_to_action rouge fit_content" type="submit"
                                         value="Supprimer enchère">
                                 </form>

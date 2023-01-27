@@ -76,7 +76,7 @@ class ModelEnchere extends Crud
     }
 
     public function selectEnchere($id){
-
+        $primaryKey = 'idTimbre';
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,
@@ -95,7 +95,7 @@ class ModelEnchere extends Crud
         WHERE
         Timbre.idTimbre = $id";
         $stmt = $this->prepare($sql);
-        $stmt->bindValue(":$this->primaryKey", $value);
+        $stmt->bindValue($primaryKey, $id);
         $stmt->execute();
 
         $count = $stmt->rowCount();
@@ -111,9 +111,8 @@ class ModelEnchere extends Crud
         $sql = "UPDATE `Enchere` SET `Status_idStatus` = 3 WHERE Timbre_idTimbre = $timbre";
 
         $stmt = $this->prepare($sql);
-        foreach ($data as $key => $value) {
-            $stmt->bindValue(":$key", $value);
-        }
+        $stmt->bindValue(":$key", $value);
+
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo());
         } else {
