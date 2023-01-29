@@ -5,7 +5,7 @@ class ModelImage extends Crud
 
     protected $table = 'Image';
     protected $primaryKey = 'idImage';
-    protected $fillable = ['idImage', 'image'];
+    protected $fillable = ['idImage', 'image','Timbre_idTimbre'];
     
     public function insertImage($data){
         $data_keys = array_fill_keys($this->fillable, '');

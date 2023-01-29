@@ -5,7 +5,7 @@ class ModelTimbre extends Crud
 
     protected $table = 'Timbre';
     protected $primaryKey = 'idTimbre';
-    protected $fillable = ['idTimbre', 'nom','description','Image_idImage'];
+    protected $fillable = ['idTimbre', 'nom','description'];
 
     public function insertTimbre($data){
         $data_keys = array_fill_keys($this->fillable, '');
