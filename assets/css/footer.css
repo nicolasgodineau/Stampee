@@ -40,8 +40,18 @@
     min-height: 100%;
 }
 
-.footer_info .hover_underligne::after {
-    background: var(--couleur_carte);
+.info_lettre_form input[type="button"] {
+    background-color: var(--couleur_dynamic_island);
+}
+
+.info_lettre_form input[type="button"]:hover {
+    color: whitesmoke;
+    background-color: var(--couleur_call_to_action);
+    transition: all 0.2s;
+}
+
+.aide_generale a:hover {
+    text-decoration: underline;
 }
 
 .footer_page p {

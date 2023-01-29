@@ -1,9 +1,11 @@
-.formulaire_inscription {
-    max-width: 38em;
-    min-height: 50vh;
+.formulaire_inscription,
+.formulaire_connexion,
+.formulaire_compte {
+    max-width: 40em;
+    min-height: fit-content;
     padding: 3em;
     margin: 2em auto;
-    background-color: whitesmoke;
+    background-color: var(--couleur_carte);
     border-radius: 30px;
     box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
 }
@@ -12,20 +14,46 @@ form {
     gap: 30px;
 }
 
+form .error {
+    text-align: center;
+    color: var(--couleur_danger);
+}
+
 form h4 {
     font-size: clamp(0.2rem, 5vw, 1rem);
     font-weight: normal;
     margin: 15px 0px 0px 0px;
 }
 
-form input {
+form input,
+form select {
     width: 100%;
     padding: 1em;
     padding-left: 1em;
     line-height: 1.4;
-    background-color: var(--couleur_fond);
+    background-color: var(--couleur_dynamic_island);
     border: none;
     border-radius: 30px;
+}
+
+.fit_content {
+    width: fit-content;
+}
+
+form .placeholder {
+    color: #656565;
+}
+
+form .invalide {
+    border-color: var(--couleur_danger);
+}
+
+form .invisible {
+    display: none;
+}
+
+form .visible {
+    display: block;
 }
 
 form .info_perso,
@@ -37,8 +65,7 @@ form .date_naissance {
 
 form .call_to_action {
     font-size: 1.1rem;
-    width: 100%;
-    margin: 30px 0px 0px 0px;
+    /* margin: 30px 0px 0px 0px; */
 }
 
 form .info_perso div,
@@ -52,16 +79,26 @@ form svg {
     color: #d6d6d6;
 }
 
+form textarea {
+    width: 100%;
+    padding: 1em;
+    padding-left: 1em;
+    line-height: 1.4;
+    background-color: var(--couleur_dynamic_island);
+    border: none;
+    border-radius: 30px;
+}
+
 /* Section modification du style pour la page de connexion au compte */
-.formulaire_connexion {
+/* .formulaire_connexion {
     max-width: 38em;
     min-height: 30vh;
     padding: 3em;
     margin: 2em auto;
-    background-color: white;
+    background-color: var(--couleur_carte);
     border-radius: 30px;
     box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .formulaire_connexion .info_connexion {
     gap: 30px;

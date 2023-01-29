@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a6772df2521c6860a448e9115f2793a",
+    "content-hash": "9d247d860396de8861e9d38dca3b1f08",
     "packages": [
+        {
+            "name": "stefangabos/world_countries",
+            "version": "v2.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stefangabos/world_countries.git",
+                "reference": "9081de3eecf1ea102fdfbaf210d0a02773f658ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stefangabos/world_countries/zipball/9081de3eecf1ea102fdfbaf210d0a02773f658ca",
+                "reference": "9081de3eecf1ea102fdfbaf210d0a02773f658ca",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "stefangabos",
+                    "email": "contact@stefangabos.ro",
+                    "homepage": "https://github.com/stefangabos",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Constantly updated lists of world countries, territories and areas of geographical interest, with associated alpha-2, alpha-3 and numeric codes as defined by the ISO 3166-1 standard, available in multiple formats and languages, with national flags included",
+            "keywords": [
+                "ISO 3166",
+                "ISO 3166-1",
+                "alpha-2",
+                "alpha-3",
+                "countries",
+                "flag",
+                "flags",
+                "world"
+            ],
+            "support": {
+                "issues": "https://github.com/stefangabos/world_countries/issues",
+                "source": "https://github.com/stefangabos/world_countries/tree/v2.6.0"
+            },
+            "time": "2022-06-19T09:01:43+00:00"
+        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "v1.27.0",

@@ -1,22 +1,25 @@
 <?php
+RequirePage::requireModel('Crud');
+RequirePage::requireModel('ModelMembre');
+RequirePage::requireModel('ModelRole');
+RequirePage::requireModel('ModelTimbre');
+RequirePage::requireModel('ModelImage');
+RequirePage::requireModel('ModelMise');
+RequirePage::requireModel('ModelEnchere');
+RequirePage::requireModel('ModelFavoris');
+RequirePage::requireModel('ModelStatus');
+
 
 class ControllerHome
 {
 
   public function index()
   {
-    echo '<pre>';
-    print_r($_SESSION);
-    echo '</pre>';
-    $data = [
-      'name' => 'Peter',
-      'welcome' => 'Welcome'
-    ];
-    twig::render("home-index.php", $data);
+    twig::render("Home/home-index.php");
   }
 
   public function error()
   {
-    twig::render("home-error.php");
+    twig::render("Home/home-error.php");
   }
 }

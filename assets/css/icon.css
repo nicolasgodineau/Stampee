@@ -1,27 +1,27 @@
 .icon_taille_20 {
     width: 20px;
     height: 20px;
-    background-size: contain;
+    background-size: cover;
 }
 .icon_taille_25 {
     width: 25px;
     height: 25px;
-    background-size: contain;
+    background-size: cover;
 }
 .icon_taille_30 {
     width: 30px;
     height: 30px;
-    background-size: contain;
+    background-size: cover;
 }
 .icon_taille_40 {
     width: 40px;
     height: 40px;
-    background-size: contain;
+    background-size: cover;
 }
 .icon_taille_50 {
     width: 50px;
     height: 50px;
-    background-size: contain;
+    background-size: cover;
 }
 
 /* NOTE pour le changement de la couleur de la loupe de recherche */
@@ -39,6 +39,7 @@
 .icon_like {
     background-image: url(../img/icons/coeur-vide.svg);
     cursor: pointer;
+    border-radius: 38%;
 }
 
 .icon_like.liker {

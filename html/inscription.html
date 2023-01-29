@@ -12,15 +12,15 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/variables.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/menu.css">
-    <link rel="stylesheet" href="./assets/css/fiche.css">
-    <link rel="stylesheet" href="./assets/css/carte.css">
-    <link rel="stylesheet" href="./assets/css/icon.css">
-    <link rel="stylesheet" href="./assets/css/formulaire.css">
-    <link rel="stylesheet" href="./assets/css/footer.css">
-    <script type="module" src="./assets/scripts/main.mjs"></script>
+    <link rel="stylesheet" href="/assets/css/variables.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/menu.css">
+    <link rel="stylesheet" href="/assets/css/fiche.css">
+    <link rel="stylesheet" href="/assets/css/carte.css">
+    <link rel="stylesheet" href="/assets/css/icon.css">
+    <link rel="stylesheet" href="/assets/css/formulaire.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <script type="module" src="/assets/scripts/main.mjs"></script>
     <script src="https://kit.fontawesome.com/4890a1a8f5.js" crossorigin="anonymous"></script>
 
     <title>Inscription</title>
@@ -68,53 +68,64 @@
                     <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
                         placeholder="Adresse" required>
                 </div>
-                <div class="flex_row flex_align_center">
+                <!--
+            <div class="flex_row flex_align_center">
+                <i class="fa-solid fa-house"></i>
+                <select class="placeholder" aria-label="pays" type="text" name="pays" id="pays" placeholder="Pays"
+                    required">
+                </select>
+            </div>
+            <div class="flex_row flex_align_center">
+                <i class="fa-solid fa-house"></i>
+                <select class="placeholder" aria-label="ville" type="text" name="ville" id="ville" placeholder="Ville"
+                    required">
+                </select>
+            </div>
+                            <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-house"></i><input aria-label="ville" type="text" name="ville" id="ville"
                         placeholder="Ville" required>
                 </div>
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-house"></i><input aria-label="pays" type="text" name="pays" id="pays"
-                        placeholder="Pays" required>
-                </div>
-            </div>
-            <div class="info_date_naissance flex_column">
-                <h4>Date de naissance</h4>
-                <div class="date_naissance flex_row">
-                    <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-cake-candles"></i><input aria-label="jourNaissance" type="text"
-                            name="jourNaissance" id="jourNaissance" placeholder="JJ" required>
-                    </div>
-                    <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-cake-candles"></i><input aria-label="moisNaissance" type="text"
-                            name="moisNaissance" id="moisNaissance" placeholder="MM" required>
-                    </div>
-                    <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-cake-candles"></i><input aria-label="anneeNaissance" type="text"
-                            name="anneeNaissance" id="anneeNaissance" placeholder="AA" required>
+        </div>
+ -->
+                <div class="info_date_naissance flex_column">
+                    <h4>Date de naissance</h4>
+                    <div class="date_naissance flex_row">
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="jourNaissance" type="text"
+                                name="jourNaissance" id="jourNaissance" placeholder="JJ" required>
+                        </div>
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="moisNaissance" type="text"
+                                name="moisNaissance" id="moisNaissance" placeholder="MM" required>
+                        </div>
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="anneeNaissance" type="text"
+                                name="anneeNaissance" id="anneeNaissance" placeholder="AA" required>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="info_connexion flex_column">
-                <h4>Informations de connexion</h4>
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-envelope"></i><input aria-label="email" type="email" name="email" id="email"
-                        placeholder="Email" required>
+                <div class="info_connexion flex_column">
+                    <h4>Informations de connexion</h4>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-envelope"></i><input aria-label="email" type="email" name="email"
+                            id="email" placeholder="Email" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
+                            id="password" placeholder="Mot de passe" required>
+                    </div>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text"
+                            name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer le mot de passe"
+                            required>
+                    </div>
                 </div>
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
-                        id="password" placeholder="Mot de passe" required>
-                </div>
-                <div class="flex_row flex_align_center">
-                    <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text"
-                        name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer le mot de passe" required>
-                </div>
-            </div>
-            <button class="call_to_action bleu" type="submit">S'inscrire</button>
+                <button class="call_to_action bleu" type="submit">S'inscrire</button>
         </form>
     </main>
     <footer class="footer_page flex_column">
         <div class="logo_footer flex_row flex_justify_center ">
-            <img src="./assets/img/logo/Logo.webp" alt="Logo Lord Stempee">
+            <img src="./assets/img/logo/Logo.webp" alt="Logo Lord Stampee">
         </div>
         <div class="aide_generale flex_row flex_justify_around">
             <div class="liste1 liste flex_column">

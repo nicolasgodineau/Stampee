@@ -1,11 +1,11 @@
 .fiche {
-    min-height: 70vh;
-    margin: 30px 50px;
-    padding: 50px;
+    max-height: fit-content;
+    min-width: 70%;
+    padding: 3em;
+    margin: 2em auto;
     background-color: var(--couleur_carte);
     border-radius: 30px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
-        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
 }
 
 .fiche h1 {
@@ -13,8 +13,6 @@
 }
 
 .fiche .image {
-    align-items: center;
-    justify-content: space-between;
     min-width: 50%;
     gap: 30px;
 }
@@ -36,7 +34,6 @@
 
 .fiche .description {
     align-items: initial;
-    justify-content: space-between;
     gap: 30px;
     min-width: 30%;
 }
@@ -52,7 +49,7 @@
     padding: 10px 0px;
 }
 .fiche tr:nth-child(odd) {
-    background-color: #eceff7;
+    background-color: var(--couleur_dynamic_island);
 }
 
 .fiche .like {
@@ -69,11 +66,17 @@
 
 .fiche .temps_restant,
 footer h2 {
-    font-size: 1.5rem;
+    width: 100%;
 }
 
 .fiche footer {
     gap: 50px;
+}
+
+.fiche footer a {
+    max-width: 50%;
+    min-width: fit-content;
+    margin: 0 auto;
 }
 
 .fiche footer h2 {
@@ -81,9 +84,7 @@ footer h2 {
 }
 
 .fiche .prix {
-    align-items: center;
     gap: 20px;
-    justify-content: space-between;
 }
 
 .fiche .prix a {
@@ -102,20 +103,12 @@ footer h2 {
 }
 
 .fiche .information_importante {
-    justify-content: space-between;
+    min-width: 100%;
 }
 
 .fiche .information_importante img {
     max-width: 200px;
     height: auto;
-}
-
-.voir_plus {
-    align-items: center;
-}
-
-.voir_plus a {
-    text-align: center;
 }
 
 .voir_plus img {
@@ -125,7 +118,6 @@ footer h2 {
 
 .autres_enchères {
     padding: 50px 50px 15px 50px;
-    display: flex;
     gap: 30px;
     overflow: scroll;
 }
@@ -168,4 +160,9 @@ footer h2 {
     max-height: 100px;
     width: auto;
     object-fit: contain;
+}
+
+/* NOTE Zone pour la création d'une enchère */
+.fiche form ul {
+    gap: 20px;
 }

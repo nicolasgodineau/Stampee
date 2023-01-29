@@ -1,16 +1,3 @@
-body {
-    background: linear-gradient(
-            rgba(255, 255, 255, 0.6),
-            rgba(255, 255, 255, 0.6)
-        ),
-        url(../img/accueil.webp) no-repeat;
-    background-size: 1920px;
-    background-attachment: fixed;
-    background-position: center;
-    max-width: 1920px;
-    min-height: 100vh;
-}
-
 .zone_principale {
     gap: 20px;
     min-height: calc(100vh - 140px);

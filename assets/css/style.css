@@ -12,8 +12,7 @@ body {
     margin: 0 auto;
 }
 
-.header_principal {
-    min-height: 500px;
+.body_accueil {
     background: linear-gradient(
             rgba(255, 255, 255, 0.6),
             rgba(255, 255, 255, 0.6)
@@ -23,16 +22,30 @@ body {
     background-attachment: fixed;
     background-position: center;
     max-width: 1920px;
+    min-height: 100vh;
 }
 
-main {
+.header_principal {
+    min-height: 500px;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        ),
+        url(../img/accueil.webp) no-repeat;
+    background-size: 1920px;
+    background-attachment: scroll;
+    background-position: center;
+    max-width: 1920px;
+}
+
+.main_accueil {
     max-width: 1920px;
     min-height: 100vh;
 }
 
 .fixe {
     max-width: 1920px;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     width: 100%;
     height: 130px;
@@ -103,7 +116,7 @@ input[type="button"] {
 
 .call_to_action_petit {
     font-weight: normal;
-    width: 100%;
+    width: fit-content;
     padding: 5px 15px;
 }
 
@@ -130,6 +143,21 @@ input[type="button"] {
     border: 2px solid var(--couleur_call_to_action);
     background-color: transparent;
     transition: all 0.2s;
+    box-shadow: none;
+}
+.rouge {
+    color: whitesmoke;
+    border: 2px solid var(--couleur_danger);
+    background-color: var(--couleur_danger);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+}
+
+.rouge:hover {
+    color: black;
+    border: 2px solid var(--couleur_danger);
+    background-color: transparent;
+    transition: all 0.2s;
+    box-shadow: none;
 }
 
 .flex_row {
@@ -166,7 +194,7 @@ input[type="button"] {
 .fil_ariane a {
     font-size: 0.8rem;
     text-decoration: underline;
-    color: #737373;
+    color: #525252;
 }
 
 .retour_en_haut {
