@@ -77,7 +77,6 @@ class ControllerMembre
 
     public function auth()
     {
-        $errors = "";
         $validation = new Validation;
         extract($_POST);
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
@@ -86,21 +85,23 @@ class ControllerMembre
         if ($validation->isSuccess()) {
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
+            if ($checkMembre === 'erreurEmail') {
+                $errorsEmail = "Adresse email non valide";
+                twig::render('Membre/membre-login.php', ['errors' => $errorsEmail, 'membre' => $_POST]);
+                die();
+            } 
+            if ($checkMembre === 'erreurMotDePasse') {
+                $erreurMotDePasse = "Mot de passe non valide";
+                twig::render('Membre/membre-login.php', ['errors' => $erreurMotDePasse, 'membre' => $_POST]);
+                die();
+            }
 
-            if ($checkMembre == 0) {
-                    $errors = "Adresse email non valide";
-
-                twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
-            } else {
-                $errors = [
-                    erreur => 'Mot de passe non valide'];
-                }
-                twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
-            
+            twig::render('Home/home-index.php', ['membre' => $_POST]);
         } else {
             $errors = "Oups une information n'est pas bonne.";
             twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
         } 
+
     }
 
     public function update()
