@@ -7,7 +7,6 @@ RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
-RequirePage::requireModel('ModelTimer');
 RequirePage::requireModel('ModelStatus');
 
 
@@ -28,7 +27,6 @@ class ControllerMembre
 
     public function create()
     {
-        // A déplacer dans la fonction store (faire tests)
         twig::render('Membre/membre-create.php');
     }
 
@@ -40,32 +38,36 @@ class ControllerMembre
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
         $validation->name('password')->value($password)->max(20)->min(6);
         $validation->name('Role_idRole')->value($Role_idRole)->pattern('int')->required();
-        /* 
-        if ( $_POST['password'] !== $_POST['passwordConfirm']) {
-            return '<h3>Non valide</h3>';
-            
-            twig::render('Membre/membre-create.php',['membre' => $_POST]);
+
+        /* Vérification de l'adresse email */
+        $membre = new ModelMembre;
+        $membreVerifEmail = $membre->verifEmail($_POST['email']);
+        if ($membreVerifEmail == 1) {
+            $erreurEmailUtiliser = 'Email déja utiliser.';
+            twig::render('Membre/membre-create.php', ['erreurEmail' => $erreurEmailUtiliser, 'membre' => $_POST]);
             die();
-        }  */ 
+        }
 
+        /* Vérification de la confirmation du mot de passe */
+        if ( $_POST['password'] !== $_POST['passwordVerif']) {
+            $erreurMotDePasseConfirmer = "Le mot de passe confirmer n'est pas bon.";
+            twig::render('Membre/membre-create.php', ['erreurMotDePasse' => $erreurMotDePasseConfirmer, 'membre' => $_POST]);
+            die();
 
-            if ($validation->isSuccess()) {
-                $user = new ModelMembre;
-                $options = [
-                    'cost' => 10,
-                ];
-                $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
+        }
 
-                $userInsert = $user->insert($_POST);
+        /* Suite si Email et verrif mot de passe OK */
+        if ($validation->isSuccess()) {
+            $membre = new ModelMembre;
+            $options = [
+                'cost' => 10,
+            ];
+            $_POST['password'] = password_hash($_POST['password'], PASSWORD_BCRYPT, $options);
 
-                twig::render('Membre/membre-login.php');
-        } else {
-                $errors = $validation->displayErrors();
-                $privilege = new ModelRole;
-                $selectPrivilege = $privilege->select();
-                twig::render('book-index.php', ['errors' => $errors, 'privileges' => $selectPrivilege, 'user' => $_POST]);
-            }
-        
+            $membreInsert = $membre->insert($_POST);
+
+            twig::render('Membre/membre-login.php');
+        }
     }
 
     public function login()
@@ -75,16 +77,28 @@ class ControllerMembre
 
     public function auth()
     {
+        $errors = "";
         $validation = new Validation;
         extract($_POST);
         $validation->name('email')->value($email)->pattern('email')->required()->max(50);
         $validation->name('password')->value($password)->required();
+
         if ($validation->isSuccess()) {
             $membre = new ModelMembre;
             $checkMembre = $membre->checkMembre($_POST);
-            twig::render('Home/home-index.php', ['errors' => $checkMembre, 'membre' => $_POST]);
+
+            if ($checkMembre == 0) {
+                    $errors = "Adresse email non valide";
+
+                twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
+            } else {
+                $errors = [
+                    erreur => 'Mot de passe non valide'];
+                }
+                twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
+            
         } else {
-            $errors = $validation->displayErrors();
+            $errors = "Oups une information n'est pas bonne.";
             twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
         } 
     }

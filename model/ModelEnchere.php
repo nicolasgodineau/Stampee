@@ -5,11 +5,8 @@ class ModelEnchere extends Crud
 
     protected $table = 'Enchere';
     protected $primaryKey = ['Membre_idMembre','Timbre_idTimbre'];
-    protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre','Timer_idTimer','Status_idStatus'];
+    protected $fillable = ['Membre_idMembre', 'Timbre_idTimbre','Status_idStatus','dateFin'];
 
-    public function show(){
-
-    }
     
     public function insertEnchere($data){
 
@@ -36,7 +33,6 @@ class ModelEnchere extends Crud
         Timbre.idTimbre,
         Timbre.nom,
         Mise.mise,
-        Timer.date,
         Status.idStatus
         FROM
             Timbre
@@ -44,7 +40,6 @@ class ModelEnchere extends Crud
         INNER JOIN Membre ON idMembre = Membre_idMembre
         INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre
         INNER JOIN Status ON Status_idStatus = idStatus
-        left JOIN Timer ON idTimer = Timer_idTimer
         WHERE
         idMembre = $id";
         $stmt  = $this->query($sql);
@@ -52,25 +47,22 @@ class ModelEnchere extends Crud
     }
     
     public function selectAllEncheres(){
+
         $sql =  "SELECT
         Timbre.idTimbre,
         Timbre.nom,
         Timbre.description,
-        Image.image,
         Membre.prenom,
         Membre.idMembre,
         Mise.mise,
-        Enchere.Timer_idTimer,
-        Timer.date,
         Status.idStatus
         FROM
             Timbre
         INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
         INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Image ON Image_idImage = idImage
         INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
-        INNER JOIN Status ON Status_idStatus = idStatus
-        left JOIN Timer ON idTimer = Timer_idTimer";
+        INNER JOIN Status ON Status_idStatus = idStatus";
+
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
@@ -81,16 +73,12 @@ class ModelEnchere extends Crud
         Timbre.idTimbre,
         Timbre.nom,
         Timbre.description,
-        Image.image,
         Membre.idMembre,
-        Mise.mise,
-        Enchere.Timer_idTimer
-    
+        Mise.mise
         FROM
             Timbre
         INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
         INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Image ON Image_idImage = idImage
         INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre
         WHERE
         Timbre.idTimbre = $id";

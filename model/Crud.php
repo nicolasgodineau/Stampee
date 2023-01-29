@@ -12,6 +12,10 @@ abstract class Crud extends PDO
     public function select($champ = 'id', $order = 'ASC')
     {   
         $sql = "SELECT * FROM $this->table ORDER BY $champ $order";
+        echo '<pre>';
+        print_r($stmt);
+        echo '</pre>';
+        die();
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
@@ -92,5 +96,18 @@ abstract class Crud extends PDO
         } else {
             return true;
         }
+    }
+
+    public function verifEmail($email)
+    {   
+        $sql = "SELECT * FROM `Membre` WHERE `email` = '$email'";
+        $stmt = $this->prepare($sql);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+        echo '<pre>';
+        print_r($count);
+        echo '</pre>';
+        return $count;
+        die();
     }
 }

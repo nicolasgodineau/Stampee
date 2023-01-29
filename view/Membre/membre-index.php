@@ -63,9 +63,11 @@
                         </summary>
                         <div class="info_pour_admin flex_column">
                             <a class="call_to_action bleu fit_content"
-                                href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir l'enchère</a>
+                                href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir
+                                l'enchère</a>
                             <a class="call_to_action rouge fit_content"
-                                href="{{ path }}enchere/changeStatus/{{enchere.idTimbre}}">Supprimer
+                                href="{{ path }}enchere/changeStatus/{{enchere.idTimbre}}"
+                                onclick="return confirm('Voulez vous vraiment supprimer cette enchère ?');">Supprimer
                                 l'enchère</a>
                         </div>
                     </details>
@@ -102,11 +104,13 @@
                                 <p>Nom de l'enchère: {{enchere.nom}}</p>
                                 <p>Mise: {{enchere.mise}} $ </p>
                                 {% if enchere.idStatus == 1 or enchere.idStatus == 3 %}
-                                <a class="call_to_action bleu fit_content" href="">Voir l'enchère</a>
+                                <a class="call_to_action bleu fit_content"
+                                    href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir l'enchère</a>
                                 <form action="{{ path }}enchere/adminDeleteEnchere" method="post">
                                     <input type="hidden" name="idTimbre" value="{{enchere.idTimbre}}">
                                     <input class="call_to_action rouge fit_content" type="submit"
-                                        value="Supprimer enchère">
+                                        value="Supprimer enchère"
+                                        onclick="return confirm('Voulez vous vraiment supprimer cette enchère ?');">
                                 </form>
                                 {% endif %}
                             </div>
@@ -138,7 +142,8 @@
                                 <form action="{{ path }}membre/adminDeleteMembre" method="post">
                                     <input type="hidden" name="idMembre" value="{{membre.idMembre}}">
                                     <input class="call_to_action rouge fit_content" type="submit"
-                                        value="Supprimer membre">
+                                        value="Supprimer membre"
+                                        onclick="return confirm('Voulez vous vraiment supprimer ce membre ?');">
                                 </form>
                             </div>
                         </details>

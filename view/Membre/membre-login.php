@@ -12,8 +12,8 @@
         <em>Connexion</em>
     </nav>
     <main class="formulaire_connexion flex_column flex_justify_center">
-        <span class="error">{{ errors|raw }}</span>
         <form class="flex_column" action="{{ path }}membre/auth" method="post">
+            <span class="error">{{errors}}</span>
             <div class="info_connexion flex_column">
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-envelope"></i><input aria-label="email" type="email" name="email" id="email"

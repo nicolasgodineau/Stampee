@@ -37,11 +37,12 @@
                 </div>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
-                        placeholder="Adresse" value="{{membre.adresse}}">
+                        placeholder="Adresse" value="{{ membre.adresse }}">
                 </div>
             </div>
             <div class="info_connexion flex_column">
                 <h4>Informations de connexion</h4>
+                <span class="error">{{ erreurEmail }}</span>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-envelope"></i><input aria-label="email" type="email" name="email" id="email"
                         placeholder="Email" value="{{ membre.email }}" required>
@@ -49,6 +50,12 @@
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
                         id="password" placeholder="Mot de passe ex: 123456" pattern="[0-9]{6,9}"
+                        title="6 caractères minimum et uniquement des chiffres" required>
+                </div>
+                <span class="error">{{ errorsMotDePasse }}</span>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="passwordVerif"
+                        id="passwordVerif" placeholder="Confirmer le mot de passe" pattern="[0-9]{6,9}"
                         title="6 caractères minimum et uniquement des chiffres" required>
                 </div>
             </div>

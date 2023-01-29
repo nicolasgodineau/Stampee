@@ -7,7 +7,6 @@ RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
-RequirePage::requireModel('ModelTimer');
 RequirePage::requireModel('ModelStatus');
 
 
@@ -16,6 +15,7 @@ class ControllerEnchere
 
     public function index()
     {
+        echo "text";
         $enchere = new ModelEnchere;
         $selectAllEncheres = $enchere->selectAllEncheres();
         twig::render("Enchere/enchere-index.php",['encheres' => $selectAllEncheres]);
@@ -51,12 +51,6 @@ class ControllerEnchere
     public function store()
     {
         $_POST["Status_idStatus"] = 1;
-
-        // Vérifie si la date est déja dans la BD, si oui, alors Timer_idTimer prend sa valeur (pas de création de ligne dans la BD), si non, création d'une ligne dans la BD 
-        $date = $_POST['date'];
-        $timer = new ModelTimer;
-        $timerSet = $timer->addDate($date);
-        $_POST["Timer_idTimer"] = $timerSet['idTimer'];
 
         $image = new ModelImage;
         $imageInsert = $image->insertImage($_POST);
@@ -100,11 +94,6 @@ class ControllerEnchere
 
         $enchere = new ModelEnchere;
         $selectEnchere = $enchere->selectEnchere($id);
-
-        $timer = new ModelTimer;
-        $dateFin = $timer -> setTimer($selectEnchere['Timer_idTimer']);
-        $selectEnchere['dateFin'] = $dateFin['date'];
-        $fin = $selectEnchere['dateFin'];
 
         // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
         $enchereSup = $selectEnchere['mise'] + 50;

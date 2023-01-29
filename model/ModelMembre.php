@@ -15,7 +15,7 @@ class ModelMembre extends Crud
         $stmt = $this->prepare($sql);
         $stmt->execute(array($email));
         $count = $stmt->rowCount();
-
+        
         if ($count == 1) {
             $membre_info = $stmt->fetch();
             if (password_verify($password, $membre_info['password'])) {
@@ -25,16 +25,14 @@ class ModelMembre extends Crud
                 $_SESSION['prenom'] = $membre_info['prenom'];
                 $_SESSION['Role_idRole'] = $membre_info['Role_idRole'];
                 $_SESSION['fingerPrint'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
-                
-
                 //requirePage::redirectPage('../home/index',['membre_info' => $_SESSION]);
 
             } else {
-
-                return "<h4>Verifier le mot de passe</h4>";
+                return 1;
             }
         } else {
-            return "<ul><li>Le non d'utilisateur n'existe pas</li></ul>";
+            
+            return 0;
         }
     }
 

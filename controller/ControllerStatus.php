@@ -7,7 +7,6 @@ RequirePage::requireModel('ModelImage');
 RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
-RequirePage::requireModel('ModelTimer');
 RequirePage::requireModel('ModelStatus');
 
 
