@@ -15,12 +15,12 @@ class ControllerMembre
     public function index($id){
         $membre = new ModelMembre;
         $selectMembre = $membre->selectId($id);
-        $selectMembres = $membre->select("idMembre");        
+        $selectMembres = $membre->select("idMembre");    
 
         $enchere = new ModelEnchere;
         $selectEnchereMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
         $selectAllEncheres = $enchere->selectAllEncheres();
-
+        
         twig::render('Membre/membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
 
     }
@@ -66,7 +66,8 @@ class ControllerMembre
 
             $membreInsert = $membre->insert($_POST);
 
-            twig::render('Membre/membre-login.php');
+            RequirePage::redirectPage('login');
+
         }
     }
 
@@ -95,8 +96,9 @@ class ControllerMembre
                 twig::render('Membre/membre-login.php', ['errors' => $erreurMotDePasse, 'membre' => $_POST]);
                 die();
             }
+            RequirePage::redirectPage('../home/index', ['membre' => $_POST]);
 
-            twig::render('Home/home-index.php', ['membre' => $_POST]);
+            //twig::render('Home/home-index.php', ['membre' => $_POST]);
         } else {
             $errors = "Oups une information n'est pas bonne.";
             twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);
@@ -124,7 +126,7 @@ class ControllerMembre
 
         $membre = new ModelMembre;
         $delete = $membre->delete($_POST['idMembre']);
-        twig::render('Home/home-index.php');    
+        twig::render('Home/home-index.php');
     }
 
     public function show($id)

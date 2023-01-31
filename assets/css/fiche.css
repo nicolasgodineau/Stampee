@@ -12,7 +12,7 @@
     font-size: clamp(1rem, 2.5vw, 2rem);
 }
 
-.fiche .image {
+.fiche .galerie {
     min-width: 50%;
     gap: 30px;
 }

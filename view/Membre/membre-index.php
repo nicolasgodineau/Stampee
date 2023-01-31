@@ -7,7 +7,7 @@
     </header>
     <nav class="fil_ariane">
         <i class="fa-solid fa-house"></i>
-        <a class='retour' href="../home/index">Accueil</a>
+        <a class='retour' href="{{ path }}home/index">Accueil</a>
         <i class="fa-solid fa-arrow-right"></i>
         <em>Compte</em>
     </nav>
@@ -100,7 +100,7 @@
                                 {% endif %}
                             </summary>
                             <div class="info_pour_admin flex_column">
-                                <p>Prénom: {{enchere.prenom}}</p>
+                                <p>ID utilisateur: {{enchere.Membre_idMembre}}</p>
                                 <p>Nom de l'enchère: {{enchere.nom}}</p>
                                 <p>Mise: {{enchere.mise}} $ </p>
                                 {% if enchere.idStatus == 1 or enchere.idStatus == 3 %}

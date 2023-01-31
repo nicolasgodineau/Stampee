@@ -1,10 +1,9 @@
 {{ include('header.php', {title: 'Fiche d\'enchere'})}}
 
-
-<body onload="countdown()>
+<body>
     {{include('menu.php')}}
     <header class=" header_principal flex_row flex_align_center flex_justify_center" id="top">
-    <h1 class="principale">Fiche d'enchère</h1>
+        <h1 class="principale">Fiche d'enchère</h1>
     </header>
     <nav class="fil_ariane">
         <i class="fa-solid fa-house"></i>
@@ -17,8 +16,8 @@
     <main class="flex_column">
         <h1 id="counter"></h1>
         <div class="fiche flex_row">
-            <section class="image flex_column flex_justify_between flex_align_center">
-                <div>
+            <section class="galerie flex_column flex_justify_between flex_align_center">
+                <div class="image_container">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                     <p>Passez dessus pour voir plus grand</p>
                 </div>
@@ -40,201 +39,72 @@
                     <tbody>
                         <tr>
                             <td>Condition</td>
-                            <td data-filtre="etat">Très bon</td>
+                            <td data-filtre="etat"></td>
                         </tr>
                         <tr>
                             <td>Pays</td>
-                            <td data-filtre="pays">Bahamas</td>
+                            <td data-filtre="pays"></td>
                         </tr>
                         <tr>
                             <td>Scott</td>
-                            <td data-filtre="scott">17</td>
+                            <td data-filtre="scott"></td>
                         </tr>
                         <tr>
                             <td>Émission</td>
-                            <td data-filtre="emission">Timbre du Bahamas</td>
+                            <td data-filtre="emission"></td>
                         </tr>
                         <tr>
                             <td>Nom</td>
-                            <td data-filtre="nom">Reine Victoria</td>
+                            <td data-filtre="nom"></td>
                         </tr>
                         <tr>
                             <td>Valeur faciale</td>
-                            <td data-filtre="valeurFaciale">1p</td>
+                            <td data-filtre="valeurFaciale"></td>
                         </tr>
                         <tr>
                             <td>Date</td>
-                            <td data-filtre="date">1863-10</td>
+                            <td data-filtre="date"></td>
                         </tr>
                         <tr>
                             <td>Couleur</td>
-                            <td data-filtre="couleur">Carmin laqué</td>
+                            <td data-filtre="couleur"></td>
                         </tr>
                         <tr>
                             <td>Perforation</td>
-                            <td data-filtre="perforation">14</td>
+                            <td data-filtre="perforation"></td>
                         </tr>
                     </tbody>
                 </table>
                 <footer class="flex_column">
-                    <h2 data-filtre="prix">Prix actuel : ${{enchere.mise}}</h2>
+                    <h2 data-filtre="prix">Meilleur offre : ${{enchere.mise}}</h2>
                     {% if session.Role_idRole == null %}
                     <a class="call_to_action bleu" href="#">Inscrivez-vous pour pouvoir encherir</a>
                     {% endif %}
-                    {% if session.Role_idRole == 1 %}
+                    {% if session.Role_idRole == 1 and session.idMembre != enchere.Membre_idMembre %}
+                    <!-- Permet de filtrer un utilisateur visiteur ou admin, et le membre qui à créer l'enchère -->
                     <div class="prix flex_row flex_justify_between flex_align_center">
-                        <input aria-label="miser" data-filtre="enchere" class="zone_enchere" type="text" name="miser"
-                            placeholder="min ${{enchere.enchereSuperieur}}" id="miser">
-                        <a class="call_to_action bleu" href="#">Enchérir</a>
+                        <form action="{{ path }}enchere/ajoutMise" method="post">
+                            <!-- <input type="text" name="Enchere_Timbre_idTimbre" value="{{enchere.idTimbre}}"> -->
+                            <input type="text" name="Timbre_idTimbre" value="{{enchere.idTimbre}}">
+                            <!--  <input type="text" name="Enchere_Membre_idMembre" value="{{session.idMembre}}"> -->
+                            <input type="text" name="Membre_idMembre" value="{{session.idMembre}}">
+                            <input aria-label="miser" data-filtre="enchere" class="zone_enchere" type="text" name="mise"
+                                placeholder="min ${{enchere.enchereSuperieur}}" id="mise" required>
+                            <input class="call_to_action bleu fit_content" type="submit" value="Enchérir">
+                        </form>
                         <span class="icon_like icon_taille_20"></span>
                     </div>
                     {% endif %}
-                    <div class="information_importante flex_row">
+                    <div class="information_importante flex_row flex_justify_between">
                         <ul>
                             <li>Pays d'envoi : Royaume-Uni</li>
                             <li>Livraison internationale gratuite</li>
                             <li>Certification garantie</li>
                         </ul>
-                        <img src="./assets/img/icons/icone-payment.webp" alt="information payment">
+                        <img src="{{ path }}assets/img/icons/icone-payment.webp" alt="information payment">
                     </div>
                 </footer>
             </section>
         </div>
-        <!--         <div class="voir_plus flex_column flex_align_center">
-            <h2>D’autres enchères pourraient vous intéressé !</h2>
-            <i class="fa-solid fa-arrow-down icon_taille_50"></i>
-        </div>
-        <div data-filtre="catalogue" class="autres_enchères flex_row">
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action_petit call_to_action bleu">Plus de détails</h3>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action_petit call_to_action bleu">Plus de détails</h3>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action_petit call_to_action bleu">Plus de détails</h3>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action_petit call_to_action bleu">Plus de détails</h3>
-                </footer>
-            </article>
-            <article class="carte flex_column">
-                <header class="header_carte flex_row">
-                    <div class="heure flex_row">
-                        <i class="fa-regular fa-clock icon_taille_20"></i>
-                        <h2 data-filtre="finEnchere">10:35:47</h2>
-                    </div>
-                    <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">33</h2>
-                    </div>
-                </header>
-                <div class="flex_column">
-                    <img data-filtre="image" src="assets/img/timbre/timbre4.webp" alt="timbre à vendre">
-                </div>
-                <footer class="footer_carte flex_column">
-                    <p data-filtre="nomTimbre">
-                        Timbre Bahamas #17 <br>
-                        Reine Victoria (1863) 1p
-                    </p>
-                    <div class="details flex_row">
-                        <p data-filtre="prix">$495.00</p>
-                        <p data-filtre="etat">Très bon</p>
-                    </div>
-                    <h3 class="call_to_action_petit call_to_action bleu">Plus de détails</h3>
-                </footer>
-            </article>
-        </div> -->
     </main>
     {{ include('footer.php') }}

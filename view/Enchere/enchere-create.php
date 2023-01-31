@@ -29,7 +29,7 @@
             </section> -->
             <form class="flex_column" action="{{ path }}enchere/store" method="post">
                 <input type="hidden" name="idMembre" value="{{session.idMembre}}">
-                <input type="text" name="status" value="1">
+                <input type="hidden" name="status" value="1">
 
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
@@ -45,8 +45,8 @@
                             id="mise" placeholder="Prix de début d'enchère" value="1234">
                     </div>
                     <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-sack-dollar"></i><input aria-label="date" type="date" name="date"
-                            id="date" placeholder="Choix de la date de fin" value="2023-01-31">
+                        <i class="fa-solid fa-sack-dollar"></i><input aria-label="dateFin" type="date" name="dateFin"
+                            id="dateFin" placeholder="Choix de la date de fin" value="2023-01-31">
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-image"></i><input type="file" name="image" id="image"

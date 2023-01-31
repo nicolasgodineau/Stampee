@@ -15,10 +15,17 @@ class ControllerEnchere
 
     public function index()
     {
-        echo "text";
         $enchere = new ModelEnchere;
         $selectAllEncheres = $enchere->selectAllEncheres();
-        twig::render("Enchere/enchere-index.php",['encheres' => $selectAllEncheres]);
+        
+        $mise = new ModelMise;
+        $AllEncheresAvecMise = [];
+        foreach ($selectAllEncheres as $uneEnchere):
+            $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
+            $uneEnchere['mise'] += $selectLastMise['mise'];
+            array_push($AllEncheresAvecMise,$uneEnchere);
+        endforeach;        
+        twig::render("Enchere/enchere-index.php",['encheres' => $AllEncheresAvecMise]);
     }
 
     public function create()
@@ -52,21 +59,21 @@ class ControllerEnchere
     {
         $_POST["Status_idStatus"] = 1;
 
-        $image = new ModelImage;
-        $imageInsert = $image->insertImage($_POST);
-        
-        // Ajout l'id de l'insert de la table image dans le POST pour faire l'insert de l'image
-        $_POST["Image_idImage"] = $imageInsert;
 
+        // Ajout l'id de l'insert de la table image dans le POST pour faire l'insert de l'image
         $timbre = new ModelTimbre;
         $timbreInsert = $timbre->insert($_POST);
 
+        $_POST["Timbre_idTimbre"] = $timbreInsert;
+
+        $image = new ModelImage;
+        $imageInsert = $image->insert($_POST);
 
         // Ajout des ids de l'insert de la table timbre dans le POST pour faire l'insert de l'enchère
         $_POST["Timbre_idTimbre"] = $timbreInsert;
         $_POST['Membre_idMembre'] = $_POST['idMembre'];
-
         $enchere = new ModelEnchere;
+
         $enchereInsert = $enchere->insertEnchere($_POST);
 
         // Ajout des ids de l'insert de la table enchere dans le POST pour faire l'insert de la mise
@@ -76,7 +83,8 @@ class ControllerEnchere
         $mise = new ModelMise;
         $miseInsert = $mise->insertMise($_POST);
 
-        twig::render("Enchere/enchere-index.php");
+        RequirePage::redirectPage('../enchere/index');
+
     }
 
     public function changeStatus($idTimbre){
@@ -91,47 +99,27 @@ class ControllerEnchere
     }
 
     public function show($id){
-
         $enchere = new ModelEnchere;
         $selectEnchere = $enchere->selectEnchere($id);
 
         // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
         $enchereSup = $selectEnchere['mise'] + 50;
         $selectEnchere["enchereSuperieur"] = $enchereSup;
-        ?>
-<script>
-/* Source pour le script = https://www.nicesnippets.com/blog/creating-dynamic-countdown-in-php-javascript */
-<?php 
-            $dateTime = strtotime($fin, '23:59:59');
+        /* Source pour le script = https://www.nicesnippets.com/blog/creating-dynamic-countdown-in-php-javascript */
 
-            $getDateTime = date("F d, Y H:i:s", $dateTime); 
-                    ?>
-var countDownDate = new Date("<?php echo "$getDateTime"; ?>").getTime();
-// Update the count down every 1 second
-var x = setInterval(function() {
-    var now = new Date().getTime();
-    // Find the distance between now an the count down date
-    var distance = countDownDate - now;
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    // Output the result in an element with id="counter"11
-    document.querySelector(".temps_restant h2 span").innerHTML = "Termine dans "
-    days + " Jour : " + hours + "h " +
-        minutes + "m " + seconds + "s ";
-    // If the count down is over, write some text
-    if (distance < 0) {
-        clearInterval(x);
-        document.querySelector(".temps_restant h2 span").innerHTML = "Terminer";
+        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre, 'session' => $_SESSION]);
     }
-}, 1000);
-</script>
-<?php
 
-        
-        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre]);
+    public function ajoutMise()
+    {
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+        $mise = new ModelMise;
+        $miseUpdate = $mise->updateMise($_POST);
+
+        twig::render("Enchere/enchere-index.php");
     }
+
     
 }

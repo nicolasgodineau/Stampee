@@ -10,6 +10,7 @@ RequirePage::requireModel('ModelFavoris');
 RequirePage::requireModel('ModelStatus');
 
 
-class ControllerStatus{
+class ControllerStatus
+{
 
 }

@@ -49,39 +49,55 @@ class ModelEnchere extends Crud
     public function selectAllEncheres(){
 
         $sql =  "SELECT
-        Timbre.idTimbre,
-        Timbre.nom,
-        Timbre.description,
-        Membre.prenom,
-        Membre.idMembre,
-        Mise.mise,
-        Status.idStatus
+            Image.image,
+            Timbre.*,
+            Enchere.*,
+            Membre.idMembre,
+            Membre.prenom,
+            Mise.*,
+            Status.idStatus
         FROM
-            Timbre
-        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
-        INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
-        INNER JOIN Status ON Status_idStatus = idStatus";
+            Image
+        INNER JOIN Timbre ON Timbre.idTimbre = Image.Timbre_idTimbre
+        INNER JOIN Enchere ON Enchere.Timbre_idTimbre = Timbre.idTimbre
+        INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre
+        INNER JOIN STATUS ON Status_idStatus = idStatus
+        INNER JOIN mise on Mise.Enchere_Timbre_idTimbre = Enchere.Timbre_idTimbre";
+        /*         $sql =  "SELECT
+            Image.image,
+            Timbre,
+            Enchere.*,
+            Status.idStatus
+        FROM
+            Image
+        INNER JOIN Timbre ON Timbre.idTimbre = Image.Timbre_idTimbre
+        INNER JOIN Enchere ON Enchere.Timbre_idTimbre = Timbre.idTimbre
+        INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre
+        INNER JOIN Status ON Status_idStatus = idStatus"; */
 
         $stmt  = $this->query($sql);
+        $stmt->execute();
+        //$allEncheres['misePlushaute'] = 0;
+
         return  $stmt->fetchAll();
     }
 
     public function selectEnchere($id){
         $primaryKey = 'idTimbre';
         $sql =  "SELECT
-        Timbre.idTimbre,
-        Timbre.nom,
-        Timbre.description,
-        Membre.idMembre,
-        Mise.mise
+            Image.image,
+            Timbre.*,
+            Enchere.*,
+            Mise.mise
         FROM
-            Timbre
-        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
-        INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre
-        WHERE
-        Timbre.idTimbre = $id";
+            Image
+        INNER JOIN Timbre ON Timbre.idTimbre = Image.Timbre_idTimbre
+        INNER JOIN Enchere ON Enchere.Timbre_idTimbre = Timbre.idTimbre
+        INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre
+        INNER JOIN Mise on Mise.Enchere_Membre_idMembre = Enchere.Membre_idMembre
+            WHERE
+            Timbre.idTimbre = $id
+            ORDER BY Mise DESC LIMIT 1";
         $stmt = $this->prepare($sql);
         $stmt->bindValue($primaryKey, $id);
         $stmt->execute();
@@ -122,5 +138,28 @@ class ModelEnchere extends Crud
             return true;
         }
     }
+
+
+
+/*     public function selectAllEncheres(){
+
+        $sql =  "SELECT
+        Timbre.idTimbre,
+        Timbre.nom,
+        Timbre.description,
+        Membre.prenom,
+        Membre.idMembre,
+        Mise.mise,
+        Status.idStatus
+        FROM
+            Timbre
+        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
+        INNER JOIN Membre ON idMembre = Membre_idMembre
+        INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
+        INNER JOIN Status ON Status_idStatus = idStatus";
+
+        $stmt  = $this->query($sql);
+        return  $stmt->fetchAll();
+    } */
 
 }

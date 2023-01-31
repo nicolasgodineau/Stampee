@@ -12,21 +12,19 @@ abstract class Crud extends PDO
     public function select($champ = 'id', $order = 'ASC')
     {   
         $sql = "SELECT * FROM $this->table ORDER BY $champ $order";
-        echo '<pre>';
-        print_r($stmt);
-        echo '</pre>';
-        die();
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
 
-    public function selectId($value)
+    public function selectId($id)
     {
+
         $sql = "SELECT * FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
         $stmt = $this->prepare($sql);
-        $stmt->bindValue(":$this->primaryKey", $value);
+        $stmt->bindValue(":$this->primaryKey", $id);
         $stmt->execute();
         $count = $stmt->rowCount();
+
         if ($count == 1) {
             return $stmt->fetch();
         } else {
@@ -104,10 +102,7 @@ abstract class Crud extends PDO
         $stmt = $this->prepare($sql);
         $stmt->execute();
         $count = $stmt->rowCount();
-        echo '<pre>';
-        print_r($count);
-        echo '</pre>';
         return $count;
-        die();
+        //die();
     }
 }
