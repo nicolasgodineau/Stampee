@@ -111,10 +111,25 @@
                         <h2 data-filtre="finEnchere">Terminer</h2>
                         {% endif %}
                     </div>
+
+                    {% if enchere.idTimbre not in favorisMembre %}
                     <div class="like flex_row">
-                        <span class="icon_like icon_taille_20"></span>
-                        <h2 data-filtre="like">0</h2>
+                        <form action="{{ path }}favoris/ajout" method="post">
+                            <input type="hidden" name="Membre_idMembre" value="{{session.idMembre}}">
+                            <input type="hidden" name="Enchere_Membre_idMembre"
+                                value="{{enchere.Enchere_Membre_idMembre}}">
+                            <input type="hidden" name="Enchere_Timbre_idTimbre" value="{{enchere.Timbre_idTimbre}}">
+                            <input class='form_like icon_like icon_taille_20' type="submit" value="">
+                        </form>
+                        <!-- <span class="icon_like icon_taille_20"></span> -->
                     </div>
+                    {% else %}
+                    <div class="like flex_row">
+                        <span class="icon_like liker icon_taille_20"></span>
+                    </div>
+                    {% endif %}
+
+
                 </header>
                 <div class="flex_column">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre">
@@ -129,7 +144,6 @@
                     </div>
                     <a class="call_to_action bleu call_to_action_petit"
                         href="{{ path }}enchere/show/{{enchere.idTimbre}}">Plus de détails</a>
-                    <h6>{{enchere.idTimbre}}</h6>
                 </footer>
             </article>
             {% endif %}

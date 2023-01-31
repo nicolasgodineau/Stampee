@@ -20,9 +20,8 @@ class ControllerMembre
         $enchere = new ModelEnchere;
         $selectEnchereMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
         $selectAllEncheres = $enchere->selectAllEncheres();
-        
-        twig::render('Membre/membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
 
+        twig::render('Membre/membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
     }
 
     public function create()
@@ -149,4 +148,5 @@ class ControllerMembre
         session_destroy();
         requirePage::redirectPage('../home/index');
     }
+
 }

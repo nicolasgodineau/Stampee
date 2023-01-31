@@ -43,19 +43,15 @@
 }
 
 .icon_like.liker {
-    width: 25px;
-    height: 25px;
     background-size: contain;
     background-image: url(../img/icons/coeur-plein.svg);
-    filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
-        brightness(105%) contrast(118%);
+    /*     filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
+        brightness(105%) contrast(118%); */
 }
 
 .icon_like:hover {
     background-image: url(../img/icons/coeur-plein.svg);
     animation: 1.5s ease 0s infinite battement;
-    filter: invert(24%) sepia(99%) saturate(7284%) hue-rotate(358deg)
-        brightness(105%) contrast(118%);
 }
 
 @keyframes battement {

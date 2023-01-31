@@ -12,5 +12,10 @@ RequirePage::requireModel('ModelStatus');
 
 class ControllerFavoris 
 {
-
+    public function ajout()
+    {
+        $favoris = New ModelFavoris;
+        $addFavoris = $favoris->insert($_POST);
+        RequirePage::redirectPage('../enchere/index');
+    }
 }

@@ -19,13 +19,22 @@ class ControllerEnchere
         $selectAllEncheres = $enchere->selectAllEncheres();
         
         $mise = new ModelMise;
-        $AllEncheresAvecMise = [];
+        $allEncheresAvecMise = [];
         foreach ($selectAllEncheres as $uneEnchere):
             $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
             $uneEnchere['mise'] += $selectLastMise['mise'];
-            array_push($AllEncheresAvecMise,$uneEnchere);
-        endforeach;        
-        twig::render("Enchere/enchere-index.php",['encheres' => $AllEncheresAvecMise]);
+            array_push($allEncheresAvecMise,$uneEnchere);
+        endforeach;
+
+        $favoris = new ModelFavoris;
+        $favorisMembre = [];
+        $showFavoris = $favoris->showFavoris($_SESSION['idMembre']);
+        foreach ($showFavoris as $unFavoris):
+            array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
+        endforeach;
+
+
+        twig::render("Enchere/enchere-index.php",['encheres' => $allEncheresAvecMise, 'session' => $_SESSION, 'favorisMembre' => $favorisMembre]);
     }
 
     public function create()
@@ -112,9 +121,6 @@ class ControllerEnchere
 
     public function ajoutMise()
     {
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
         $mise = new ModelMise;
         $miseUpdate = $mise->updateMise($_POST);
 

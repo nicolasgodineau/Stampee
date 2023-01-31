@@ -109,3 +109,7 @@ form textarea {
     text-decoration: underline;
     color: #737373;
 }
+
+form .form_like {
+    padding: 0;
+}
