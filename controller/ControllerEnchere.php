@@ -151,6 +151,27 @@ class ControllerEnchere
         twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre, 'session' => $_SESSION,'favorisMembre' => $favorisMembre]);
     }
 
+    public function filtrer(){
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+        $enchere = new ModelEnchere;
+        $selectAllEncheres = $enchere->selectAllEncheres();
+        $allEncheresAvecMise = [];
+        foreach ($selectAllEncheres as $uneEnchere):
+            $dateTime = strtotime($uneEnchere["dateFin"], '23:59:59');
+            $getDateTime = date("F d, Y H:i:s", $dateTime); 
+            $uneEnchere["dateFormater"] = $getDateTime;
+
+            $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
+            $uneEnchere['mise'] = $selectLastMise['mise'];
+
+            array_push($allEncheresAvecMise,$uneEnchere);
+        endforeach;
+
+
+        die();
+    }
 
 
     
