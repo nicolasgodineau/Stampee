@@ -68,6 +68,7 @@
 }
 
 .fiche .temps_restant,
+.fiche .temps_restant h2,
 footer h2 {
     width: 100%;
 }
@@ -103,6 +104,14 @@ footer h2 {
     color: black;
     border: 2px solid var(--couleur_call_to_action);
     background-color: transparent;
+}
+
+.fiche [data-filtre="finEnchere"] {
+    gap: 5px;
+}
+
+.fiche [data-filtre="secondes"] {
+    width: 28px;
 }
 
 .fiche .information_importante {

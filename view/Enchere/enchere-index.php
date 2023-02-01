@@ -1,5 +1,9 @@
 {{ include('header.php', {title: 'Catalogue des enchères'})}}
 
+{% block my_javascripts %}
+<script src="{{ path }}assets/scripts/timerIndex.mjs" type="text/javascript" defer></script>
+{% endblock %}
+
 <body>
     {{include('menu.php')}}
     <header class="header_principal flex_row flex_align_center flex_justify_center" id="top">
@@ -104,14 +108,8 @@
                 <header class="header_carte flex_row">
                     <div class="heure flex_row">
                         <i class="fa-regular fa-clock icon_taille_20"></i>
-                        {% if enchere.Status_idStatus == 1 %}
-                        <h2 data-filtre="finEnchere">{{enchere.dateFin}} </h2>
-                        {% endif %}
-                        {% if enchere.Status_idStatus == 2 %}
-                        <h2 data-filtre="finEnchere">Terminer</h2>
-                        {% endif %}
+                        <h2 data-filtre="finEnchere">{{enchere.dateFormater}}</h2>
                     </div>
-
                     {% if enchere.idTimbre not in favorisMembre %}
                     <!-- Si l'id du timbre n'est pas dans le tableau, on affiche un coeur vide -->
                     <div class="like flex_row">

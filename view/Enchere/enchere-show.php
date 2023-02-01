@@ -1,5 +1,9 @@
 {{ include('header.php', {title: 'Fiche d\'enchere'})}}
 
+{% block my_javascripts %}
+<script src="{{ path }}assets/scripts/timer.mjs" type="text/javascript" defer></script>
+{% endblock %}
+
 <body>
     {{include('menu.php')}}
     <header class=" header_principal flex_row flex_align_center flex_justify_center" id="top">
@@ -14,9 +18,8 @@
         <em>Fiche d'enchère</em>
     </nav>
     <main class="flex_column">
-        <h1 id="counter"></h1>
         <div class="fiche flex_row">
-            <section class="galerie flex_column flex_justify_between flex_align_center">
+            <section class="galerie flex_column flex_justify_center flex_align_center">
                 <div class="image_container">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                     <p>Passez dessus pour voir plus grand</p>
@@ -26,9 +29,9 @@
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                 </div>
-                <div class="temps_restant flex_row flex_justify_center">
-                    <h2 data-filtre="finEnchere"><span></span></h2>
-                </div>
+                <!--                 <div class="temps_restant flex_row flex_justify_center">
+                    <h2 data-filtre="finEnchere">Termine dans <span>{{enchere.dateFormater}}</span></h2>
+                </div> -->
             </section>
             <section class="description flex_column flex_justify_between">
 
@@ -76,6 +79,13 @@
                     </tbody>
                 </table>
                 <footer class="flex_column">
+                    <ul data-filtre="finEnchere" class="flex_row flex_justify_center">
+                        <li>Termine dans </li>
+                        <li data-filtre="jour">{{enchere.dateFormater}}</li>
+                        <li data-filtre="heures">heures</li>
+                        <li data-filtre="minutes">min</li>
+                        <li data-filtre="secondes">sec</li>
+                    </ul>
                     <h2 data-filtre="prix">Meilleur offre : ${{enchere.mise}}</h2>
                     {% if session.Role_idRole == null %}
                     <a class="call_to_action bleu" href="#">Inscrivez-vous pour pouvoir encherir</a>

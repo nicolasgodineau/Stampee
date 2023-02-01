@@ -8,7 +8,6 @@ RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
 RequirePage::requireModel('ModelStatus');
-require_once 'controller/ControllerHome.php';
 
 
 class ControllerEnchere
@@ -17,13 +16,18 @@ class ControllerEnchere
     public function index()
     {
         $enchere = new ModelEnchere;
+        $favoris = new ModelFavoris;
+        $mise = new ModelMise;
+        
         $selectAllEncheres = $enchere->selectAllEncheres();
         
-        $favoris = new ModelFavoris;
 
-        $mise = new ModelMise;
         $allEncheresAvecMise = [];
         foreach ($selectAllEncheres as $uneEnchere):
+            $dateTime = strtotime($uneEnchere["dateFin"], '23:59:59');
+            $getDateTime = date("F d, Y H:i:s", $dateTime); 
+            $uneEnchere["dateFormater"] = $getDateTime;
+
             $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
             $uneEnchere['mise'] = $selectLastMise['mise'];
 
@@ -33,12 +37,14 @@ class ControllerEnchere
             array_push($allEncheresAvecMise,$uneEnchere);
         endforeach;
 
+
         // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
         $favorisMembre = [];
         $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
         foreach ($afficherFavoris as $unFavoris):
             array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
         endforeach;
+
 
         twig::render("Enchere/enchere-index.php",['encheres' => $allEncheresAvecMise, 'session' => $_SESSION, 'favorisMembre' => $favorisMembre]);
     }
@@ -105,7 +111,8 @@ class ControllerEnchere
 
     }
 
-    public function changeStatus($idTimbre){
+    public function changeStatus($idTimbre)
+    {
         // Changement de status de l'enchère, elle passe de 1 = actif à 3 = supprimer (ne supprime pas le ligne dans la bd)
         $enchere = new ModelEnchere;
         $changeStatus = $enchere->changeStatus($idTimbre);
@@ -116,7 +123,9 @@ class ControllerEnchere
 
     }
 
-    public function show($idTimbre){
+    public function show($idTimbre)
+    {
+
         $enchere = new ModelEnchere;
         $selectEnchere = $enchere->selectEnchere($idTimbre);
 
@@ -134,8 +143,11 @@ class ControllerEnchere
         // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
         $enchereSup = $selectEnchere['mise'] + 50;
         $selectEnchere["enchereSuperieur"] = $enchereSup;
-        /* Source pour le script = https://www.nicesnippets.com/blog/creating-dynamic-countdown-in-php-javascript */
 
+
+        $dateTime = strtotime($selectEnchere["dateFin"], '23:59:59');
+        $getDateTime = date("F d, Y H:i:s", $dateTime); 
+        $selectEnchere["dateFormater"] = $getDateTime;
         twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre, 'session' => $_SESSION,'favorisMembre' => $favorisMembre]);
     }
 
