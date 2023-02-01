@@ -63,21 +63,8 @@ class ModelEnchere extends Crud
         INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre
         INNER JOIN STATUS ON Status_idStatus = idStatus
         INNER JOIN mise on Mise.Enchere_Timbre_idTimbre = Enchere.Timbre_idTimbre";
-        /*         $sql =  "SELECT
-            Image.image,
-            Timbre,
-            Enchere.*,
-            Status.idStatus
-        FROM
-            Image
-        INNER JOIN Timbre ON Timbre.idTimbre = Image.Timbre_idTimbre
-        INNER JOIN Enchere ON Enchere.Timbre_idTimbre = Timbre.idTimbre
-        INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre
-        INNER JOIN Status ON Status_idStatus = idStatus"; */
-
         $stmt  = $this->query($sql);
         $stmt->execute();
-        //$allEncheres['misePlushaute'] = 0;
 
         return  $stmt->fetchAll();
     }
@@ -141,7 +128,7 @@ class ModelEnchere extends Crud
 
 
 
-/*     public function selectAllEncheres(){
+    public function filtre(){
 
         $sql =  "SELECT
         Timbre.idTimbre,
@@ -160,6 +147,6 @@ class ModelEnchere extends Crud
 
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
-    } */
+    } 
 
 }

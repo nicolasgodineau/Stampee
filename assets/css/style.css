@@ -217,10 +217,14 @@ input[type="button"] {
     .call_to_action.blanc {
         padding: 5px 10px;
     }
+
+    .header_principal {
+        min-height: 300px;
+    }
 }
 
-@media screen and (max-width: 900px) {
-    .header_principal {
-        padding-top: 300px;
+@media screen and (max-width: 600px) {
+    .call_to_action {
+        padding: 5px 10px;
     }
 }

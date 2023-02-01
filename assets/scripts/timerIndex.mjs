@@ -4,7 +4,6 @@ alltimer.forEach((unTimer) => {
     const getDateTime = unTimer.querySelector(
         "[data-filtre='finEnchere']"
     ).textContent;
-    console.log("getDateTime:", getDateTime);
     var countDownDate = new Date(getDateTime).getTime();
     // Update the count down every 1 second
     var x = setInterval(function () {

@@ -9,7 +9,7 @@
     max-height: 200px;
 }
 .info_lettre h1 {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
     color: whitesmoke;
 }
 
@@ -61,5 +61,32 @@
 @media screen and (max-width: 1110px) {
     .logo_footer img {
         max-height: 150px;
+    }
+}
+@media screen and (max-width: 760px) {
+    .aide_generale {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    .liste1,
+    .liste2,
+    .liste3,
+    .liste4 {
+        flex-direction: row;
+    }
+    .info_lettre_media_sociaux {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .info_lettre_form > * {
+        padding: 0px;
+    }
+
+    .reseaux_sociaux svg {
+        height: 20px;
+        width: 20px;
     }
 }

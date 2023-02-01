@@ -65,3 +65,14 @@ nav .recherche::placeholder {
         flex-direction: column;
     }
 }
+
+@media screen and (max-width: 600px) {
+    nav .logo {
+        height: 65px;
+        width: 65px;
+    }
+    nav .zone_droite {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

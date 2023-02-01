@@ -17,88 +17,21 @@
     </nav>
     <main class="flex_row">
         <aside>
-            <h2>Filtrer par</h2>
-            <div class="prix">
-                <details open>
-                    <summary class="filtre_titre">Prix</summary>
-                    <div class="filtre_details prix">
-                        <input aria-label="prix_minimum" type="text" name="prix_minimum" id="prix_minimum"
-                            placeholder="Min $">
-                        <p>à</p>
-                        <input aria-label="prix_maximum" type="text" name="prix_maximum" id="prix_maximum"
-                            placeholder="Max $">
-                    </div>
-                </details>
-            </div>
-            <div class="pays">
-                <details open>
-                    <summary class="filtre_titre">Pays</summary>
-                    <div class="filtre_details pays">
-                        <div>
-                            <input aria-label="Angleterre" type="checkbox" name="Angleterre" id="Angleterre">
-                            <label for="Angleterre">Angleterre</label>
-                        </div>
-                        <div>
-                            <input aria-label="Canada" type="checkbox" name="Canada" id="Canada">
-                            <label for="Canada">Canada</label>
-                        </div>
-                        <div>
-                            <input aria-label="État-Unis" type="checkbox" name="État-Unis" id="État-Unis">
-                            <label for="État-Unis">État-Unis</label>
-                        </div>
-                        <div>
-                            <input aria-label="Australie" type="checkbox" name="Australie" id="Australie">
-                            <label for="Australie">Australie</label>
-                        </div>
-                    </div>
-                </details>
-            </div>
-            <div class="condition">
-                <details open>
-                    <summary class="filtre_titre">Condition</summary>
-                    <div class="filtre_details condition">
-                        <div>
-                            <input aria-label="Parfaite" type="checkbox" name="Parfaite" id="Parfaite">
-                            <label for="Parfaite">Parfaite</label>
-                        </div>
-                        <div>
-                            <input aria-label="Exellente" type="checkbox" name="Exellente" id="Exellente">
-                            <label for="Exellente">Exellente</label>
-                        </div>
-                        <div>
-                            <input aria-label="Bonne" type="checkbox" name="Bonne" id="Bonne">
-                            <label for="Bonne">Bonne</label>
-                        </div>
-                        <div>
-                            <input aria-label="Moyenne" type="checkbox" name="Moyenne" id="Moyenne">
-                            <label for="Moyenne">Moyenne</label>
-                        </div>
-                        <div>
-                            <input aria-label="Endommage" type="checkbox" name="Endommage" id="Endommage">
-                            <label for="Endommage">Endommage</label>
-                        </div>
-                    </div>
-                </details>
-            </div>
-            <div class="couleurs">
-                <details open>
-                    <summary class="filtre_titre">
-                        Couleurs dominate
-                    </summary>
-                    <div class="filtre_details couleurs">
-                        <input aria-label="Couleurs" type="text" name="Couleurs" id="Couleurs" placeholder="Rouge">
-                    </div>
-                </details>
-            </div>
-            <div class="certifie">
-                <details open>
-                    <summary class="filtre_titre">Certifié</summary>
-                    <div class="filtre_details certifie">
-                        <input aria-label="oui_non" type="checkbox" name="oui_non" id="oui_non">
-                        <label for="oui_non">oui / non</label>
-                    </div>
-                </details>
-            </div>
+            <form action="{{ path }}enchere/filtrer" method="post">
+                <div class="filtre_details prix">
+                    <input aria-label="prix_minimum" type="text" name="prix_minimum" id="prix_minimum"
+                        placeholder="Min $">
+                    <p>à</p>
+                    <input aria-label="prix_maximum" type="text" name="prix_maximum" id="prix_maximum"
+                        placeholder="Max $">
+                </div>
+                <div class="prix">
+                    <details open>
+                        <summary class="filtre_titre">Prix</summary>
+                    </details>
+                </div>
+                <input type="submit" value="filtrer">
+            </form>
         </aside>
         <div data-filtre="catalogue" class="catalogue flex_column">
             {% for enchere in encheres %}
