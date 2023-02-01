@@ -77,14 +77,9 @@ abstract class Crud extends PDO
 
     public function delete($id)
     {
-        echo '<pre>';
-        print_r($id);
-        echo '</pre>';
-        die();
+
+
         $sql = "DELETE FROM $this->table WHERE $this->primaryKey = :$this->primaryKey";
-        echo '<pre>';
-        print_r($sql);
-        echo '</pre>';
         
         $stmt = $this->prepare($sql);
         $stmt->bindValue(":$this->primaryKey", $id);

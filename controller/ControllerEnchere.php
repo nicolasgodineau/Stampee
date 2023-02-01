@@ -8,6 +8,7 @@ RequirePage::requireModel('ModelMise');
 RequirePage::requireModel('ModelEnchere');
 RequirePage::requireModel('ModelFavoris');
 RequirePage::requireModel('ModelStatus');
+require_once 'controller/ControllerHome.php';
 
 
 class ControllerEnchere
@@ -18,21 +19,26 @@ class ControllerEnchere
         $enchere = new ModelEnchere;
         $selectAllEncheres = $enchere->selectAllEncheres();
         
+        $favoris = new ModelFavoris;
+
         $mise = new ModelMise;
         $allEncheresAvecMise = [];
         foreach ($selectAllEncheres as $uneEnchere):
             $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
-            $uneEnchere['mise'] += $selectLastMise['mise'];
+            $uneEnchere['mise'] = $selectLastMise['mise'];
+
+            $count = $favoris->conterFavoris($uneEnchere['idTimbre']);
+            $uneEnchere['like'] += $count;
+
             array_push($allEncheresAvecMise,$uneEnchere);
         endforeach;
 
-        $favoris = new ModelFavoris;
+        // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
         $favorisMembre = [];
-        $showFavoris = $favoris->showFavoris($_SESSION['idMembre']);
-        foreach ($showFavoris as $unFavoris):
+        $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
+        foreach ($afficherFavoris as $unFavoris):
             array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
         endforeach;
-
 
         twig::render("Enchere/enchere-index.php",['encheres' => $allEncheresAvecMise, 'session' => $_SESSION, 'favorisMembre' => $favorisMembre]);
     }
@@ -68,7 +74,6 @@ class ControllerEnchere
     {
         $_POST["Status_idStatus"] = 1;
 
-
         // Ajout l'id de l'insert de la table image dans le POST pour faire l'insert de l'image
         $timbre = new ModelTimbre;
         $timbreInsert = $timbre->insert($_POST);
@@ -92,6 +97,10 @@ class ControllerEnchere
         $mise = new ModelMise;
         $miseInsert = $mise->insertMise($_POST);
 
+
+
+
+
         RequirePage::redirectPage('../enchere/index');
 
     }
@@ -107,25 +116,30 @@ class ControllerEnchere
 
     }
 
-    public function show($id){
+    public function show($idTimbre){
         $enchere = new ModelEnchere;
-        $selectEnchere = $enchere->selectEnchere($id);
+        $selectEnchere = $enchere->selectEnchere($idTimbre);
+
+        $favoris = new ModelFavoris;
+        $count = $favoris->conterFavoris($idTimbre);
+        $selectEnchere['like'] += $count;
+
+        // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
+        $favorisMembre = [];
+        $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
+        foreach ($afficherFavoris as $unFavoris):
+            array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
+        endforeach;
 
         // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
         $enchereSup = $selectEnchere['mise'] + 50;
         $selectEnchere["enchereSuperieur"] = $enchereSup;
         /* Source pour le script = https://www.nicesnippets.com/blog/creating-dynamic-countdown-in-php-javascript */
 
-        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre, 'session' => $_SESSION]);
+        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre, 'session' => $_SESSION,'favorisMembre' => $favorisMembre]);
     }
 
-    public function ajoutMise()
-    {
-        $mise = new ModelMise;
-        $miseUpdate = $mise->updateMise($_POST);
 
-        twig::render("Enchere/enchere-index.php");
-    }
 
     
 }

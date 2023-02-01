@@ -53,8 +53,11 @@
 }
 
 .fiche .like {
-    height: 25px;
-    width: 25px;
+    gap: 8px;
+}
+
+.fiche .like input {
+    background-color: transparent;
 }
 
 .center {

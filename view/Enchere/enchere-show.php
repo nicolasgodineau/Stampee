@@ -82,17 +82,42 @@
                     {% endif %}
                     {% if session.Role_idRole == 1 and session.idMembre != enchere.Membre_idMembre %}
                     <!-- Permet de filtrer un utilisateur visiteur ou admin, et le membre qui à créer l'enchère -->
-                    <div class="prix flex_row flex_justify_between flex_align_center">
-                        <form action="{{ path }}enchere/ajoutMise" method="post">
+                    <div class="prix flex_row flex_justify_center flex_align_center">
+                        <form class="flex_row" action="{{ path }}mise/ajouterMise" method="post">
                             <!-- <input type="text" name="Enchere_Timbre_idTimbre" value="{{enchere.idTimbre}}"> -->
-                            <input type="text" name="Timbre_idTimbre" value="{{enchere.idTimbre}}">
+                            <input type="hidden" name="Timbre_idTimbre" value="{{enchere.idTimbre}}">
                             <!--  <input type="text" name="Enchere_Membre_idMembre" value="{{session.idMembre}}"> -->
-                            <input type="text" name="Membre_idMembre" value="{{session.idMembre}}">
+                            <input type="hidden" name="Membre_idMembre" value="{{session.idMembre}}">
+                            <input type="hidden" name="emplacement" value='fiche'>
+
                             <input aria-label="miser" data-filtre="enchere" class="zone_enchere" type="text" name="mise"
                                 placeholder="min ${{enchere.enchereSuperieur}}" id="mise" required>
                             <input class="call_to_action bleu fit_content" type="submit" value="Enchérir">
                         </form>
-                        <span class="icon_like icon_taille_20"></span>
+                        {% if enchere.idTimbre not in favorisMembre %}
+                        <!-- Si l'id du timbre n'est pas dans le tableau, on affiche un coeur vide -->
+                        <div class="like flex_row">
+                            <form action="{{ path }}favoris/ajouter" method="post">
+                                <input type="hidden" name="Membre_idMembre" value="{{session.idMembre}}">
+                                <input type="hidden" name="Enchere_Membre_idMembre" value="{{enchere.Membre_idMembre}}">
+                                <input type="hidden" name="Enchere_Timbre_idTimbre" value="{{enchere.idTimbre}}">
+                                <input type="hidden" name="emplacement" value='fiche'>
+                                <input class='form_like icon_like icon_taille_30' type="submit" value="">
+                            </form>
+                            <h2 data-filtre="like">{{enchere.like}}</h2>
+                        </div>
+                        {% else %}
+                        <!-- Si l'id du timbre est dans le tableau, on affiche un coeur rouge -->
+                        <div class="like flex_row">
+                            <form action="{{ path }}favoris/supprimer" method="post">
+                                <input type="hidden" name="Membre_idMembre" value="{{session.idMembre}}">
+                                <input type="hidden" name="Enchere_Timbre_idTimbre" value="{{enchere.Timbre_idTimbre}}">
+                                <input type="hidden" name="emplacement" value='fiche'>
+                                <input class='form_like icon_like liker icon_taille_30' type="submit" value="">
+                            </form>
+                            <h2 data-filtre="like">{{enchere.like}}</h2>
+                        </div>
+                        {% endif %}
                     </div>
                     {% endif %}
                     <div class="information_importante flex_row flex_justify_between">

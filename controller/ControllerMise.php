@@ -12,5 +12,12 @@ RequirePage::requireModel('ModelStatus');
 
 class ControllerMise
 {
+    public function ajouterMise()
+    {
+        $mise = new ModelMise;
+        $miseUpdate = $mise->updateMise($_POST);
 
+        $redirection = "../enchere/show/" . $_POST['Timbre_idTimbre'] ;
+        RequirePage::redirectPage($redirection);
+    }
 }

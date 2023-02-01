@@ -49,8 +49,7 @@ class ModelMise extends Crud
         }
     }
 
-    public function updateMise($data)
-    {
+    public function updateMise($data){
         $mise = $data['mise'];
         $idMembre = $data['Membre_idMembre'];
         $idTimbre = $data['Timbre_idTimbre'];
