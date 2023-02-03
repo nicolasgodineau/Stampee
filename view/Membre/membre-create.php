@@ -25,11 +25,12 @@
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
                         placeholder="Nom" value="{{membre.nom}}" pattern="[A-Za-z]{1,15}"
-                        title="Champ prénom invalide 15 lettres maximum exemple: john">
+                        title="Champ nom invalide 15 lettres maximum exemple: john">
                 </div>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-user"></i><input aria-label="prenom" type="text" name="prenom" id="prenom"
-                        placeholder="Prénom" value="{{membre.prenom}}">
+                        placeholder="Prénom" value="{{membre.prenom}}" pattern="[A-Za-z]{1,15}"
+                        title="Champ prénom invalide 15 lettres maximum exemple: Doe">
                 </div>
                 <div class="flex_row flex_align_center">
                     <i class="fa-solid fa-phone"></i><input aria-label="telephone" type="text" name="telephone"

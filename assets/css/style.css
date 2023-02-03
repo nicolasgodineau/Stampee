@@ -160,6 +160,13 @@ input[type="button"] {
     box-shadow: none;
 }
 
+span.invisible {
+    display: none;
+}
+span.visible {
+    display: block;
+}
+
 .flex_row {
     display: flex;
     flex-direction: row;

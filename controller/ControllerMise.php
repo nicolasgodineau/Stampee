@@ -14,10 +14,15 @@ class ControllerMise
 {
     public function ajouterMise()
     {
-        $mise = new ModelMise;
-        $miseUpdate = $mise->updateMise($_POST);
-
-        $redirection = "../enchere/show/" . $_POST['Timbre_idTimbre'] ;
-        RequirePage::redirectPage($redirection);
+        if ($_POST['mise'] > $_POST['miseAvant']){
+            $mise = new ModelMise;
+            $miseUpdate = $mise->updateMise($_POST);
+            $redirection = "../enchere/show/" . $_POST['Timbre_idTimbre'] ;
+            RequirePage::redirectPage($redirection);
+        }else{
+            $redirection = "../enchere/show/" . $_POST['Timbre_idTimbre'] ;
+            RequirePage::redirectPage($redirection );
+            die();
+        }
     }
 }

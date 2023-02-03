@@ -48,6 +48,7 @@ class ControllerEnchere
             endforeach;
         }
 
+        print_r($_SESSION);
 
         twig::render("Enchere/enchere-index.php",['encheres' => $allEncheresAvecMise, 'session' => $_SESSION, 'favorisMembre' => $favorisMembre]);
     }
@@ -135,7 +136,7 @@ class ControllerEnchere
 
     public function show($idTimbre)
     {
-
+        $erreur = 'erreur';
         $enchere = new ModelEnchere;
         $selectEnchere = $enchere->selectEnchere($idTimbre);
 
