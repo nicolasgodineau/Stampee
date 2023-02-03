@@ -84,15 +84,24 @@ class ControllerEnchere
     {
         $_POST["Status_idStatus"] = 1;
 
-
         // Ajout l'id de l'insert de la table image dans le POST pour faire l'insert de l'image
         $timbre = new ModelTimbre;
         $timbreInsert = $timbre->insert($_POST);
 
         $_POST["Timbre_idTimbre"] = $timbreInsert;
 
+        // Préparation de l'insert de l'image
+        $tmp_name= $_FILES['image']['tmp_name'];
+        
+        $fileextension= pathinfo($_FILES['image']['name']);
+        $fileextension = $fileextension['extension'];
+        $name = 'timbre'.$timbreInsert . "." . $fileextension; 
+        $path= 'assets/img/timbre/';
 
 
+        move_uploaded_file($tmp_name, $path.$name);
+        //Modification du nom de l'image dans le post
+        $_POST['image'] = $name;
         $image = new ModelImage;
         $imageInsert = $image->insert($_POST);
 

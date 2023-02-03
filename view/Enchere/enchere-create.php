@@ -13,30 +13,29 @@
     </nav>
     <main class="flex_column flex_align_center">
         <div class="fiche flex_column">
-            <form class="flex_column" action="{{ path }}enchere/store" method="post">
+            <form class="flex_column" action="{{ path }}enchere/store" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="idMembre" value="{{session.idMembre}}">
                 <input type="hidden" name="status" value="1">
 
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><input aria-label="nom" type="text" name="nom" id="nom"
-                            placeholder="Nom du timbre" value="">
+                            placeholder="Nom du timbre" value="fdgdffg">
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><textarea placeholder="Description du timbre"
-                            aria-label="description" name="description" id="description" rows="5"></textarea>
+                            aria-label="description" name="description" id="description" rows="5">dfgfdgfdf</textarea>
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-sack-dollar"></i><input aria-label="mise" type="text" name="mise"
-                            id="mise" placeholder="Prix de début d'enchère" value="">
+                            id="mise" placeholder="Prix de début d'enchère" value="7897878">
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-sack-dollar"></i><input aria-label="dateFin" type="date" name="dateFin"
                             id="dateFin" placeholder="Choix de la date de fin">
                     </div>
                     <div class="flex_row flex_align_center">
-                        <i class="fa-solid fa-image"></i><input type="file" name="image" id="image"
-                            value='timbre1.webp'>
+                        <i class="fa-solid fa-image"></i><input type="file" name="image" id="image" accept="image/*">
                     </div>
                 </div>
                 <input class="call_to_action bleu" type="submit" value="Valider">

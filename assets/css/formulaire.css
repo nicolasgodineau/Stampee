@@ -27,7 +27,7 @@ form h4 {
 
 form input,
 form select {
-    width: fit-content;
+    width: 100%;
     padding: 1em;
     padding-left: 1em;
     line-height: 1.4;
