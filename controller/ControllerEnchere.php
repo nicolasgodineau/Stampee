@@ -18,32 +18,35 @@ class ControllerEnchere
         $enchere = new ModelEnchere;
         $favoris = new ModelFavoris;
         $mise = new ModelMise;
-        
+
         $selectAllEncheres = $enchere->selectAllEncheres();
-        
+
+
 
         $allEncheresAvecMise = [];
         foreach ($selectAllEncheres as $uneEnchere):
-            $dateTime = strtotime($uneEnchere["dateFin"], '23:59:59');
+            $date = $uneEnchere["dateFin"];
+            $dateTime = strtotime($date);
             $getDateTime = date("F d, Y H:i:s", $dateTime); 
             $uneEnchere["dateFormater"] = $getDateTime;
 
             $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
             $uneEnchere['mise'] = $selectLastMise['mise'];
 
-            $count = $favoris->conterFavoris($uneEnchere['idTimbre']);
-            $uneEnchere['like'] += $count;
+            $count = $favoris->compterFavoris($uneEnchere['idTimbre']);
+            $uneEnchere['like'] = $count;
 
             array_push($allEncheresAvecMise,$uneEnchere);
         endforeach;
 
-
-        // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
         $favorisMembre = [];
-        $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
-        foreach ($afficherFavoris as $unFavoris):
-            array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
-        endforeach;
+        if (array_key_exists('Role_idRole',$_SESSION)) {
+            // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
+            $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
+            foreach ($afficherFavoris as $unFavoris):
+                array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
+            endforeach;
+        }
 
 
         twig::render("Enchere/enchere-index.php",['encheres' => $allEncheresAvecMise, 'session' => $_SESSION, 'favorisMembre' => $favorisMembre]);
@@ -80,21 +83,28 @@ class ControllerEnchere
     {
         $_POST["Status_idStatus"] = 1;
 
+
         // Ajout l'id de l'insert de la table image dans le POST pour faire l'insert de l'image
         $timbre = new ModelTimbre;
         $timbreInsert = $timbre->insert($_POST);
 
         $_POST["Timbre_idTimbre"] = $timbreInsert;
 
+
+
         $image = new ModelImage;
         $imageInsert = $image->insert($_POST);
 
+
+
         // Ajout des ids de l'insert de la table timbre dans le POST pour faire l'insert de l'enchère
-        $_POST["Timbre_idTimbre"] = $timbreInsert;
         $_POST['Membre_idMembre'] = $_POST['idMembre'];
+
+
         $enchere = new ModelEnchere;
 
         $enchereInsert = $enchere->insertEnchere($_POST);
+
 
         // Ajout des ids de l'insert de la table enchere dans le POST pour faire l'insert de la mise
         $_POST["Enchere_Membre_idMembre"] = $_POST["Membre_idMembre"];
@@ -130,8 +140,52 @@ class ControllerEnchere
         $selectEnchere = $enchere->selectEnchere($idTimbre);
 
         $favoris = new ModelFavoris;
-        $count = $favoris->conterFavoris($idTimbre);
-        $selectEnchere['like'] += $count;
+        $count = $favoris->compterFavoris($idTimbre);
+        $selectEnchere['like'] = $count;
+
+        // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
+        $favorisMembre = [];
+        if (array_key_exists('Role_idRole',$_SESSION)) {
+            // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
+            $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
+            foreach ($afficherFavoris as $unFavoris):
+                array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
+            endforeach;
+        }
+
+        // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
+        $enchereSup = $selectEnchere['mise'] + 50;
+        $selectEnchere["enchereSuperieur"] = $enchereSup;
+
+        $dateTime = strtotime($selectEnchere["dateFin"]);
+        $getDateTime = date("F d, Y H:i:s", $dateTime); 
+        $selectEnchere["dateFormater"] = $getDateTime;
+        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'session' => $_SESSION,'favorisMembre' => $favorisMembre]);
+    }
+
+    public function filtrer(){
+
+        $enchere = new ModelEnchere;
+        $favoris = new ModelFavoris;
+        $mise = new ModelMise;
+        
+        $selectAllEncheresFiltrer = $enchere->filtre($_POST);
+
+        $allEncheresFiltrer = [];
+        foreach ($selectAllEncheresFiltrer as $uneEnchere):
+            $dateTime = strtotime($uneEnchere["dateFin"], '23:59:59');
+            $getDateTime = date("F d, Y H:i:s", $dateTime); 
+            $uneEnchere["dateFormater"] = $getDateTime;
+
+            $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
+            $uneEnchere['mise'] = $selectLastMise['mise'];
+
+            $count = $favoris->compterFavoris($uneEnchere['idTimbre']);
+            $uneEnchere['like'] += $count;
+
+            array_push($allEncheresFiltrer,$uneEnchere);
+        endforeach;
+
 
         // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
         $favorisMembre = [];
@@ -140,37 +194,12 @@ class ControllerEnchere
             array_push($favorisMembre,$unFavoris['Enchere_Timbre_idTimbre']);
         endforeach;
 
-        // Permet d'afficher la mise de l'enchere + 50$ (pour faire la mise minimum)
-        $enchereSup = $selectEnchere['mise'] + 50;
-        $selectEnchere["enchereSuperieur"] = $enchereSup;
 
 
-        $dateTime = strtotime($selectEnchere["dateFin"], '23:59:59');
-        $getDateTime = date("F d, Y H:i:s", $dateTime); 
-        $selectEnchere["dateFormater"] = $getDateTime;
-        twig::render("Enchere/enchere-show.php",['enchere' => $selectEnchere, 'membre' => $selectMembre, 'session' => $_SESSION,'favorisMembre' => $favorisMembre]);
-    }
-
-    public function filtrer(){
-        echo '<pre>';
-        print_r($_POST);
-        echo '</pre>';
-        $enchere = new ModelEnchere;
-        $selectAllEncheres = $enchere->selectAllEncheres();
-        $allEncheresAvecMise = [];
-        foreach ($selectAllEncheres as $uneEnchere):
-            $dateTime = strtotime($uneEnchere["dateFin"], '23:59:59');
-            $getDateTime = date("F d, Y H:i:s", $dateTime); 
-            $uneEnchere["dateFormater"] = $getDateTime;
-
-            $selectLastMise = $mise->lastMise($uneEnchere['idTimbre']);
-            $uneEnchere['mise'] = $selectLastMise['mise'];
-
-            array_push($allEncheresAvecMise,$uneEnchere);
-        endforeach;
+        RequirePage::redirectPage('../enchere/index',['encheres' => $allEncheresFiltrer, 'session' => $_SESSION, 'favorisMembre' => $favorisMembre]);
 
 
-        die();
+
     }
 
 

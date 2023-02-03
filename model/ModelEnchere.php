@@ -29,40 +29,14 @@ class ModelEnchere extends Crud
     }
 
     public function selectEnchereMembre($id){
-        $sql =  "SELECT
-        Timbre.idTimbre,
-        Timbre.nom,
-        Mise.mise,
-        Status.idStatus
-        FROM
-            Timbre
-        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
-        INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre
-        INNER JOIN Status ON Status_idStatus = idStatus
-        WHERE
-        idMembre = $id";
+        $sql =  "SELECT Timbre.idTimbre, Timbre.nom, Mise.mise, Status.idStatus FROM Timbre INNER JOIN Enchere ON idTimbre = Timbre_idTimbre INNER JOIN Membre ON idMembre = Membre_idMembre INNER JOIN Mise ON Enchere_Timbre_idTimbre= Timbre_idTimbre INNER JOIN Status ON Status_idStatus = idStatus WHERE idMembre = $id";
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();
     }
     
     public function selectAllEncheres(){
 
-        $sql =  "SELECT
-            Image.image,
-            Timbre.*,
-            Enchere.*,
-            Membre.idMembre,
-            Membre.prenom,
-            Mise.*,
-            Status.idStatus
-        FROM
-            Image
-        INNER JOIN Timbre ON Timbre.idTimbre = Image.Timbre_idTimbre
-        INNER JOIN Enchere ON Enchere.Timbre_idTimbre = Timbre.idTimbre
-        INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre
-        INNER JOIN STATUS ON Status_idStatus = idStatus
-        INNER JOIN mise on Mise.Enchere_Timbre_idTimbre = Enchere.Timbre_idTimbre";
+        $sql =  "SELECT Image.image, Timbre.*, Enchere.*, Membre.idMembre, Membre.prenom, Mise.*, Status.idStatus FROM Image INNER JOIN Timbre ON Timbre.idTimbre = Image.Timbre_idTimbre INNER JOIN Enchere ON Enchere.Timbre_idTimbre = Timbre.idTimbre INNER JOIN Membre ON Membre.idMembre = Enchere.Membre_idMembre INNER JOIN Status ON Status_idStatus = idStatus INNER JOIN Mise on Mise.Enchere_Timbre_idTimbre = Enchere.Timbre_idTimbre ";
         $stmt  = $this->query($sql);
         $stmt->execute();
 
@@ -102,8 +76,6 @@ class ModelEnchere extends Crud
         $sql = "UPDATE `Enchere` SET `Status_idStatus` = 3 WHERE Timbre_idTimbre = $timbre";
 
         $stmt = $this->prepare($sql);
-        $stmt->bindValue(":$key", $value);
-
         if (!$stmt->execute()) {
             print_r($stmt->errorInfo());
         } else {
@@ -126,24 +98,13 @@ class ModelEnchere extends Crud
         }
     }
 
+    public function filtre($filtre){
 
+        $min = $filtre['prix_minimum'];
+        $max = $filtre['prix_maximum'];
 
-    public function filtre(){
-
-        $sql =  "SELECT
-        Timbre.idTimbre,
-        Timbre.nom,
-        Timbre.description,
-        Membre.prenom,
-        Membre.idMembre,
-        Mise.mise,
-        Status.idStatus
-        FROM
-            Timbre
-        INNER JOIN Enchere ON idTimbre = Timbre_idTimbre
-        INNER JOIN Membre ON idMembre = Membre_idMembre
-        INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre
-        INNER JOIN Status ON Status_idStatus = idStatus";
+        $sql =  "SELECT Timbre.idTimbre, Timbre.nom, Timbre.description, Membre.prenom, Membre.idMembre, Mise.mise, Status.idStatus FROM Timbre INNER JOIN Enchere ON idTimbre = Timbre_idTimbre INNER JOIN Membre ON idMembre = Membre_idMembre INNER JOIN Mise ON Enchere_Timbre_idTimbre = Timbre_idTimbre INNER JOIN Status ON Status_idStatus = idStatus
+        WHERE Mise.mise BETWEEN $min and $max";
 
         $stmt  = $this->query($sql);
         return  $stmt->fetchAll();

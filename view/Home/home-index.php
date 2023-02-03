@@ -13,7 +13,7 @@
                         <i class="fa-solid fa-magnifying-glass icon_recherche icon_taille_20"></i>
                     </div>
                 </div>
-                <a class="call_to_action bleu" href="#">Voir toutes les enchères</a>
+                <a class="call_to_action bleu" href="{{ path }}enchere/index">Voir toutes les enchères</a>
             </div>
             <section class="nouveaux_arrivages blur flex_column">
                 <h2 class="titre_section">Les coups de coeur du Lord</h2>

@@ -13,20 +13,6 @@
     </nav>
     <main class="flex_column flex_align_center">
         <div class="fiche flex_column">
-            <!-- <section class="image flex_column">
-                <div>
-                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                    <p>Passez dessus pour voir plus grand</p>
-                </div>
-                <div class="carrousel">
-                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                    <img data-filtre="image" src="./assets/img/timbre/timbre1.webp" alt="timbre à vendre">
-                </div>
-                <div>
-                    <h2 class="temps_restant">Termine dans 1J:06H:45S</h2>
-                </div>
-            </section> -->
             <form class="flex_column" action="{{ path }}enchere/store" method="post">
                 <input type="hidden" name="idMembre" value="{{session.idMembre}}">
                 <input type="hidden" name="status" value="1">
@@ -56,5 +42,5 @@
                 <input class="call_to_action bleu" type="submit" value="Valider">
             </form>
         </div>
-    </main>-
+    </main>
     {{ include('footer.php') }}

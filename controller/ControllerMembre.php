@@ -21,7 +21,20 @@ class ControllerMembre
         $selectEnchereMembre = $enchere->selectEnchereMembre($_SESSION['idMembre']);
         $selectAllEncheres = $enchere->selectAllEncheres();
 
-        twig::render('Membre/membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres]);
+        $favoris = new ModelFavoris;
+
+        // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
+        $favorisMembre = [];
+        if (array_key_exists('Role_idRole',$_SESSION)) {
+            // Permet de savoir si le membre connecter à liker le timbre, si oui alrs on affiche un coeur rouge
+            $afficherFavoris = $favoris->afficherFavoris($_SESSION['idMembre']);
+            foreach ($afficherFavoris as $unFavoris):
+                $encheresFavorites = $enchere->selectEnchere($unFavoris['Enchere_Timbre_idTimbre']);
+                array_push($favorisMembre,$encheresFavorites);
+            endforeach;
+        }
+
+        twig::render('Membre/membre-index.php', ['membre' => $selectMembre,'session' => $_SESSION,'enchereMembre' => $selectEnchereMembre,'encheres' => $selectAllEncheres, 'membres' => $selectMembres, 'favorisMembre' => $favorisMembre]);
     }
 
     public function create()
@@ -95,9 +108,9 @@ class ControllerMembre
                 twig::render('Membre/membre-login.php', ['errors' => $erreurMotDePasse, 'membre' => $_POST]);
                 die();
             }
+            $_SESSION['connexion'] = 'membre';
             RequirePage::redirectPage('../home/index', ['membre' => $_POST]);
 
-            //twig::render('Home/home-index.php', ['membre' => $_POST]);
         } else {
             $errors = "Oups une information n'est pas bonne.";
             twig::render('Membre/membre-login.php', ['errors' => $errors, 'membre' => $_POST]);

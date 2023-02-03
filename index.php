@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 require_once __DIR__ . '/library/RequirePage.php';
 require_once __DIR__ . '/vendor/autoload.php';
@@ -39,9 +40,7 @@ $_SESSION['url'] = $url;
 $_SESSION['date'] = $date;
 $_SESSION['heure'] = $heure;
 
-
-
-print_r($url);
+//print_r($url);
 if ($url == '/') {
     CheckSession::SessionAuth();
     require_once 'controller/ControllerHome.php';
@@ -56,7 +55,7 @@ if ($url == '/') {
         require_once($controllerPath);
         $controllerName = 'Controller' . $requestURL;
         $controller = new $controllerName;
-        print_r($controller);
+        //print_r($controller);
         if (isset($url[1])) {
             $method = $url[1];
             if (isset($url[2])) {

@@ -39,10 +39,10 @@
                             <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse"
                                 id="adresse" placeholder="Adresse" value="{{membre.adresse}}">
                         </div>
+                        <input class="call_to_action bleu fit_content" type="submit"
+                            value="Enregister les modifications">
                     </div>
                 </details>
-                <!-- Zone pour le membre  -->
-                <input class="call_to_action bleu fit_content" type="submit" value="Enregister les modifications">
             </form>
         </div>
         <div class="flex_column">
@@ -56,10 +56,14 @@
                 <div class="info_pour_admin flex_column"">
                         <div class=" flex_column">
                     {% for enchere in enchereMembre %}
-                    {% if enchere.idStatus == 1 %}
+                    {% if enchere.idStatus == 1  or enchere.idStatus == 2 %}
                     <details>
                         <summary><i class="fa-solid fa-circle-arrow-right"></i>Nom de l'enchère: {{enchere.nom}} <br>
-                            Mise: ${{enchere.mise}}
+                            Meilleur offre: ${{enchere.mise}}
+                            <br>
+                            {% if enchere.idStatus == 2 %}
+                            Enchère: Terminer
+                            {% endif %}
                         </summary>
                         <div class="info_pour_admin flex_column">
                             <a class="call_to_action bleu fit_content"
@@ -68,6 +72,33 @@
                             <a class="call_to_action rouge fit_content"
                                 href="{{ path }}enchere/changeStatus/{{enchere.idTimbre}}"
                                 onclick="return confirm('Voulez vous vraiment supprimer cette enchère ?');">Supprimer
+                                l'enchère</a>
+                        </div>
+                    </details>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </details>
+            <details open>
+                <summary>
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    <h4>Mes enchères liker</h4>
+                </summary>
+                <div class="info_pour_admin flex_column"">
+                        <div class=" flex_column">
+                    {% for enchere in favorisMembre %}
+                    {% if enchere.Status_idStatus == 1  or enchere.Status_idStatus == 2 %}
+                    <details>
+                        <summary><i class="fa-solid fa-circle-arrow-right"></i>Nom de l'enchère: {{enchere.nom}} <br>
+                            Meilleur offre: ${{enchere.mise}}
+                            <br>
+                            {% if enchere.Status_idStatus == 2 %}
+                            Enchère: Terminer
+                            {% endif %}
+                        </summary>
+                        <div class="info_pour_admin flex_column">
+                            <a class="call_to_action bleu fit_content"
+                                href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir
                                 l'enchère</a>
                         </div>
                     </details>
@@ -103,7 +134,6 @@
                                 <p>ID utilisateur: {{enchere.Membre_idMembre}}</p>
                                 <p>Nom de l'enchère: {{enchere.nom}}</p>
                                 <p>Mise: {{enchere.mise}} $ </p>
-                                {% if enchere.idStatus == 1 or enchere.idStatus == 3 %}
                                 <a class="call_to_action bleu fit_content"
                                     href="{{ path }}enchere/show/{{enchere.idTimbre}}">Voir l'enchère</a>
                                 <form action="{{ path }}enchere/adminDeleteEnchere" method="post">
@@ -112,7 +142,6 @@
                                         value="Supprimer enchère"
                                         onclick="return confirm('Voulez vous vraiment supprimer cette enchère ?');">
                                 </form>
-                                {% endif %}
                             </div>
                         </details>
                         {% endfor %}
@@ -135,8 +164,6 @@
                                 <p>Nom: {{membre.nom}}</p>
                                 <p>Prénom: {{membre.prenom}}</p>
                                 <p>Adresse: {{membre.adresse}}</p>
-
-
                                 <p>Téléphone: {{membre.telephone}}</p>
                                 <p>Email: {{membre.email}}</p>
                                 <form action="{{ path }}membre/adminDeleteMembre" method="post">

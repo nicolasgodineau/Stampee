@@ -27,13 +27,20 @@ form h4 {
 
 form input,
 form select {
-    width: 100%;
+    width: fit-content;
     padding: 1em;
     padding-left: 1em;
     line-height: 1.4;
     background-color: var(--couleur_dynamic_island);
     border: none;
     border-radius: 30px;
+}
+
+.formulaire_inscription form input,
+.formulaire_inscription form select,
+.formulaire_connexion form input,
+.formulaire_connexion form select {
+    width: 100%;
 }
 
 .fit_content {

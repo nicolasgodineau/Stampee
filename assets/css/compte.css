@@ -1,4 +1,6 @@
 .compte {
+    flex-wrap: wrap;
+    gap: 20px;
     max-height: fit-content;
     min-width: 70%;
     padding: 3em;

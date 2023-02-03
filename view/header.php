@@ -24,7 +24,6 @@
     <link rel="stylesheet" href="{{ path }}assets/css/formulaire.css">
     <link rel="stylesheet" href="{{ path }}assets/css/footer.css">
     <link rel="stylesheet" href="{{ path }}assets/css/compte.css">
-    <script type="module" src="{{ path }}assets/scripts/main.mjs"></script>
     <script src="https://kit.fontawesome.com/4890a1a8f5.js" crossorigin="anonymous"></script>
 
     <title>{{ title }}</title>

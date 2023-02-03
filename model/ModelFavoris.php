@@ -14,7 +14,7 @@ class ModelFavoris extends Crud
         return  $stmt->fetchAll();
     }
 
-    public function conterFavoris($idTimbre){
+    public function compterFavoris($idTimbre){
         $sql = "SELECT `Enchere_Timbre_idTimbre` FROM `Favoris` WHERE `Enchere_Timbre_idTimbre` = $idTimbre";
         $stmt = $this->prepare($sql);
         $stmt->execute();

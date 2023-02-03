@@ -28,16 +28,7 @@ class ModelMise extends Crud
     }
 
     public function lastMise($idTimbre){
-        $sql = "SELECT
-        mise.mise
-        FROM
-            `Mise`
-        WHERE
-            Mise.Enchere_Timbre_idTimbre = $idTimbre
-        ORDER BY
-            mise.idMise
-        DESC
-        LIMIT 1";
+        $sql = "SELECT Mise.mise FROM `Mise` WHERE Mise.Enchere_Timbre_idTimbre = $idTimbre ORDER BY Mise.idMise DESC LIMIT 1 ";
         $stmt = $this->prepare($sql);
         $stmt->execute();
         $count = $stmt->rowCount();
@@ -54,15 +45,7 @@ class ModelMise extends Crud
         $idMembre = $data['Membre_idMembre'];
         $idTimbre = $data['Timbre_idTimbre'];
 
-        $sql = "UPDATE
-            `Mise`
-        SET
-            `mise` = $mise,
-            `Membre_idMembre` = $idMembre
-        WHERE
-            `Enchere_Timbre_idTimbre` = $idTimbre";
-
-
+        $sql = "UPDATE `Mise` SET `Mise` = $mise, `Membre_idMembre` = $idMembre WHERE `Enchere_Timbre_idTimbre` = $idTimbre";
 
         $stmt = $this->prepare($sql);
 

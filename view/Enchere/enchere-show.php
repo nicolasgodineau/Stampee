@@ -1,7 +1,7 @@
 {{ include('header.php', {title: 'Fiche d\'enchere'})}}
 
 {% block my_javascripts %}
-<script src="{{ path }}assets/scripts/timer.mjs" type="text/javascript" defer></script>
+<script src="{{ path }}assets/scripts/timer.js" type="text/javascript" defer></script>
 {% endblock %}
 
 <body>
@@ -29,9 +29,6 @@
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                     <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
                 </div>
-                <!--                 <div class="temps_restant flex_row flex_justify_center">
-                    <h2 data-filtre="finEnchere">Termine dans <span>{{enchere.dateFormater}}</span></h2>
-                </div> -->
             </section>
             <section class="description flex_column flex_justify_between">
 
@@ -79,7 +76,8 @@
                     </tbody>
                 </table>
                 <footer class="flex_column">
-                    <ul data-filtre="finEnchere" class="flex_row flex_justify_center">
+                    <ul data-filtre="finEnchere" class="flex_row flex_justify_center"
+                        status="{{enchere.Status_idStatus}}">
                         <li>Termine dans </li>
                         <li data-filtre="jour">{{enchere.dateFormater}}</li>
                         <li data-filtre="heures">heures</li>
@@ -90,7 +88,7 @@
                     {% if session.Role_idRole == null %}
                     <a class="call_to_action bleu" href="#">Inscrivez-vous pour pouvoir encherir</a>
                     {% endif %}
-                    {% if session.Role_idRole == 1 and session.idMembre != enchere.Membre_idMembre %}
+                    {% if session.Role_idRole == 1 and session.idMembre != enchere.Membre_idMembre and enchere.Status_idStatus == 1 %}
                     <!-- Permet de filtrer un utilisateur visiteur ou admin, et le membre qui à créer l'enchère -->
                     <div class="prix flex_row flex_justify_center flex_align_center">
                         <form class="flex_row" action="{{ path }}mise/ajouterMise" method="post">
