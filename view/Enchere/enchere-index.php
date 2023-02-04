@@ -1,7 +1,7 @@
 {{ include('header.php', {title: 'Catalogue des enchères'})}}
 
 {% block my_javascripts %}
-<script src="{{ path }}assets/scripts/timerIndex.js" type="text/javascript" defer></script>
+<script src="{{ path }}assets/scripts/timer.js" type="text/javascript" defer></script>
 {% endblock %}
 
 <body>
@@ -16,23 +16,6 @@
         <em>Catalogue des enchères</em>
     </nav>
     <main class="flex_row">
-        <!--         <aside>
-            <form action="{{ path }}enchere/filtrer" method="post">
-                <div class="filtre_details prix">
-                    <input aria-label="prix_minimum" type="text" name="prix_minimum" id="prix_minimum"
-                        placeholder="Min $">
-                    <p>à</p>
-                    <input aria-label="prix_maximum" type="text" name="prix_maximum" id="prix_maximum"
-                        placeholder="Max $">
-                </div>
-                <div class="prix">
-                    <details open>
-                        <summary class="filtre_titre">Prix</summary>
-                    </details>
-                </div>
-                <input type="submit" value="filtrer">
-            </form>
-        </aside> -->
         <div data-filtre="catalogue" class="catalogue flex_column">
             {% for enchere in encheres %}
             <!-- Affiche les enchères en cours (1) et les terminer (2) -->

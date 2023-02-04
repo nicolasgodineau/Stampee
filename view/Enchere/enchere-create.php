@@ -20,15 +20,15 @@
                 <div class="info_perso flex_column">
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><input aria-label="nom" type="text" name="nom" id="nom"
-                            placeholder="Nom du timbre" value="fdgdffg">
+                            placeholder="Nom du timbre" value="">
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-font"></i><textarea placeholder="Description du timbre"
-                            aria-label="description" name="description" id="description" rows="5">dfgfdgfdf</textarea>
+                            aria-label="description" name="description" id="description" rows="5"></textarea>
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-sack-dollar"></i><input aria-label="mise" type="text" name="mise"
-                            id="mise" placeholder="Prix de début d'enchère" value="7897878">
+                            id="mise" placeholder="Prix de début d'enchère" value="">
                     </div>
                     <div class="flex_row flex_align_center">
                         <i class="fa-solid fa-sack-dollar"></i><input aria-label="dateFin" type="date" name="dateFin"

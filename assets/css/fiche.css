@@ -18,8 +18,23 @@
 }
 .fiche img {
     height: 400px;
-    width: auto;
+    width: 400px;
     cursor: pointer;
+    object-fit: contain;
+}
+
+.fiche .img-magnifier-container {
+    position: relative;
+}
+
+.fiche .img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Set the size of the magnifier glass:*/
+    width: 150px;
+    height: 150px;
 }
 
 .fiche .carrousel {

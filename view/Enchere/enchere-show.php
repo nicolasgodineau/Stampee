@@ -1,7 +1,8 @@
 {{ include('header.php', {title: 'Fiche d\'enchere'})}}
 
-{% block my_javascripts %}
-<script src="{{ path }}assets/scripts/fiche.js" type="text/javascript" defer></script>
+{% block javascripts %}
+<script src="{{ path }}assets/scripts/loupe.js" type="text/javascript" defer></script>
+<script src="{{ path }}assets/scripts/timer.js" type="text/javascript" defer></script>
 {% endblock %}
 
 <body>
@@ -20,15 +21,17 @@
     <main class="flex_column">
         <div class="fiche flex_row">
             <section class="galerie flex_column flex_justify_center flex_align_center">
-                <div class="image_container">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
-                    <p>Passez dessus pour voir plus grand</p>
+                <div class="image_container img-magnifier-container">
+                    <img id="myimage" data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}"
+                        alt="timbre à vendre">
                 </div>
-                <div class="carrousel">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
-                    <img data-filtre="image" src="{{ path }}assets/img/timbre/{{enchere.image}}" alt="timbre à vendre">
-                </div>
+                <ul data-filtre="finEnchere" class="flex_row flex_justify_center" status="{{enchere.Status_idStatus}}">
+                    <li>Termine dans </li>
+                    <li data-filtre="jour">{{enchere.dateFormater}}</li>
+                    <li data-filtre="heures">heures</li>
+                    <li data-filtre="minutes">min</li>
+                    <li data-filtre="secondes">sec</li>
+                </ul>
             </section>
             <section class="description flex_column flex_justify_between">
 
@@ -76,21 +79,17 @@
                     </tbody>
                 </table>
                 <footer class="flex_column">
-                    <ul data-filtre="finEnchere" class="flex_row flex_justify_center"
-                        status="{{enchere.Status_idStatus}}">
-                        <li>Termine dans </li>
-                        <li data-filtre="jour">{{enchere.dateFormater}}</li>
-                        <li data-filtre="heures">heures</li>
-                        <li data-filtre="minutes">min</li>
-                        <li data-filtre="secondes">sec</li>
-                    </ul>
                     <h2 data-filtre="prix">Meilleur offre : ${{enchere.mise}}</h2>
                     {% if session.Role_idRole == null %}
                     <a class="call_to_action bleu" href="#">Inscrivez-vous pour pouvoir encherir</a>
                     {% endif %}
-                    {% if session.Role_idRole == 1 and session.idMembre != enchere.Membre_idMembre and enchere.Status_idStatus == 1 %}
                     <!-- Permet de filtrer un utilisateur visiteur ou admin, et le membre qui à créer l'enchère -->
-                    <div class="prix flex_row flex_justify_center flex_align_center">
+                    <div class="prix flex_row flex_justify_center flex_align_center" role="">
+                        {% if session.Role_idRole == 1 and session.idMembre != enchere.Membre_idMembre and enchere.Status_idStatus == 1 %}
+                        {% block javascriptsValidation %}
+                        <script src="{{ path }}assets/scripts/verificationMise.js" type="text/javascript" defer>
+                        </script>
+                        {% endblock %}
                         <form class="flex_row" action="{{ path }}mise/ajouterMise" method="post">
                             <!-- <input type="text" name="Enchere_Timbre_idTimbre" value="{{enchere.idTimbre}}"> -->
                             <input type="hidden" name="Timbre_idTimbre" value="{{enchere.idTimbre}}">
@@ -104,6 +103,7 @@
                                 min="{{enchere.enchereSuperieur}}" required>
                             <input class="call_to_action bleu fit_content" type="submit" value="Enchérir">
                         </form>
+
                         {% if enchere.idTimbre not in favorisMembre %}
                         <!-- Si l'id du timbre n'est pas dans le tableau, on affiche un coeur vide -->
                         <div class="like flex_row">
